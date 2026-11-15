@@ -1,11 +1,11 @@
 {
   "id": "scrubness",
   "slug": "scrubness",
-  "name": "Scrubness — online store and product data",
+  "name": "Scrubness — SEO and website optimisation",
   "summary": "Optimising the Scrubness WooCommerce store (scrubness.com) for search: product updates, site clean-up, page speed, SEO and GEO content for every product, and analytics (GA4, Google Tag Manager and Meta pixel).",
-  "description": "Scrubness is a scrubs brand (scrub tops and scrub pants for women and men) sold online at scrubness.com, a WordPress and WooCommerce store, and also stocked by Southern Uniforms. Current work covers the store's product data — exporting the live catalogue and preparing supplier barcodes and consistent SKUs — a full site backup, and a business and marketing strategy for management.",
+  "description": "Scrubness is a scrubs brand (scrub tops and scrub pants for women and men) sold online at scrubness.com, a WordPress and WooCommerce store, and also stocked by Southern Uniforms. The work covers updating the products, cleaning up and speeding up the website, SEO and GEO content for every product, and analytics.",
   "businessObjective": "Update the products and optimise scrubness.com for search engines and AI answer engines (SEO and GEO): clean up the site, improve page speed, write SEO content for each product using the free tiers of Ahrefs and Semrush, and set up analytics with GA4, Google Tag Manager and the Meta pixel.",
-  "background": "The 2026 Scrubness price list (Australia) sets retail prices of $49.95 and $54.95 and wholesale prices of $24.50 and $28.50 per garment, excluding GST. The store offers free shipping over $140 and a 14-day refund policy, and links to Facebook and Instagram. scrubness.com is one of the websites checked by Site Monitor. The wider scope of responsibility for the Scrubness store is Pending confirmation.",
+  "background": "scrubness.com runs on WordPress and WooCommerce behind Cloudflare, with Yoast SEO, Autoptimize and W3 Total Cache active (checked 16 Nov 2026). There was no GA4, Google Tag Manager or Meta pixel on the site at that check. Keyword research and SEO content will use the free tiers of Ahrefs and Semrush. scrubness.com is one of the websites checked by Site Monitor.",
   "responsibilitySummary": "Product updates, SEO and GEO, page speed and analytics",
   "responsibilities": [
     "Product data and product page updates",
