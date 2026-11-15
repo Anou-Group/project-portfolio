@@ -18,8 +18,8 @@
   "status": "in_progress",
   "category": "E-commerce",
   "organisation": null,
-  "progressSummary": "Product updates, barcode and SKU import, page-speed changes and a site clean-up are done. Next: keyword research, SEO and GEO content for each product, and GA4, Tag Manager and Meta pixel set-up (no accounts exist yet).",
-  "sourceNote": "Status confirmed by Mahesh on 16 Nov 2026, with project files dated 6–11 Nov 2026 (site backup, product exports, barcode import) and scrubness.com as checked on 16 Nov 2026.",
+  "progressSummary": "Mobile PageSpeed raised from 69 to 95 (LCP 7.4 s → 2.9 s) on 10 Nov 2026, with product updates, the barcode and SKU import and a site clean-up done. Next: keyword research, SEO and GEO content for each product, and GA4, Tag Manager and Meta pixel set-up (no accounts exist yet).",
+  "sourceNote": "Status from the page-speed work record of 9–10 Nov 2026 (with live-site checks), project files dated 6–11 Nov 2026, Mahesh's confirmation on 16 Nov 2026, and scrubness.com as checked on 16 Nov 2026.",
   "lastVerifiedAt": "2026-11-16",
   "sortOrder": 4,
   "tasks": [
@@ -79,13 +79,14 @@
     },
     {
       "id": "sc-page-speed",
-      "title": "Page-speed improvements",
-      "description": "Made page-speed changes to the live site. Details of the changes and before-and-after measurements are Pending confirmation.",
+      "title": "Mobile page speed: PageSpeed 69 → 95",
+      "description": "Raised the mobile PageSpeed score from 69 to 95 with the design unchanged (desktop 100). Largest Contentful Paint 7.4 s → 2.9 s, First Contentful Paint 3.1 s → 1.2 s, Speed Index 5.6 s → 2.8 s. Home, product, category, cart, about and colour pages were checked after the change and look the same on phone and desktop.",
       "status": "completed",
       "category": "development",
-      "priority": "medium",
-      "evidence": "Confirmed by Mahesh on 16 Nov 2026 (completion date not recorded).",
-      "sortOrder": 5
+      "priority": "high",
+      "evidence": "PageSpeed mobile results before (9–10 Nov) and after (10 Nov 2026); Work record of 9–10 Nov 2026, with live-site checks after each change.",
+      "sortOrder": 5,
+      "completedAt": "2026-11-10"
     },
     {
       "id": "sc-cleanup-blocks",
@@ -174,6 +175,70 @@
       "priority": "high",
       "sortOrder": 22,
       "dependency": "New GA4, Google Tag Manager and Meta accounts, and who should own them."
+    },
+    {
+      "id": "sc-speed-audit",
+      "title": "Page-speed baseline audit",
+      "description": "Measured mobile performance before any change: median score 70 across three runs, LCP 7.0 s, with the homepage hero background image identified as the slowest element.",
+      "status": "completed",
+      "category": "testing",
+      "priority": "high",
+      "evidence": "Work record of 9–10 Nov 2026, with live-site checks after each change.",
+      "completedAt": "2026-11-09",
+      "sortOrder": 5
+    },
+    {
+      "id": "sc-hero-priority",
+      "title": "Homepage hero image shown immediately",
+      "description": "The hero image waited about 4.9 s for theme scripts before showing. It now appears with the text and is preloaded with high fetch priority.",
+      "status": "completed",
+      "category": "development",
+      "priority": "high",
+      "evidence": "Work record of 9–10 Nov 2026, with live-site checks after each change.",
+      "completedAt": "2026-11-10",
+      "sortOrder": 6
+    },
+    {
+      "id": "sc-mobile-hero",
+      "title": "Separate phone-sized hero image",
+      "description": "Phones now download a small hero image and desktops the large one, using the theme's own phone background setting.",
+      "status": "completed",
+      "category": "development",
+      "priority": "high",
+      "evidence": "Work record of 9–10 Nov 2026, with live-site checks after each change.",
+      "completedAt": "2026-11-10",
+      "sortOrder": 7
+    },
+    {
+      "id": "sc-render-blocking",
+      "title": "Fewer render-blocking stylesheets",
+      "description": "Stopped loading an unused icon stylesheet for visitors; the page now waits on 3 stylesheets instead of 10.",
+      "status": "completed",
+      "category": "development",
+      "priority": "high",
+      "evidence": "Work record of 9–10 Nov 2026, with live-site checks after each change.",
+      "completedAt": "2026-11-10",
+      "sortOrder": 8
+    },
+    {
+      "id": "sc-critical-css",
+      "title": "Critical CSS through Autoptimize",
+      "description": "Moved CSS optimisation from W3 Total Cache to Autoptimize and enabled critical CSS, so no stylesheet holds up the first view of the page.",
+      "status": "completed",
+      "category": "development",
+      "priority": "high",
+      "evidence": "Work record of 9–10 Nov 2026, with live-site checks after each change.",
+      "completedAt": "2026-11-10",
+      "sortOrder": 9
+    },
+    {
+      "id": "sc-speed-followup",
+      "title": "Remove the empty row under the homepage hero",
+      "description": "Closes the remaining 50 px gap under the top section on phones.",
+      "status": "pending",
+      "category": "development",
+      "priority": "low",
+      "sortOrder": 25
     }
   ],
   "issues": [
@@ -227,6 +292,22 @@
       "occurredOn": "2026-11-16",
       "taskId": "sc-strategy-document",
       "isPublished": false
+    },
+    {
+      "id": "sc-u-2026-11-09-speed-audit",
+      "title": "Measured the site's page speed",
+      "description": "Mobile PageSpeed median 70, LCP 7.0 s; the homepage hero image was the main delay.",
+      "category": "testing",
+      "occurredOn": "2026-11-09",
+      "taskId": "sc-speed-audit"
+    },
+    {
+      "id": "sc-u-2026-11-10-speed",
+      "title": "Raised mobile PageSpeed from 69 to 95",
+      "description": "Hero image prioritised, phone-sized hero, fewer render-blocking stylesheets and critical CSS. LCP 7.4 s → 2.9 s; design unchanged.",
+      "category": "development",
+      "occurredOn": "2026-11-10",
+      "taskId": "sc-page-speed"
     }
   ],
   "resources": [
