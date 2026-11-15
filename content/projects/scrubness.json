@@ -1,0 +1,132 @@
+{
+  "id": "scrubness",
+  "slug": "scrubness",
+  "name": "Scrubness — online store and product data",
+  "summary": "Supporting the Scrubness scrubs brand's WooCommerce store (scrubness.com): site backup, live catalogue data, supplier barcodes and SKUs, and a business and marketing strategy.",
+  "description": "Scrubness is a scrubs brand (scrub tops and scrub pants for women and men) sold online at scrubness.com, a WordPress and WooCommerce store, and also stocked by Southern Uniforms. Current work covers the store's product data — exporting the live catalogue and preparing supplier barcodes and consistent SKUs — a full site backup, and a business and marketing strategy for management.",
+  "businessObjective": "Keep the Scrubness catalogue accurate and ready for product feeds and marketplaces (supplier barcodes and consistent SKUs on every variant), protect the store with backups, and set out an initial plan for growing online sales.",
+  "background": "The 2026 Scrubness price list (Australia) sets retail prices of $49.95 and $54.95 and wholesale prices of $24.50 and $28.50 per garment, excluding GST. The store offers free shipping over $140 and a 14-day refund policy, and links to Facebook and Instagram. scrubness.com is one of the websites checked by Site Monitor. The wider scope of responsibility for the Scrubness store is Pending confirmation.",
+  "responsibilitySummary": "Store product data, backups and strategy",
+  "responsibilities": [
+    "Live catalogue export and product data clean-up (barcodes and SKUs)",
+    "Website backup",
+    "Business and marketing strategy for management review"
+  ],
+  "status": "in_progress",
+  "category": "E-commerce",
+  "organisation": null,
+  "progressSummary": "Full site backup taken and the live catalogue exported. A barcode and SKU import for the live store is prepared; whether it has been applied is Pending confirmation.",
+  "sourceNote": "Status from project files dated 6–11 Nov 2026 (site backup, live product exports, supplier barcode list, import file), the 2026 price list, and scrubness.com as checked on 16 Nov 2026.",
+  "lastVerifiedAt": "2026-11-16",
+  "sortOrder": 4,
+  "tasks": [
+    {
+      "id": "sc-backup",
+      "title": "Full website backup",
+      "description": "Took a complete backup of the Scrubness WordPress site (files and database) with an installer, so the site can be restored or moved if needed.",
+      "status": "completed",
+      "category": "deployment",
+      "priority": "high",
+      "evidence": "Backup archive and installer dated 6 Nov 2026.",
+      "completedAt": "2026-11-06",
+      "sortOrder": 1
+    },
+    {
+      "id": "sc-catalogue-export",
+      "title": "Live catalogue export",
+      "description": "Exported the live WooCommerce catalogue: 84 products (by style and colour) with 842 size variants across women's scrub tops, men's scrub tops and scrub pants.",
+      "status": "completed",
+      "category": "configuration",
+      "priority": "medium",
+      "evidence": "WooCommerce product export dated 10 Nov 2026.",
+      "completedAt": "2026-11-10",
+      "sortOrder": 2
+    },
+    {
+      "id": "sc-strategy-document",
+      "title": "Business and marketing strategy document",
+      "description": "Prepared a business and marketing strategy for Scrubness covering the business model, platform, customers, resources, current costs, recommended investments, an initial digital marketing plan and a growth roadmap. Recommendations in it are proposals for management review.",
+      "status": "completed",
+      "category": "business_requirements",
+      "priority": "medium",
+      "evidence": "Strategy document attached under Resources (16 Nov 2026).",
+      "completedAt": "2026-11-16",
+      "sortOrder": 3,
+      "isPublished": false
+    },
+    {
+      "id": "sc-barcodes-skus",
+      "title": "Supplier barcodes and SKUs on every variant",
+      "description": "Prepared an import that adds the supplier's barcodes (GTIN) to 218 variants and makes SKUs consistent across 308 variant rows, retiring duplicate legacy variants. Barcodes are required for Google Shopping and most marketplaces.",
+      "status": "in_progress",
+      "category": "configuration",
+      "priority": "high",
+      "latestProgress": "Import file prepared on 11 Nov 2026 from the supplier barcode list. The live export taken on 11 Nov 2026 shows no barcodes yet; whether the import has been applied to the live store is Pending confirmation.",
+      "sortOrder": 10
+    }
+  ],
+  "issues": [
+    {
+      "id": "sc-issue-gst-pricing",
+      "title": "Confirm whether website prices include GST",
+      "description": "The 2026 price list gives retail prices excluding GST ($49.95 and $54.95), while scrubness.com shows the same figures as the selling price. Australian consumer prices must be shown including GST, so the intended retail price needs confirming.",
+      "kind": "decision",
+      "waitingOn": "Pending confirmation",
+      "raisedOn": "2026-11-16"
+    }
+  ],
+  "updates": [
+    {
+      "id": "sc-u-2026-11-06-backup",
+      "title": "Took a full backup of the Scrubness website",
+      "description": "Files and database, with an installer for restoring the site.",
+      "category": "deployment",
+      "occurredOn": "2026-11-06",
+      "taskId": "sc-backup"
+    },
+    {
+      "id": "sc-u-2026-11-10-export",
+      "title": "Exported the live catalogue and received the supplier barcode list",
+      "description": "84 products and 842 variants exported to prepare barcode and SKU updates.",
+      "category": "development",
+      "occurredOn": "2026-11-10",
+      "taskId": "sc-catalogue-export"
+    },
+    {
+      "id": "sc-u-2026-11-11-import",
+      "title": "Prepared the barcode and SKU import",
+      "description": "218 barcodes matched to variants; SKUs made consistent across 308 variant rows.",
+      "category": "development",
+      "occurredOn": "2026-11-11",
+      "taskId": "sc-barcodes-skus"
+    },
+    {
+      "id": "sc-u-2026-11-16-strategy",
+      "title": "Prepared the business and marketing strategy document",
+      "description": "For management review; attached under Resources.",
+      "category": "documentation",
+      "occurredOn": "2026-11-16",
+      "taskId": "sc-strategy-document",
+      "isPublished": false
+    }
+  ],
+  "resources": [
+    {
+      "id": "sc-r-strategy",
+      "taskId": "sc-strategy-document",
+      "title": "Scrubness — Business & Marketing Strategy (PDF)",
+      "description": "Business overview and model, platform, customers, resources and costs, recommended investments, initial digital marketing strategy and growth roadmap.",
+      "type": "strategy_document",
+      "url": "/documents/scrubness-business-marketing-strategy.pdf",
+      "isPublished": false
+    },
+    {
+      "id": "sc-r-site",
+      "title": "Scrubness online store",
+      "description": "The live WooCommerce store at scrubness.com.",
+      "type": "website",
+      "url": "https://scrubness.com/"
+    }
+  ],
+  "stakeholders": []
+}

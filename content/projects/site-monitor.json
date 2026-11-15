@@ -1,0 +1,252 @@
+{
+  "id": "site-monitor",
+  "slug": "site-monitor",
+  "name": "Site Monitor — website uptime monitoring",
+  "summary": "Monitors the company's in-house websites for outages, slow responses, and upcoming SSL certificate and domain expiry, with email and WhatsApp alerts and a dashboard of incidents.",
+  "description": "A checker runs every minute against each monitored website (including key pages behind it), records response times and failures, opens and closes incidents, and alerts the people on the recipient list by email and WhatsApp. A signed-in dashboard shows uptime, response times, incidents, notifications and alert settings.",
+  "businessObjective": "Detect website outages and upcoming certificate or domain expiries early, and alert the right people automatically, so problems on the company's websites are found before customers report them.",
+  "background": "Version 2 was built on 5 Nov 2026 on Cloudflare Workers (free plan) with Cloudflare D1 storage. Cloudflare was chosen over Vercel because Vercel's free-tier scheduled jobs run once a day, while Workers can run every minute at no cost. The dashboard is protected by Cloudflare Access with Google sign-in, and alert email is sent through the Gmail API.",
+  "responsibilitySummary": "Design, development, security and deployment pipeline",
+  "responsibilities": [
+    "Design and build of the checker and dashboard",
+    "Alerting through email and WhatsApp, with recipient management",
+    "Security: Cloudflare Access verification, content security policy and audit log",
+    "Automated tests and CI with automatic deployment",
+    "Configuration and secrets kept out of the code"
+  ],
+  "status": "in_progress",
+  "category": "Internal tool",
+  "organisation": "Anou Group",
+  "progressSummary": "Version 2 is built with automated tests and automatic deployment after CI passes. Verification on live infrastructure (alert delivery, outage detection, access control) is outstanding; branded alert emails are in review.",
+  "sourceNote": "Status from the project plan (docs/PLAN.md) and GitHub pull requests to 5 Nov 2026.",
+  "lastVerifiedAt": "2026-11-16",
+  "sortOrder": 3,
+  "tasks": [
+    {
+      "id": "sm-checker-dashboard",
+      "title": "Checker, incidents and dashboard",
+      "description": "Minute-by-minute checks with 22 recognised failure causes, incidents, uptime and response-time statistics per site, platform and CDN detection, and dashboard pages for Overview, Sites, Incidents and Alerts.",
+      "status": "completed",
+      "category": "development",
+      "priority": "high",
+      "evidence": "Project plan passes 1–2 marked done on 5 Nov 2026; repository commit \"Site monitor v2: full project\".",
+      "completedAt": "2026-11-05",
+      "sortOrder": 1
+    },
+    {
+      "id": "sm-expiry",
+      "title": "SSL certificate and domain expiry warnings",
+      "description": "Daily expiry checks with warnings at 30, 14, 7 and 1 days and on expiry, by email and WhatsApp, once per threshold.",
+      "status": "completed",
+      "category": "development",
+      "priority": "high",
+      "evidence": "Project plan pass 2 marked done on 5 Nov 2026.",
+      "completedAt": "2026-11-05",
+      "sortOrder": 2
+    },
+    {
+      "id": "sm-alerting",
+      "title": "Alerting, retries, reminders and weekly summary",
+      "description": "Alerts to managed recipients with per-person switches, one automatic retry for temporary failures, \"still down\" reminders every 30 minutes, a weekly summary email, and a notifications log with failure reasons.",
+      "status": "completed",
+      "category": "development",
+      "priority": "high",
+      "evidence": "Project plan passes 3–4 marked done on 5 Nov 2026.",
+      "completedAt": "2026-11-05",
+      "sortOrder": 3
+    },
+    {
+      "id": "sm-security",
+      "title": "Security hardening and audit log",
+      "description": "Cloudflare Access sign-in verification, a strict content security policy and security headers, and an audit log of every dashboard change.",
+      "status": "completed",
+      "category": "development",
+      "priority": "high",
+      "evidence": "Project plan pass 3 marked done on 5 Nov 2026; unit tests include forged sign-in cases.",
+      "completedAt": "2026-11-05",
+      "sortOrder": 4
+    },
+    {
+      "id": "sm-config",
+      "title": "Configuration and secrets separated from code",
+      "description": "Account-specific settings and keys moved to git-ignored configuration files with committed templates; deploy commands refuse incomplete configuration. Deleted sites can be restored for 28 days.",
+      "status": "completed",
+      "category": "development",
+      "priority": "medium",
+      "evidence": "Project plan pass 5 marked done on 5 Nov 2026.",
+      "completedAt": "2026-11-05",
+      "sortOrder": 5
+    },
+    {
+      "id": "sm-tests-ci",
+      "title": "Automated tests and CI",
+      "description": "151 unit tests and a browser test suite run at phone, tablet and desktop widths, in GitHub Actions on every change.",
+      "status": "completed",
+      "category": "testing",
+      "priority": "high",
+      "evidence": "Project plan passes 4–5 (5 Nov 2026) and GitHub Actions runs on 5 Nov 2026.",
+      "completedAt": "2026-11-05",
+      "sortOrder": 6
+    },
+    {
+      "id": "sm-deploy-pipeline",
+      "title": "Automatic deployment to Cloudflare after CI passes",
+      "description": "Changes merged to main deploy to Cloudflare automatically once CI passes; CI and deployment can also be run by hand.",
+      "status": "completed",
+      "category": "deployment",
+      "priority": "high",
+      "evidence": "Repository commits on 5 Nov 2026 adding the deployment workflow.",
+      "completedAt": "2026-11-05",
+      "sortOrder": 7
+    },
+    {
+      "id": "sm-mobile-rollup",
+      "title": "Phone layout and daily roll-up of check totals",
+      "description": "Dashboard fitted to phones, and check totals rolled up daily to keep the dashboard fast.",
+      "status": "completed",
+      "category": "development",
+      "priority": "medium",
+      "evidence": "Pull requests #1 and #2 merged on 5 Nov 2026.",
+      "completedAt": "2026-11-05",
+      "sortOrder": 8
+    },
+    {
+      "id": "sm-alert-emails",
+      "title": "Branded alert emails",
+      "description": "All alert emails (down, still down, resolved, expiry, test and weekly report) on one branded layout with a clear summary, what to check, and a link to the site's dashboard page.",
+      "status": "in_progress",
+      "category": "development",
+      "priority": "medium",
+      "latestProgress": "Pull request #3 opened on 5 Nov 2026; awaiting review and merge.",
+      "sortOrder": 20
+    },
+    {
+      "id": "sm-verify-email",
+      "title": "Verify alert emails reach the inbox",
+      "description": "Confirm alert emails land in the inbox, not spam, for both recipients.",
+      "status": "pending",
+      "category": "testing",
+      "priority": "high",
+      "sortOrder": 30
+    },
+    {
+      "id": "sm-verify-outage",
+      "title": "Verify outage detection on live infrastructure",
+      "description": "Take a test site down and confirm an alert arrives within about 2 minutes, and a recovery alert when it is back.",
+      "status": "pending",
+      "category": "testing",
+      "priority": "high",
+      "sortOrder": 31
+    },
+    {
+      "id": "sm-verify-access",
+      "title": "Verify dashboard access control",
+      "description": "Confirm only allowlisted Google accounts can open the dashboard.",
+      "status": "pending",
+      "category": "testing",
+      "priority": "high",
+      "sortOrder": 32
+    },
+    {
+      "id": "sm-status-page",
+      "title": "Public status page for clients (optional)",
+      "description": "First item in the project backlog.",
+      "status": "pending",
+      "category": "development",
+      "priority": "low",
+      "sortOrder": 40
+    },
+    {
+      "id": "sm-maintenance",
+      "title": "Maintenance windows",
+      "description": "Planned work without alerts.",
+      "status": "pending",
+      "category": "development",
+      "priority": "low",
+      "sortOrder": 41
+    },
+    {
+      "id": "sm-export",
+      "title": "Data export (CSV)",
+      "description": "Export monitoring data.",
+      "status": "pending",
+      "category": "development",
+      "priority": "low",
+      "sortOrder": 42
+    }
+  ],
+  "issues": [
+    {
+      "id": "sm-limit-shopify",
+      "title": "Shopify outages are flagged by advice, not detected",
+      "description": "Shopify has no public status API, so a Shopify-wide outage is suggested as a possible cause rather than confirmed.",
+      "kind": "risk"
+    },
+    {
+      "id": "sm-limit-au-domains",
+      "title": ".au domain expiry dates may not be available",
+      "description": "The .au registry may not publish expiry dates; the dashboard says so instead of guessing.",
+      "kind": "risk"
+    },
+    {
+      "id": "sm-limit-ssl",
+      "title": "SSL expiry is read from certificate logs",
+      "description": "Expiry comes from the latest issued certificate in public certificate-transparency logs, not the certificate the site is serving.",
+      "kind": "risk"
+    }
+  ],
+  "updates": [
+    {
+      "id": "sm-u-2026-11-05-build",
+      "title": "Built Site Monitor version 2",
+      "description": "Checker, incidents, alerts, expiry warnings, dashboard and security hardening on Cloudflare Workers.",
+      "category": "development",
+      "occurredOn": "2026-11-05",
+      "taskId": "sm-checker-dashboard"
+    },
+    {
+      "id": "sm-u-2026-11-05-tests",
+      "title": "Added automated tests and CI",
+      "description": "151 unit tests and a browser suite at three screen widths, run in GitHub Actions.",
+      "category": "testing",
+      "occurredOn": "2026-11-05",
+      "taskId": "sm-tests-ci"
+    },
+    {
+      "id": "sm-u-2026-11-05-deploy",
+      "title": "Set up automatic deployment after CI",
+      "description": "Merges to main deploy to Cloudflare once CI passes.",
+      "category": "deployment",
+      "occurredOn": "2026-11-05",
+      "taskId": "sm-deploy-pipeline"
+    },
+    {
+      "id": "sm-u-2026-11-05-pr3",
+      "title": "Opened pull request #3 for branded alert emails",
+      "description": "Awaiting review and merge.",
+      "category": "development",
+      "occurredOn": "2026-11-05",
+      "taskId": "sm-alert-emails"
+    }
+  ],
+  "resources": [
+    {
+      "id": "sm-r-repo",
+      "title": "Source repository: Anou-Group/site-monitor",
+      "description": "Checker and dashboard source code, project plan and deployment workflow.",
+      "type": "github_repository",
+      "url": "https://github.com/Anou-Group/site-monitor",
+      "accessNote": "Private repository — GitHub access required"
+    },
+    {
+      "id": "sm-r-pr3",
+      "taskId": "sm-alert-emails",
+      "title": "Pull request #3 — Professional alert emails",
+      "description": "Open; branded layout for all alert emails.",
+      "type": "github_pull_request",
+      "url": "https://github.com/Anou-Group/site-monitor/pull/3",
+      "accessNote": "Private repository — GitHub access required"
+    }
+  ],
+  "stakeholders": []
+}

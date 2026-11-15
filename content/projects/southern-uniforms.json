@@ -1,0 +1,937 @@
+{
+  "id": "southern-uniforms",
+  "slug": "southern-uniforms",
+  "name": "Southern Uniforms — Shopify store",
+  "summary": "Moving the Southern Uniforms online store from Botble (Laravel) to Shopify on the Grow plan, with a custom theme built from the approved Figma design.",
+  "description": "Southern Uniforms sells uniforms and workwear to individuals and organisations across health and aged care, corporate, hospitality, education, trade and other industries. This project replaces the current Botble (Laravel) store with a Shopify store: a custom theme built on Shopify's Horizon theme, the product catalogue, checkout and payments, shipping, policies, tracking, SEO and redirects, testing and go-live.",
+  "businessObjective": "Launch a Shopify store that customers can browse and buy from, on a platform the business can run with minimal custom development, while protecting search rankings from the current site. The store supports three ways to buy: retail (1–9 pieces online), wholesale (10+ pieces, quoted with volume pricing and logo branding) and supply contracts (a fixed range and price for 1–3 years).",
+  "background": "A platform comparison of Botble, Shopify and a headless build was completed on 20 Oct 2026, and a recommendation for the Shopify Grow plan ($114 per month billed yearly, AUD) was sent to Ashwin on 21 Oct 2026. The work is planned in three phases: Phase 1 (launch foundations) is in progress; Phase 2 (growth and automation) and Phase 3 (scale and loyalty) are a starting list only and are not yet agreed. Project tracking, decisions, admin guides and weekly updates are kept in the Southern Uniforms Go-live hub in Notion.",
+  "responsibilitySummary": "Developer and project owner for the Shopify migration",
+  "responsibilities": [
+    "Shopify store setup and configuration (payments, shipping, customer accounts, notifications)",
+    "Custom theme development on Shopify Horizon, built from the Figma design",
+    "Catalogue import, collections and navigation",
+    "Testing, launch preparation and go-live",
+    "Admin guides and role handouts for the warehouse and retail manager",
+    "Phase 1 tracking, decision log and weekly status updates for the business contact"
+  ],
+  "status": "in_progress",
+  "category": "E-commerce",
+  "organisation": "Southern Uniforms",
+  "progressSummary": "The theme is built on the preview (dev) branch and the catalogue is imported. Go-live depends on business inputs: shipping rates, return rules, verification documents, stock counts and SKUs, and the launch date.",
+  "sourceNote": "Status from the Notion Phase 1 tracker (last updated 27 Oct 2026), GitHub pull requests to 8 Nov 2026, and the storefront as checked on 16 Nov 2026.",
+  "lastVerifiedAt": "2026-11-16",
+  "sortOrder": 1,
+  "tasks": [
+    {
+      "id": "su-platform-comparison",
+      "title": "Platform comparison: Botble, Shopify and headless",
+      "description": "Compared staying on Botble, moving to Shopify and building a headless store against the business's requirements, cost and limited development capacity.",
+      "status": "completed",
+      "category": "research",
+      "priority": "high",
+      "evidence": "Phase 1 tracker, marked Done on 20 Oct 2026.",
+      "completedAt": "2026-10-20",
+      "sortOrder": 1
+    },
+    {
+      "id": "su-figma-brief",
+      "title": "Figma homepage design reviewed and developer brief written",
+      "description": "Reviewed the approved Figma homepage design and wrote the brief the theme is built from.",
+      "status": "completed",
+      "category": "documentation",
+      "priority": "high",
+      "evidence": "Phase 1 tracker, marked Done on 20 Oct 2026.",
+      "completedAt": "2026-10-20",
+      "sortOrder": 2
+    },
+    {
+      "id": "su-plan-recommendation",
+      "title": "Shopify Grow plan recommendation sent to Ashwin",
+      "description": "Prepared and sent the ecommerce platform recommendation: Shopify Grow plan ($114 per month billed yearly, $1,368 per year, AUD), comparing Basic, Grow, Advanced and Plus against the business's requirements.",
+      "status": "completed",
+      "category": "business_requirements",
+      "priority": "high",
+      "evidence": "Phase 1 tracker (Done, 21 Oct 2026) and the work log entry \"Emailed Plan Recommendation for Southern Uniforms to Ashwin\".",
+      "completedAt": "2026-10-21",
+      "sortOrder": 3
+    },
+    {
+      "id": "su-store-created",
+      "title": "Shopify store created and email verified",
+      "description": "Created the Shopify store that all other setup depends on.",
+      "status": "completed",
+      "category": "configuration",
+      "priority": "high",
+      "evidence": "Phase 1 tracker, marked Done on 22 Oct 2026.",
+      "completedAt": "2026-10-22",
+      "sortOrder": 4
+    },
+    {
+      "id": "su-theme-setup",
+      "title": "Theme repository setup with automated Theme Check",
+      "description": "Set up the theme repository with branch rules (dev syncs to the preview theme, main to the live theme), Theme Check on every pull request, a README and coding conventions.",
+      "status": "completed",
+      "category": "development",
+      "priority": "high",
+      "evidence": "Pull request #1 merged to main on 22 Oct 2026.",
+      "completedAt": "2026-10-22",
+      "sortOrder": 5
+    },
+    {
+      "id": "su-collections-menu",
+      "title": "Collections and main menu",
+      "description": "Created the collections and main menu customers browse by: 8 brands, 17 categories and 8 industries.",
+      "status": "completed",
+      "category": "configuration",
+      "priority": "high",
+      "evidence": "Phase 1 tracker, marked Done on 22 Oct 2026.",
+      "completedAt": "2026-10-22",
+      "sortOrder": 6
+    },
+    {
+      "id": "su-catalogue-import",
+      "title": "Catalogue imported from the current site",
+      "description": "Imported the product catalogue from the Botble site: 158 products with 4,626 size and colour variants.",
+      "status": "completed",
+      "category": "configuration",
+      "priority": "high",
+      "evidence": "Phase 1 tracker, marked Done (completion date not recorded).",
+      "sortOrder": 7
+    },
+    {
+      "id": "su-homepage-figma",
+      "title": "Homepage, header, announcement bar and footer from the Figma design",
+      "description": "Built the homepage sections, floating header and menu, announcement bar and footer to match the Figma design. Merged to the preview (dev) theme; not yet released to the live theme.",
+      "status": "completed",
+      "category": "development",
+      "priority": "high",
+      "evidence": "Pull requests #2–#8 merged to dev on 22 Oct 2026.",
+      "completedAt": "2026-10-22",
+      "sortOrder": 8
+    },
+    {
+      "id": "su-content-pages",
+      "title": "About, Contact and policy pages",
+      "description": "Restyled the About, Contact, Privacy, Terms and Returns pages in the homepage style and filled them with content from the current site. Merged to the preview theme.",
+      "status": "completed",
+      "category": "development",
+      "priority": "medium",
+      "evidence": "Pull requests #10 and #11 merged to dev on 22 Oct 2026.",
+      "completedAt": "2026-10-22",
+      "sortOrder": 9
+    },
+    {
+      "id": "su-catalogue-ux",
+      "title": "Shop filters, product cards, colour swatches and product page",
+      "description": "Built the shop filter sidebar, a consistent product card grid, colour swatches, the product page image carousel, size buttons, and product details (Size & fit, Fabric, Care) read from product fields. Merged to the preview theme.",
+      "status": "completed",
+      "category": "development",
+      "priority": "high",
+      "evidence": "Pull requests #27, #31, #36, #40–#42 (22 Oct 2026) and #76 (28 Oct 2026) merged to dev.",
+      "completedAt": "2026-10-28",
+      "sortOrder": 10
+    },
+    {
+      "id": "su-ways-to-buy",
+      "title": "How we work hub: Retail, Wholesale and Supply contract pages",
+      "description": "Built the How we work hub and dedicated Retail, Wholesale and Supply contract pages, linked from the footer. Merged to the preview theme.",
+      "status": "completed",
+      "category": "development",
+      "priority": "high",
+      "evidence": "Pull requests #28 (22 Oct 2026) and #54 (23 Oct 2026) merged to dev.",
+      "completedAt": "2026-10-23",
+      "sortOrder": 11
+    },
+    {
+      "id": "su-redesign-mobile-menu",
+      "title": "Homepage and product page redesign, mobile menu",
+      "description": "Redesigned the homepage and product page, and built a full-screen phone menu with tabs, photo tiles and a bottom bar. Merged to the preview theme.",
+      "status": "completed",
+      "category": "development",
+      "priority": "medium",
+      "evidence": "Pull requests #43 and #47–#50 merged to dev on 23 Oct 2026.",
+      "completedAt": "2026-10-23",
+      "sortOrder": 12
+    },
+    {
+      "id": "su-checkout-paths",
+      "title": "Checkout flow and purchase paths mapped",
+      "description": "Mapped every route a customer can take to pay, so each one can be tested.",
+      "status": "completed",
+      "category": "testing",
+      "priority": "high",
+      "evidence": "Phase 1 tracker, marked Done on 23 Oct 2026.",
+      "completedAt": "2026-10-23",
+      "sortOrder": 13
+    },
+    {
+      "id": "su-admin-setup-doc",
+      "title": "Shopify Admin Setup document sent to Ashwin",
+      "description": "Sent the list of business inputs needed to finish store setup (legal name and ABN, bank account, GST registration, carrier account, stock counts, return rules and domain access).",
+      "status": "completed",
+      "category": "documentation",
+      "priority": "medium",
+      "evidence": "Phase 1 tracker, marked Done on 26 Oct 2026.",
+      "completedAt": "2026-10-26",
+      "sortOrder": 14
+    },
+    {
+      "id": "su-go-live-hub",
+      "title": "Go-live hub in Notion",
+      "description": "Set up the project hub: Phase 1 tracker, decision log, work log, test cases, admin guides, role guides for the warehouse and retail manager, and weekly updates.",
+      "status": "completed",
+      "category": "documentation",
+      "priority": "medium",
+      "evidence": "Southern Uniforms — Go-live hub in Notion, pages created on 27 Oct 2026.",
+      "completedAt": "2026-10-27",
+      "sortOrder": 15
+    },
+    {
+      "id": "su-contact-email",
+      "title": "Store contact email changed to hello@southernuniforms.com",
+      "description": "Customer emails and Shopify notices now go to the business address instead of a personal one.",
+      "status": "completed",
+      "category": "configuration",
+      "priority": "medium",
+      "evidence": "Phase 1 tracker and decision log, 27 Oct 2026.",
+      "completedAt": "2026-10-27",
+      "sortOrder": 16
+    },
+    {
+      "id": "su-google-signin",
+      "title": "Google sign-in for customer accounts",
+      "description": "Customers can sign in to their account with Google.",
+      "status": "completed",
+      "category": "configuration",
+      "priority": "medium",
+      "evidence": "Phase 1 tracker, marked Done on 28 Oct 2026.",
+      "completedAt": "2026-10-28",
+      "sortOrder": 17
+    },
+    {
+      "id": "su-shipit",
+      "title": "Shipping integrated with Shipit",
+      "description": "Connected the store's shipping to Shipit.",
+      "status": "completed",
+      "category": "configuration",
+      "priority": "high",
+      "evidence": "Phase 1 tracker, marked Done on 28 Oct 2026.",
+      "completedAt": "2026-10-28",
+      "sortOrder": 18
+    },
+    {
+      "id": "su-contact-form",
+      "title": "Contact form with enquiry types and customer tagging",
+      "description": "Implemented the enquiry form covering retail, wholesale and supply-contract enquiries (plus embroidery), preselected from the homepage buttons, with enquiry senders tagged as customers. Merged to the preview theme.",
+      "status": "completed",
+      "category": "development",
+      "priority": "high",
+      "evidence": "Pull requests #17, #39 (22 Oct 2026) and #108–#118 (29 Oct 2026) merged to dev.",
+      "completedAt": "2026-10-29",
+      "sortOrder": 19
+    },
+    {
+      "id": "su-returns-page",
+      "title": "Returns page on the preview theme",
+      "description": "Added a Returns page stating online orders only and 30 days. Whether these return rules are confirmed by the business is Pending confirmation (the Phase 1 tracker listed return rules as waiting on Ashwin on 27 Oct 2026).",
+      "status": "completed",
+      "category": "development",
+      "priority": "high",
+      "evidence": "Pull request #98 merged to dev on 29 Oct 2026.",
+      "completedAt": "2026-10-29",
+      "sortOrder": 20
+    },
+    {
+      "id": "su-cart",
+      "title": "Cart drawer and cart page",
+      "description": "Rebuilt the cart drawer and cart page with matching product suggestions, a free-shipping bar and order totals. Delivery method is chosen at checkout, so the charge always matches the customer's choice. Merged to the preview theme.",
+      "status": "completed",
+      "category": "development",
+      "priority": "high",
+      "evidence": "Pull requests #51, #56–#66 (23–26 Oct 2026) and #127 (merged 4 Nov 2026) merged to dev.",
+      "completedAt": "2026-11-04",
+      "sortOrder": 21
+    },
+    {
+      "id": "su-copy-claims",
+      "title": "Unconfirmed claims removed from Retail, Wholesale and Contracts pages",
+      "description": "Removed service and delivery statements that the business had not confirmed, and replaced \"blank workwear\" wording with customer-facing \"workwear\". Merged to the preview theme.",
+      "status": "completed",
+      "category": "development",
+      "priority": "high",
+      "evidence": "Pull requests #130 and #131 merged to dev on 4 Nov 2026.",
+      "completedAt": "2026-11-04",
+      "sortOrder": 22
+    },
+    {
+      "id": "su-stock-quantity",
+      "title": "Quantity limited to available stock, with bulk-quote prompt",
+      "description": "The product page caps the quantity at available stock, shows stock and bulk-quote messages under the quantity selector, and thanks the customer after a sold-out Notify me request. Merged to the preview theme.",
+      "status": "completed",
+      "category": "development",
+      "priority": "medium",
+      "evidence": "Pull requests #133–#143 merged to dev on 4–5 Nov 2026.",
+      "completedAt": "2026-11-05",
+      "sortOrder": 23
+    },
+    {
+      "id": "su-product-template",
+      "title": "Product information requirements and Excel template for the retail manager",
+      "description": "Wrote the product information requirements and an Excel template so new products are entered consistently for filters, product feeds and SEO.",
+      "status": "completed",
+      "category": "documentation",
+      "priority": "medium",
+      "evidence": "Phase 1 tracker, marked Done (completion date not recorded).",
+      "sortOrder": 24
+    },
+    {
+      "id": "su-checkout-walkthrough",
+      "title": "Test-mode checkout walkthrough (first pass)",
+      "description": "Ran a first pass through checkout in test mode to catch problems before real money is involved.",
+      "status": "completed",
+      "category": "testing",
+      "priority": "high",
+      "evidence": "Phase 1 tracker, marked Done (completion date not recorded).",
+      "sortOrder": 25
+    },
+    {
+      "id": "su-strategy-document",
+      "title": "Business and marketing strategy document",
+      "description": "Prepared a business and marketing strategy for Southern Uniforms covering the business model, platform, customers, current costs, recommended investments, an initial digital marketing plan and a growth roadmap. Recommendations in it are proposals for management review.",
+      "status": "completed",
+      "category": "business_requirements",
+      "priority": "medium",
+      "evidence": "Strategy document attached under Resources (16 Nov 2026).",
+      "completedAt": "2026-11-16",
+      "sortOrder": 26,
+      "isPublished": false
+    },
+    {
+      "id": "su-theme-v1",
+      "title": "Theme v1: build and review on the preview theme",
+      "description": "The storefront customers will see. All theme work is merged to the dev branch, which syncs to the preview theme. Release pull request #9 (dev → main) moves it to the live theme.",
+      "status": "in_progress",
+      "category": "development",
+      "priority": "high",
+      "latestProgress": "Pull requests up to #143 merged to dev between 22 Oct and 5 Nov 2026. Release pull request #9 is open and is not to be merged without a go-ahead.",
+      "sortOrder": 30
+    },
+    {
+      "id": "su-wishlist",
+      "title": "Wishlist and Notify me",
+      "description": "Customers can save items to a wishlist (drawer, page and guest flow) and ask to be notified when a sold-out size returns. Wishlist was moved into Phase 1 on 27 Oct 2026.",
+      "status": "in_progress",
+      "category": "development",
+      "priority": "medium",
+      "latestProgress": "Built on the preview theme and in testing. Wishlist Hero sync was enabled on 28 Oct 2026; the final choice of wishlist app (Swish, Wishlist Hero or the custom build) is still to be confirmed.",
+      "sortOrder": 31
+    },
+    {
+      "id": "su-payments",
+      "title": "Payment methods and wallets",
+      "description": "Set up card and wallet payments. Agreed approach: Apple Pay and Google Pay on, PayPal removed, accelerated checkout buttons hidden.",
+      "status": "in_progress",
+      "category": "configuration",
+      "priority": "high",
+      "latestProgress": "In progress per the Phase 1 tracker (27 Oct 2026). Going live with payments depends on Shopify verifying the business (see Issues).",
+      "sortOrder": 32
+    },
+    {
+      "id": "su-seo-basics",
+      "title": "SEO basics: titles, descriptions, sitemap and Search Console",
+      "description": "Protects organic traffic from the current site. Structured data for breadcrumbs and site search is already in the theme.",
+      "status": "in_progress",
+      "category": "development",
+      "priority": "high",
+      "latestProgress": "In progress per the Phase 1 tracker (27 Oct 2026).",
+      "sortOrder": 33
+    },
+    {
+      "id": "su-business-settings",
+      "title": "Business settings and point of contact",
+      "description": "Ashwin added as the point of contact Shopify uses for the account, verification and billing; basic business information entered.",
+      "status": "in_progress",
+      "category": "configuration",
+      "priority": "high",
+      "latestProgress": "In progress per the Phase 1 tracker (27 Oct 2026).",
+      "sortOrder": 34
+    },
+    {
+      "id": "su-notification-emails",
+      "title": "Branded notification email templates",
+      "description": "Order, shipping and refund emails in the brand navy (#242257) with logo and contact details.",
+      "status": "in_progress",
+      "category": "configuration",
+      "priority": "medium",
+      "latestProgress": "17 customer email templates drafted, not yet installed (weekly update, week of 26 Oct 2026). Preview images still to be refreshed to the new navy.",
+      "sortOrder": 35
+    },
+    {
+      "id": "su-handout-retail",
+      "title": "Handout: retail manager",
+      "description": "Step-by-step guide for the retail manager, who adds products and answers customer questions.",
+      "status": "in_progress",
+      "category": "documentation",
+      "priority": "medium",
+      "latestProgress": "Draft in the Go-live hub.",
+      "dependency": "Who handles orders, enquiries and refunds (decision from Ashwin).",
+      "sortOrder": 36
+    },
+    {
+      "id": "su-handout-warehouse",
+      "title": "Handout: warehouse",
+      "description": "Step-by-step guide so warehouse staff pick, pack and post online orders the same way every time.",
+      "status": "in_progress",
+      "category": "documentation",
+      "priority": "medium",
+      "latestProgress": "Draft in the Go-live hub.",
+      "dependency": "Label method and carrier account; input from the warehouse.",
+      "sortOrder": 37
+    },
+    {
+      "id": "su-theme-qc",
+      "title": "Theme QC on desktop and mobile",
+      "description": "Check every page and journey on desktop and phone before customers see it.",
+      "status": "pending",
+      "category": "testing",
+      "priority": "high",
+      "sortOrder": 40
+    },
+    {
+      "id": "su-test-orders",
+      "title": "Full test orders",
+      "description": "Single item, team order, wallet, guest, account and refund, from cart to fulfilment.",
+      "status": "pending",
+      "category": "testing",
+      "priority": "high",
+      "sortOrder": 41
+    },
+    {
+      "id": "su-checkout-settings",
+      "title": "Checkout and customer account settings",
+      "description": "Agreed approach: standard Shopify checkout with no customisation, guest checkout on, customer accounts optional.",
+      "status": "pending",
+      "category": "configuration",
+      "priority": "high",
+      "sortOrder": 42
+    },
+    {
+      "id": "su-shipping-zones",
+      "title": "Shipping zones, flat rates and local pickup",
+      "description": "Agreed approach: flat rates plus local pickup from one dispatch location.",
+      "status": "pending",
+      "category": "configuration",
+      "priority": "high",
+      "dependency": "Confirmed shipping rates and free-shipping threshold from Ashwin.",
+      "sortOrder": 43
+    },
+    {
+      "id": "su-tax-gst",
+      "title": "Tax settings: GST",
+      "description": "Prices and receipts must show GST correctly.",
+      "status": "pending",
+      "category": "configuration",
+      "priority": "high",
+      "dependency": "GST registration details from the business.",
+      "sortOrder": 44
+    },
+    {
+      "id": "su-brand-settings",
+      "title": "Brand settings: logo, colours and social links",
+      "description": "Checkout and emails read the logo and colours from Shopify's brand settings.",
+      "status": "pending",
+      "category": "configuration",
+      "priority": "high",
+      "sortOrder": 45
+    },
+    {
+      "id": "su-payments-live",
+      "title": "Switch payments to live mode",
+      "description": "Test mode takes no real money; payments go live once the business is verified.",
+      "status": "pending",
+      "category": "deployment",
+      "priority": "high",
+      "dependency": "Business verification documents from Ashwin.",
+      "sortOrder": 46
+    },
+    {
+      "id": "su-redirects",
+      "title": "301 redirects from current site URLs",
+      "description": "Keeps search rankings and old links working after the move.",
+      "status": "pending",
+      "category": "development",
+      "priority": "high",
+      "dependency": "The current site's URL list.",
+      "sortOrder": 47
+    },
+    {
+      "id": "su-backups",
+      "title": "Backups before launch",
+      "description": "Back up products, the live theme and DNS so the team can recover if launch goes wrong.",
+      "status": "pending",
+      "category": "deployment",
+      "priority": "high",
+      "sortOrder": 48
+    },
+    {
+      "id": "su-domain",
+      "title": "Domain, DNS plan and production domain",
+      "description": "Registrar access, DNS plan with lowered TTL, email hosting check, then connect the production domain so customers reach the store at the business address.",
+      "status": "pending",
+      "category": "deployment",
+      "priority": "high",
+      "dependency": "Registrar or DNS access from Ashwin.",
+      "sortOrder": 49
+    },
+    {
+      "id": "su-release",
+      "title": "Merge release PR #9 and publish main as the live theme",
+      "description": "Moves the reviewed theme to the live store.",
+      "status": "pending",
+      "category": "deployment",
+      "priority": "high",
+      "sortOrder": 50
+    },
+    {
+      "id": "su-launch-day",
+      "title": "Launch day: final checks and opening the store",
+      "description": "Final checks on launch day, and launch messages to staff and customers (customer accounts now sign in with an email code rather than a password).",
+      "status": "pending",
+      "category": "deployment",
+      "priority": "high",
+      "dependency": "Confirmed go-live date.",
+      "sortOrder": 51
+    },
+    {
+      "id": "su-product-custom-data",
+      "title": "Product custom data definitions",
+      "description": "Fabric, Size guide, Pairs with, On shift photo and Fit note fields that the theme reads; without them those panels stay empty.",
+      "status": "pending",
+      "category": "configuration",
+      "priority": "medium",
+      "sortOrder": 52
+    },
+    {
+      "id": "su-sender-domain",
+      "title": "Authenticate the sender email domain",
+      "description": "Stops order emails going to junk.",
+      "status": "pending",
+      "category": "configuration",
+      "priority": "medium",
+      "sortOrder": 53
+    },
+    {
+      "id": "su-staff-accounts",
+      "title": "Staff accounts, permissions and new-order alerts",
+      "description": "Logins for the warehouse and retail manager limited to what they do, and new-order alerts to the right people.",
+      "status": "pending",
+      "category": "configuration",
+      "priority": "medium",
+      "dependency": "Names of the people who handle orders and enquiries.",
+      "sortOrder": 54
+    },
+    {
+      "id": "su-packing-slip",
+      "title": "Packing slip template",
+      "description": "The template the warehouse picks from.",
+      "status": "pending",
+      "category": "configuration",
+      "priority": "medium",
+      "dependency": "Input from the warehouse.",
+      "sortOrder": 55
+    },
+    {
+      "id": "su-tracking",
+      "title": "Tracking: GA4, Google Tag Manager and Meta pixel",
+      "description": "Agreed approach: run through Shopify customer events so marketing can change tags without a developer. Includes the consent banner and customer privacy settings.",
+      "status": "pending",
+      "category": "configuration",
+      "priority": "medium",
+      "dependency": "Account owners for GA4, GTM and Meta.",
+      "sortOrder": 56
+    },
+    {
+      "id": "su-merchant-center",
+      "title": "Google Merchant Center product feed",
+      "description": "Free product listings and Shopping ads need a clean product feed.",
+      "status": "pending",
+      "category": "configuration",
+      "priority": "medium",
+      "sortOrder": 57
+    },
+    {
+      "id": "su-email-flows",
+      "title": "Marketing email flows (after launch)",
+      "description": "Flows that recover abandoned checkouts and bring customers back. Not part of Phase 1.",
+      "status": "pending",
+      "category": "other",
+      "priority": "low",
+      "sortOrder": 58
+    }
+  ],
+  "issues": [
+    {
+      "id": "su-issue-verification",
+      "title": "Business verification documents",
+      "description": "Shopify verifies the business before it activates payments and payouts. Without the documents, payments cannot go live.",
+      "kind": "blocker",
+      "waitingOn": "Ashwin",
+      "raisedOn": "2026-10-27"
+    },
+    {
+      "id": "su-issue-stock-skus",
+      "title": "Stock counts and SKUs",
+      "description": "Checked on the store on 27 Oct 2026: 158 products and 4,626 variants, of which 1,774 have a SKU and 2,852 do not. Inventory tracking is off. Without SKUs and counts, fulfilment, inventory and product feeds are unreliable.",
+      "kind": "blocker",
+      "waitingOn": "Warehouse",
+      "raisedOn": "2026-10-27"
+    },
+    {
+      "id": "su-issue-go-live-date",
+      "title": "Go-live date",
+      "description": "Sets the deadline for every other launch item. Target go-live is not yet set.",
+      "kind": "decision",
+      "waitingOn": "Ashwin",
+      "raisedOn": "2026-10-27"
+    },
+    {
+      "id": "su-issue-shipping-rates",
+      "title": "Shipping rates and free-shipping threshold",
+      "description": "Rates show at checkout and in cart and product messages. The store currently shows $11 Standard and $15 Express with free Standard delivery from $150; these need the business's confirmation.",
+      "kind": "decision",
+      "waitingOn": "Ashwin",
+      "raisedOn": "2026-10-27"
+    },
+    {
+      "id": "su-issue-carrier",
+      "title": "Label method and carrier account",
+      "description": "Without it staff cannot create labels or tracking numbers, so shipping emails do not send.",
+      "kind": "decision",
+      "waitingOn": "Ashwin",
+      "raisedOn": "2026-10-27"
+    },
+    {
+      "id": "su-issue-return-rules",
+      "title": "Return rules",
+      "description": "Needed for the refund policy, the Returns page and the handouts: how many days, who pays return postage and which items cannot be returned.",
+      "kind": "decision",
+      "waitingOn": "Ashwin",
+      "raisedOn": "2026-10-27"
+    },
+    {
+      "id": "su-issue-who-handles",
+      "title": "Who handles orders, enquiries and refunds",
+      "description": "Handouts cannot be finished and order alerts cannot be set without names, including who replies to wholesale, contract and logo enquiries.",
+      "kind": "decision",
+      "waitingOn": "Ashwin",
+      "raisedOn": "2026-10-27"
+    },
+    {
+      "id": "su-issue-old-site",
+      "title": "Current site retention and blog",
+      "description": "How long the Botble site stays up after launch and whether its blog posts move to Shopify.",
+      "kind": "decision",
+      "waitingOn": "Ashwin",
+      "raisedOn": "2026-10-27"
+    },
+    {
+      "id": "su-issue-wishlist-app",
+      "title": "Wishlist app choice",
+      "description": "Choose between Swish, Wishlist Hero and the custom build. Lists must sync across devices through customer accounts. Swish was trialled and cancelled on 27 Oct 2026.",
+      "kind": "decision",
+      "waitingOn": "Pending confirmation",
+      "raisedOn": "2026-10-27"
+    },
+    {
+      "id": "su-issue-policies",
+      "title": "Policies: privacy, terms, refund and shipping",
+      "description": "Required before taking payments. The current site's privacy and terms text is inaccurate for Shopify and needs rewriting; wording must match the confirmed business rules.",
+      "kind": "approval",
+      "waitingOn": "Ashwin",
+      "raisedOn": "2026-10-27"
+    },
+    {
+      "id": "su-issue-page-copy",
+      "title": "Review of page copy",
+      "description": "Retail, About, Wholesale and Contracts pages described services and figures that are not confirmed. Unconfirmed claims were removed on 4 Nov 2026; a business review of the remaining copy is still needed.",
+      "kind": "approval",
+      "waitingOn": "Ashwin",
+      "raisedOn": "2026-10-27"
+    },
+    {
+      "id": "su-issue-platform-signoff",
+      "title": "Formal record of the platform decision",
+      "description": "The move from Botble to Shopify (Grow plan) is recorded as decided on 21 Oct 2026, with \"decided by\" still marked to confirm in the decision log.",
+      "kind": "approval",
+      "waitingOn": "Ashwin",
+      "raisedOn": "2026-10-21"
+    },
+    {
+      "id": "su-issue-redirect-list",
+      "title": "Redirects need the current site's URL list",
+      "description": "301 redirects cannot be completed without the full list of URLs on the current site.",
+      "kind": "dependency",
+      "waitingOn": "Pending confirmation",
+      "raisedOn": "2026-10-27"
+    }
+  ],
+  "updates": [
+    {
+      "id": "su-u-2026-10-20-comparison",
+      "title": "Completed the platform comparison",
+      "description": "Compared Botble, Shopify and a headless build; the comparison set the platform and cost base for the project.",
+      "category": "research",
+      "occurredOn": "2026-10-20",
+      "taskId": "su-platform-comparison"
+    },
+    {
+      "id": "su-u-2026-10-20-figma",
+      "title": "Reviewed the Figma homepage design and wrote the developer brief",
+      "description": "The theme is built from this design.",
+      "category": "documentation",
+      "occurredOn": "2026-10-20",
+      "taskId": "su-figma-brief"
+    },
+    {
+      "id": "su-u-2026-10-21-plan",
+      "title": "Sent the Shopify Grow plan recommendation to Ashwin",
+      "description": "Recommended the Grow plan at $114 per month billed yearly (AUD). The move from Botble to Shopify is recorded in the decision log on the same day.",
+      "category": "decisions",
+      "occurredOn": "2026-10-21",
+      "taskId": "su-plan-recommendation"
+    },
+    {
+      "id": "su-u-2026-10-22-store",
+      "title": "Created the Shopify store, collections and menu",
+      "description": "Store created and verified; 8 brand, 17 category and 8 industry collections set up.",
+      "category": "development",
+      "occurredOn": "2026-10-22",
+      "taskId": "su-collections-menu"
+    },
+    {
+      "id": "su-u-2026-10-22-theme",
+      "title": "Built the homepage, header and footer from the Figma design",
+      "description": "Theme repository set up with Theme Check; homepage sections, header, announcement bar and footer merged to the preview theme (PRs #1–#8).",
+      "category": "development",
+      "occurredOn": "2026-10-22",
+      "taskId": "su-homepage-figma"
+    },
+    {
+      "id": "su-u-2026-10-22-release-pr",
+      "title": "Opened release pull request #9",
+      "description": "Moves the theme from dev to main so main can be connected as the published theme. Awaiting go-ahead to merge.",
+      "category": "deployment",
+      "occurredOn": "2026-10-22",
+      "taskId": "su-theme-v1"
+    },
+    {
+      "id": "su-u-2026-10-23-ways-to-buy",
+      "title": "Built the How we work hub and the Retail, Wholesale and Contracts pages",
+      "description": "Also redesigned the homepage and product page and built the phone menu (PRs #43–#54).",
+      "category": "development",
+      "occurredOn": "2026-10-23",
+      "taskId": "su-ways-to-buy"
+    },
+    {
+      "id": "su-u-2026-10-23-checkout-map",
+      "title": "Mapped the checkout flow and purchase paths",
+      "description": "Every route a customer can take to pay is now listed for testing.",
+      "category": "testing",
+      "occurredOn": "2026-10-23",
+      "taskId": "su-checkout-paths"
+    },
+    {
+      "id": "su-u-2026-10-23-payments-decision",
+      "title": "Recorded the checkout, payments and shipping approach",
+      "description": "Accelerated checkout buttons hidden, PayPal removed, Apple Pay and Google Pay enabled, flat shipping rates plus local pickup. The exact day is not recorded (between 23 and 26 Oct 2026).",
+      "category": "decisions",
+      "occurredOn": "2026-10-23"
+    },
+    {
+      "id": "su-u-2026-10-25-cart",
+      "title": "Reworked the cart drawer and cart page",
+      "description": "Matching product suggestions, free-shipping bar, delivery options and totals (PRs #56–#66).",
+      "category": "development",
+      "occurredOn": "2026-10-25",
+      "taskId": "su-cart"
+    },
+    {
+      "id": "su-u-2026-10-26-admin-setup",
+      "title": "Sent the Shopify Admin Setup document to Ashwin",
+      "description": "Lists the business inputs needed to finish setup.",
+      "category": "documentation",
+      "occurredOn": "2026-10-26",
+      "taskId": "su-admin-setup-doc"
+    },
+    {
+      "id": "su-u-2026-10-27-hub",
+      "title": "Set up the Go-live hub and drafted the first weekly update",
+      "description": "Tracker, decision log, admin and role guides in Notion. Weekly status: at risk, because the go-live date is not set and several business inputs are open.",
+      "category": "meetings_coordination",
+      "occurredOn": "2026-10-27",
+      "taskId": "su-go-live-hub"
+    },
+    {
+      "id": "su-u-2026-10-27-wishlist-decision",
+      "title": "Wishlist moved into Phase 1; store email set to hello@southernuniforms.com",
+      "description": "Both recorded in the decision log.",
+      "category": "decisions",
+      "occurredOn": "2026-10-27",
+      "taskId": "su-wishlist"
+    },
+    {
+      "id": "su-u-2026-10-28-wishlist",
+      "title": "Built the wishlist, Google sign-in and Shipit integration",
+      "description": "Wishlist drawer, page and guest flow on the preview theme (PRs #67–#96); Google sign-in for customer accounts and Shipit shipping integration completed.",
+      "category": "development",
+      "occurredOn": "2026-10-28",
+      "taskId": "su-wishlist"
+    },
+    {
+      "id": "su-u-2026-10-29-contact",
+      "title": "Implemented the enquiry form and added the Returns page",
+      "description": "Retail, wholesale and supply-contract enquiry types with customer tagging (PRs #99–#118); Returns page added (PR #98).",
+      "category": "development",
+      "occurredOn": "2026-10-29",
+      "taskId": "su-contact-form"
+    },
+    {
+      "id": "su-u-2026-11-03-collections",
+      "title": "Improved collection pages and colour dots",
+      "description": "Collection page links, filters with a single value hidden, and colour dots sampled from supplier colour photos (PRs #128–#129).",
+      "category": "development",
+      "occurredOn": "2026-11-03"
+    },
+    {
+      "id": "su-u-2026-11-04-copy",
+      "title": "Removed unconfirmed claims from the Retail, Wholesale and Contracts pages",
+      "description": "Delivery method also moved to checkout so the charge always matches the customer's choice (PRs #127, #130, #131).",
+      "category": "development",
+      "occurredOn": "2026-11-04",
+      "taskId": "su-copy-claims"
+    },
+    {
+      "id": "su-u-2026-11-05-quantity",
+      "title": "Limited quantity to available stock and added bulk-quote messages",
+      "description": "Product page quantity capped at stock, with stock and bulk-quote messages and a Notify me thank-you (PRs #133–#143).",
+      "category": "development",
+      "occurredOn": "2026-11-05",
+      "taskId": "su-stock-quantity"
+    },
+    {
+      "id": "su-u-2026-11-16-strategy",
+      "title": "Prepared the business and marketing strategy document",
+      "description": "Covers the business model, current costs, recommended investments, an initial digital marketing plan and a growth roadmap, for management review.",
+      "category": "documentation",
+      "occurredOn": "2026-11-16",
+      "taskId": "su-strategy-document",
+      "isPublished": false
+    }
+  ],
+  "resources": [
+    {
+      "id": "su-r-strategy",
+      "taskId": "su-strategy-document",
+      "title": "Southern Uniforms — Business & Marketing Strategy (PDF)",
+      "description": "Business model, platform, customers, current costs, recommended investments, initial digital marketing strategy and growth roadmap.",
+      "type": "strategy_document",
+      "url": "/documents/southern-uniforms-business-marketing-strategy.pdf",
+      "isPublished": false
+    },
+    {
+      "id": "su-r-store",
+      "title": "Southern Uniforms Shopify store",
+      "description": "The Shopify storefront at its myshopify address. Per the Phase 1 tracker, the production domain is not yet connected.",
+      "type": "website",
+      "url": "https://0j1jbh-w8.myshopify.com/"
+    },
+    {
+      "id": "su-r-hub",
+      "title": "Southern Uniforms — Go-live hub",
+      "description": "Project home: status, roadmap, decision log, Phase 1 tracker, guides and weekly updates.",
+      "type": "notion_page",
+      "url": "https://app.notion.com/p/406ed0fd77bc81158e31f36b75d7d5f0",
+      "accessNote": "Notion workspace access required"
+    },
+    {
+      "id": "su-r-tracker",
+      "title": "Phase 1 tracker",
+      "description": "Every Phase 1 item with status, owner, who it is waiting on and why it matters.",
+      "type": "notion_page",
+      "url": "https://app.notion.com/p/8ea3796b65774c7696527fb5c4761412",
+      "accessNote": "Notion workspace access required"
+    },
+    {
+      "id": "su-r-decisions",
+      "title": "Decision log",
+      "description": "Platform, checkout, shipping, wishlist and contact decisions with dates and reasons.",
+      "type": "notion_page",
+      "url": "https://app.notion.com/p/cb2d791a3b074d098a729e0062db889d",
+      "accessNote": "Notion workspace access required"
+    },
+    {
+      "id": "su-r-weekly",
+      "title": "Weekly updates",
+      "description": "Weekly status for the business contact: done, next, waiting on, decisions needed and risks.",
+      "type": "meeting_notes",
+      "url": "https://app.notion.com/p/406ed0fd77bc8109a905c75c0835e53b",
+      "accessNote": "Notion workspace access required"
+    },
+    {
+      "id": "su-r-repo",
+      "title": "Theme repository: Anou-Group/southern-uniforms-theme",
+      "description": "Shopify theme source code built on Horizon; dev syncs to the preview theme and main to the live theme.",
+      "type": "github_repository",
+      "url": "https://github.com/Anou-Group/southern-uniforms-theme",
+      "accessNote": "Private repository — GitHub access required"
+    },
+    {
+      "id": "su-r-pr9",
+      "taskId": "su-theme-v1",
+      "title": "Pull request #9 — Release: theme v1 (dev → main)",
+      "description": "Moves all theme work to main so it can be published as the live theme. Open; not to be merged without a go-ahead.",
+      "type": "github_pull_request",
+      "url": "https://github.com/Anou-Group/southern-uniforms-theme/pull/9",
+      "accessNote": "Private repository — GitHub access required"
+    },
+    {
+      "id": "su-r-pr54",
+      "taskId": "su-ways-to-buy",
+      "title": "Pull request #54 — How we work hub and Retail, Wholesale and Contracts pages",
+      "description": "Merged to dev on 23 Oct 2026.",
+      "type": "github_pull_request",
+      "url": "https://github.com/Anou-Group/southern-uniforms-theme/pull/54",
+      "accessNote": "Private repository — GitHub access required"
+    },
+    {
+      "id": "su-r-pr131",
+      "taskId": "su-copy-claims",
+      "title": "Pull request #131 — Remove unconfirmed claims",
+      "description": "Merged to dev on 4 Nov 2026.",
+      "type": "github_pull_request",
+      "url": "https://github.com/Anou-Group/southern-uniforms-theme/pull/131",
+      "accessNote": "Private repository — GitHub access required"
+    }
+  ],
+  "stakeholders": [
+    {
+      "id": "su-s-ashwin",
+      "name": "Ashwin",
+      "role": "Business contact (accountant). Approves the plan and costs and provides business rules, documents and decisions.",
+      "organisation": "Southern Uniforms"
+    },
+    {
+      "id": "su-s-warehouse",
+      "name": "Warehouse team",
+      "role": "Stock counts, SKUs, picking and packing online orders.",
+      "organisation": "Southern Uniforms"
+    },
+    {
+      "id": "su-s-retail-manager",
+      "name": "Retail manager",
+      "role": "Adds products and answers customer questions.",
+      "organisation": "Southern Uniforms"
+    }
+  ]
+}

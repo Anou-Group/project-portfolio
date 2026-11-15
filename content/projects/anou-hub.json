@@ -1,0 +1,276 @@
+{
+  "id": "anou-hub",
+  "slug": "anou-hub",
+  "name": "Anou Hub — digital spend tracker",
+  "summary": "A web application that tracks the group's digital spend — subscriptions, domains, SSL, hosting, plugins, advertising and usage costs — and shows cost by person, team, company, group, vendor and project.",
+  "description": "Anou Hub records every digital cost the group pays for and shows where the money goes. A workspace holds groups and companies; costs belong to a company, one of its projects or the group itself. The group admin manages costs, budgets, renewals and bills; viewers can look; staff use their own portal to see their tools, report problems and request tools. Hardware tracking is planned for version 2.",
+  "businessObjective": "Give the group one accurate, consistent view of digital costs across Anouconcept, Ifota and Koolandthecrew: what is paid for, who uses it, what renews when, and what can be cancelled — with costs visible per person, team, company, group, vendor and project.",
+  "background": "Anou Hub v1 is planned as a SaaS product with Anou Group (Anouconcept, Ifota and Koolandthecrew) as its first customer. Product decisions are recorded in the project plan from 21 Oct 2026, including that Dynamics 365 is not integrated (it is tracked only as a subscription) and that pushing bills to Xero is not needed (account codes are kept for CSV export).",
+  "responsibilitySummary": "Product design and full-stack development",
+  "responsibilities": [
+    "Product specification and screen design",
+    "Full-stack development (Next.js, TypeScript, PostgreSQL on Neon)",
+    "Security model: roles, row-level security and input validation",
+    "Automated testing: unit, route and browser tests",
+    "In-app help and developer documentation",
+    "Database setup, data migration and email reminders"
+  ],
+  "status": "in_progress",
+  "category": "Internal platform",
+  "organisation": "Anou Group",
+  "progressSummary": "Core product built, with PostgreSQL on Neon, Neon Auth sign-in, restore points and email reminders. Production email sending is waiting on a verified sending domain and environment variables on Vercel.",
+  "sourceNote": "Status from the project plan (docs/PLAN.md) and repository history to 10 Nov 2026.",
+  "lastVerifiedAt": "2026-11-16",
+  "sortOrder": 2,
+  "tasks": [
+    {
+      "id": "ah-core-screens",
+      "title": "Core application screens",
+      "description": "Dashboard, spend explorer (filters, grouping, drill-down, CSV export), Subscriptions, Web assets, Marketing and usage, item detail with seat management, Renewals, People, Teams, Companies, Projects, Budgets, Inbox, Settings and the staff app.",
+      "status": "completed",
+      "category": "development",
+      "priority": "high",
+      "evidence": "Recorded as built in the project plan (\"Built so far\"); completion dates not recorded.",
+      "sortOrder": 1
+    },
+    {
+      "id": "ah-security",
+      "title": "Security model",
+      "description": "Every API input validated; sessions, roles and same-origin checks on every route; staff can only see their own tools; errors never leak other workspaces' data. Row-level security per workspace in PostgreSQL.",
+      "status": "completed",
+      "category": "development",
+      "priority": "high",
+      "evidence": "Project plan (Security, Postgres on Neon step 1) with route tests for security cases.",
+      "sortOrder": 2
+    },
+    {
+      "id": "ah-owner-feedback",
+      "title": "First round of owner feedback and group-level costs",
+      "description": "Clearer navigation, forms grouped with hints, inline search, loading states and pagination; costs can be paid by the group itself; project cards redesigned.",
+      "status": "completed",
+      "category": "development",
+      "priority": "medium",
+      "evidence": "Project plan sections marked done on 21 Oct 2026.",
+      "completedAt": "2026-10-21",
+      "sortOrder": 3
+    },
+    {
+      "id": "ah-gst-history",
+      "title": "GST handling, history protection and 30-day undo",
+      "description": "Each cost carries a GST setting under ATO rules; bills keep their GST. Past months keep the project, team and category they were booked under. Removed items can be restored for 30 days and history is never deleted.",
+      "status": "completed",
+      "category": "development",
+      "priority": "high",
+      "evidence": "Project plan sections marked done on 22 Oct 2026.",
+      "completedAt": "2026-10-22",
+      "sortOrder": 4
+    },
+    {
+      "id": "ah-sites-trials",
+      "title": "Web assets by site, SSL expiry, free trials and account codes",
+      "description": "Web assets rebuilt around websites (domains, SSL, hosting and plugins per site); SSL certificate expiry tracked separately from billing; price plans with free trials and intro prices; Xero account codes on categories for the CSV export.",
+      "status": "completed",
+      "category": "development",
+      "priority": "medium",
+      "evidence": "Project plan sections marked done on 26 Oct 2026.",
+      "completedAt": "2026-10-26",
+      "sortOrder": 5
+    },
+    {
+      "id": "ah-docs",
+      "title": "Public help and developer documentation",
+      "description": "In-app documentation at /docs: getting started, every screen, the staff app, how numbers work, API reference, limits, glossary, roadmap and changelog.",
+      "status": "completed",
+      "category": "documentation",
+      "priority": "medium",
+      "evidence": "Project plan section marked done on 28 Oct 2026.",
+      "completedAt": "2026-10-28",
+      "sortOrder": 6
+    },
+    {
+      "id": "ah-trial-reminders",
+      "title": "\"Just trying it\" reminders to cancel before a free trial ends",
+      "description": "A cost added only for a free trial is flagged in the Inbox with the day to cancel by, before the card is charged.",
+      "status": "completed",
+      "category": "development",
+      "priority": "medium",
+      "evidence": "Project plan section marked done on 4 Nov 2026.",
+      "completedAt": "2026-11-04",
+      "sortOrder": 7
+    },
+    {
+      "id": "ah-postgres-auth",
+      "title": "PostgreSQL on Neon, Neon Auth sign-in and restore points",
+      "description": "Moved storage to PostgreSQL on Neon (Sydney) with row-level security per workspace; sign-in through Neon Auth with access requests approved by an owner; daily restore points kept for 30 days; system log of API calls and errors.",
+      "status": "completed",
+      "category": "development",
+      "priority": "high",
+      "evidence": "Project plan entries dated 8 Nov 2026; row-level security proven (another workspace sees and changes nothing).",
+      "completedAt": "2026-11-08",
+      "sortOrder": 8
+    },
+    {
+      "id": "ah-reporting-tables",
+      "title": "Reporting tables, onboarding, currencies and card statement import",
+      "description": "Every change also writes typed reporting tables (verified on Neon: 139 costs and 5,680 monthly records, matching the app); workspace switcher and onboarding; foreign-currency costs at ECB rates; card statement import from spreadsheets; Support role, View as, shared tools and sub-projects.",
+      "status": "completed",
+      "category": "development",
+      "priority": "high",
+      "evidence": "Project plan entries dated 9 Nov 2026.",
+      "completedAt": "2026-11-09",
+      "sortOrder": 9
+    },
+    {
+      "id": "ah-automated-tests",
+      "title": "Automated test suites",
+      "description": "Unit and route tests covering the spend engine, mutations and every API route including security cases, plus browser click-through tests of the main flows at phone, tablet and desktop widths.",
+      "status": "completed",
+      "category": "testing",
+      "priority": "high",
+      "evidence": "Project plan records 359 unit and route tests and 16 browser flows (181 checks); current counts Pending confirmation.",
+      "sortOrder": 10
+    },
+    {
+      "id": "ah-email-reminders",
+      "title": "Email reminders in production",
+      "description": "Daily emails to owners about renewals, cancel-by dates, trials, price changes and certificate expiry. Built and a test email sent on 9 Nov 2026; until a sending domain is verified, emails only reach the sending account's own address.",
+      "status": "blocked",
+      "category": "deployment",
+      "priority": "high",
+      "dependency": "A verified email sending domain, and the scheduled-job secret and other environment variables configured on Vercel.",
+      "latestProgress": "Waiting on the items above (project plan, 9 Nov 2026).",
+      "sortOrder": 20
+    },
+    {
+      "id": "ah-signin-e2e",
+      "title": "End-to-end test of a confirmed sign-in",
+      "description": "Prove a full sign-in with a confirmed email address; this needs a real inbox.",
+      "status": "pending",
+      "category": "testing",
+      "priority": "medium",
+      "sortOrder": 30
+    },
+    {
+      "id": "ah-real-domains",
+      "title": "Replace sample domains with the real domain list",
+      "description": "Import the group's real domains through Import domains once the registrar exports are available.",
+      "status": "pending",
+      "category": "business_requirements",
+      "priority": "medium",
+      "dependency": "Registrar exports of the group's domains.",
+      "sortOrder": 31
+    },
+    {
+      "id": "ah-production-url",
+      "title": "Confirm the production deployment and address",
+      "description": "The application is configured for Vercel with a daily scheduled job. The production address and launch status are Pending confirmation.",
+      "status": "pending",
+      "category": "deployment",
+      "priority": "medium",
+      "sortOrder": 32
+    },
+    {
+      "id": "ah-ask-box",
+      "title": "\"Ask\" box for questions about spend",
+      "description": "Listed in the plan's known gaps as not built: it needs an Anthropic API key, and answers must be limited to what each person is allowed to see.",
+      "status": "pending",
+      "category": "other",
+      "priority": "low",
+      "sortOrder": 33
+    }
+  ],
+  "issues": [
+    {
+      "id": "ah-issue-sending-domain",
+      "title": "Verified email sending domain",
+      "description": "Reminder emails can only be delivered to the sending account's own address until a domain is verified with the email provider.",
+      "kind": "dependency",
+      "waitingOn": "Pending confirmation",
+      "raisedOn": "2026-11-09"
+    },
+    {
+      "id": "ah-issue-registrar-exports",
+      "title": "Registrar exports for the real domain list",
+      "description": "Sample domains stay in place until the registrar exports arrive.",
+      "kind": "dependency",
+      "waitingOn": "Pending confirmation"
+    }
+  ],
+  "updates": [
+    {
+      "id": "ah-u-2026-10-21",
+      "title": "Agreed how the product is used and applied the first round of feedback",
+      "description": "Recorded roles, hierarchy and cost ownership rules; added group-level costs and clearer project cards.",
+      "category": "decisions",
+      "occurredOn": "2026-10-21",
+      "taskId": "ah-owner-feedback"
+    },
+    {
+      "id": "ah-u-2026-10-22",
+      "title": "Added GST handling, history protection and 30-day undo",
+      "description": "Past months now keep their original project, team and category; nothing with history can be deleted.",
+      "category": "development",
+      "occurredOn": "2026-10-22",
+      "taskId": "ah-gst-history"
+    },
+    {
+      "id": "ah-u-2026-10-26",
+      "title": "Rebuilt web assets around websites and added free-trial price plans",
+      "description": "Also added SSL certificate expiry and Xero account codes for the CSV export.",
+      "category": "development",
+      "occurredOn": "2026-10-26",
+      "taskId": "ah-sites-trials"
+    },
+    {
+      "id": "ah-u-2026-10-28",
+      "title": "Published in-app help and developer documentation",
+      "description": "Documentation available at /docs inside the app.",
+      "category": "documentation",
+      "occurredOn": "2026-10-28",
+      "taskId": "ah-docs"
+    },
+    {
+      "id": "ah-u-2026-11-04",
+      "title": "Added reminders to cancel free trials before they are charged",
+      "description": "Costs marked \"Just trying it\" show a cancel-by date in the Inbox.",
+      "category": "development",
+      "occurredOn": "2026-11-04",
+      "taskId": "ah-trial-reminders"
+    },
+    {
+      "id": "ah-u-2026-11-08",
+      "title": "Moved storage to PostgreSQL on Neon with sign-in and restore points",
+      "description": "Row-level security per workspace verified; Neon Auth sign-in with owner-approved access requests.",
+      "category": "development",
+      "occurredOn": "2026-11-08",
+      "taskId": "ah-postgres-auth"
+    },
+    {
+      "id": "ah-u-2026-11-09-reporting",
+      "title": "Added reporting tables, onboarding, currencies and card statement import",
+      "description": "Reporting tables verified against the app's own totals on Neon.",
+      "category": "development",
+      "occurredOn": "2026-11-09",
+      "taskId": "ah-reporting-tables"
+    },
+    {
+      "id": "ah-u-2026-11-09-email",
+      "title": "Sent the first test reminder email",
+      "description": "Production sending is waiting on a verified domain and Vercel environment variables.",
+      "category": "testing",
+      "occurredOn": "2026-11-09",
+      "taskId": "ah-email-reminders"
+    }
+  ],
+  "resources": [
+    {
+      "id": "ah-r-repo",
+      "title": "Source repository: anouhub",
+      "description": "Application source code, project plan (docs/PLAN.md) and specification (docs/SPEC.md).",
+      "type": "github_repository",
+      "url": "https://github.com/mahesh-anouconcept/anouhub",
+      "accessNote": "Private repository — GitHub access required"
+    }
+  ],
+  "stakeholders": []
+}
