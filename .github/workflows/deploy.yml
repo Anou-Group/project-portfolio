@@ -1,0 +1,69 @@
+name: Check and deploy
+
+# Every pull request: run all checks, then a protected Vercel preview deployment.
+# Every push to main: run all checks, then deploy to production.
+# Vercel's Hobby plan cannot connect to a private organisation repository, so this
+# workflow deploys with the Vercel CLI instead.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - name: Typecheck, lint, unit tests and content check
+        run: npm run check
+      - name: Browser tests (content files, no database)
+        run: |
+          npx playwright install --with-deps chromium
+          npm run e2e
+      - if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-results
+          path: test-results
+          retention-days: 7
+
+  deploy:
+    needs: check
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && 'production' || 'preview' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - name: Deploy to production
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        run: |
+          npx vercel@65.16.0 pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+          npx vercel@65.16.0 build --prod --token=${{ secrets.VERCEL_TOKEN }}
+          npx vercel@65.16.0 deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Deploy preview
+        if: github.event_name == 'pull_request'
+        run: |
+          npx vercel@65.16.0 pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
+          npx vercel@65.16.0 build --token=${{ secrets.VERCEL_TOKEN }}
+          npx vercel@65.16.0 deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}

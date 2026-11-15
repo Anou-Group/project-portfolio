@@ -19,7 +19,9 @@ test("all pages fit every width, log no errors and contain no prohibited languag
   for (const width of WIDTHS) {
     await page.setViewportSize({ width, height: 900 });
     for (const path of paths) {
-      await page.goto(path, { waitUntil: "networkidle" });
+      await page.goto(path, { waitUntil: "load" });
+      // Streamed sections replace their loading skeletons when they arrive.
+      await expect(page.locator('[aria-busy="true"]')).toHaveCount(0, { timeout: 15_000 });
       const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
       expect(overflow, `${path} at ${width}px scrolls sideways`).toBeLessThanOrEqual(0);
       if (width === 1440) {
