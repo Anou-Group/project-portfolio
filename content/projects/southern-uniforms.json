@@ -18,8 +18,8 @@
   "status": "in_progress",
   "category": "E-commerce",
   "organisation": "Southern Uniforms",
-  "progressSummary": "The theme is built on the preview (dev) branch and the catalogue is imported. Go-live depends on business inputs: shipping rates, return rules, verification documents, stock counts and SKUs, and the launch date.",
-  "sourceNote": "Status from the Notion Phase 1 tracker (last updated 27 Oct 2026), GitHub pull requests to 8 Nov 2026, and the storefront as checked on 16 Nov 2026.",
+  "progressSummary": "The theme is built on the preview (dev) branch and the catalogue is imported. Waiting on products from Sally; once received, the end-to-end flow will be tested again and SEO will start, following the Scrubness approach.",
+  "sourceNote": "Status from the Notion Phase 1 tracker (last updated 27 Oct 2026), GitHub pull requests to 8 Nov 2026, the storefront as checked on 16 Nov 2026, and an update from Mahesh on 16 Nov 2026.",
   "lastVerifiedAt": "2026-11-16",
   "sortOrder": 1,
   "tasks": [
@@ -568,9 +568,37 @@
       "category": "other",
       "priority": "low",
       "sortOrder": 58
+    },
+    {
+      "id": "su-e2e-retest",
+      "title": "Retest the end-to-end flow",
+      "description": "Test the full customer flow again once the products from Sally are in the store.",
+      "status": "pending",
+      "category": "testing",
+      "priority": "high",
+      "dependency": "Products from Sally.",
+      "sortOrder": 39
+    },
+    {
+      "id": "su-seo-programme",
+      "title": "SEO for the Shopify store",
+      "description": "Start SEO work following the same approach as Scrubness.",
+      "status": "pending",
+      "category": "development",
+      "priority": "high",
+      "dependency": "Products from Sally.",
+      "sortOrder": 39
     }
   ],
   "issues": [
+    {
+      "id": "su-issue-products-sally",
+      "title": "Products from Sally",
+      "description": "Waiting to receive products from Sally. The end-to-end retest and SEO work start once they arrive.",
+      "kind": "blocker",
+      "waitingOn": "Sally",
+      "raisedOn": "2026-11-16"
+    },
     {
       "id": "su-issue-verification",
       "title": "Business verification documents",

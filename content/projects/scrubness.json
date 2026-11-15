@@ -2,21 +2,24 @@
   "id": "scrubness",
   "slug": "scrubness",
   "name": "Scrubness — online store and product data",
-  "summary": "Supporting the Scrubness scrubs brand's WooCommerce store (scrubness.com): site backup, live catalogue data, supplier barcodes and SKUs, and a business and marketing strategy.",
+  "summary": "Optimising the Scrubness WooCommerce store (scrubness.com) for search: product updates, site clean-up, page speed, SEO and GEO content for every product, and analytics (GA4, Google Tag Manager and Meta pixel).",
   "description": "Scrubness is a scrubs brand (scrub tops and scrub pants for women and men) sold online at scrubness.com, a WordPress and WooCommerce store, and also stocked by Southern Uniforms. Current work covers the store's product data — exporting the live catalogue and preparing supplier barcodes and consistent SKUs — a full site backup, and a business and marketing strategy for management.",
-  "businessObjective": "Keep the Scrubness catalogue accurate and ready for product feeds and marketplaces (supplier barcodes and consistent SKUs on every variant), protect the store with backups, and set out an initial plan for growing online sales.",
+  "businessObjective": "Update the products and optimise scrubness.com for search engines and AI answer engines (SEO and GEO): clean up the site, improve page speed, write SEO content for each product using the free tiers of Ahrefs and Semrush, and set up analytics with GA4, Google Tag Manager and the Meta pixel.",
   "background": "The 2026 Scrubness price list (Australia) sets retail prices of $49.95 and $54.95 and wholesale prices of $24.50 and $28.50 per garment, excluding GST. The store offers free shipping over $140 and a 14-day refund policy, and links to Facebook and Instagram. scrubness.com is one of the websites checked by Site Monitor. The wider scope of responsibility for the Scrubness store is Pending confirmation.",
-  "responsibilitySummary": "Store product data, backups and strategy",
+  "responsibilitySummary": "Product updates, SEO and GEO, page speed and analytics",
   "responsibilities": [
-    "Live catalogue export and product data clean-up (barcodes and SKUs)",
-    "Website backup",
-    "Business and marketing strategy for management review"
+    "Product data and product page updates",
+    "Website clean-up and technical SEO (URLs, categories, tags, sitemap)",
+    "Page-speed improvements",
+    "SEO and GEO content for each product, using the free tiers of Ahrefs and Semrush",
+    "Analytics set-up: GA4, Google Tag Manager and Meta pixel",
+    "Website backups"
   ],
   "status": "in_progress",
   "category": "E-commerce",
   "organisation": null,
-  "progressSummary": "Full site backup taken and the live catalogue exported. A barcode and SKU import for the live store is prepared; whether it has been applied is Pending confirmation.",
-  "sourceNote": "Status from project files dated 6–11 Nov 2026 (site backup, live product exports, supplier barcode list, import file), the 2026 price list, and scrubness.com as checked on 16 Nov 2026.",
+  "progressSummary": "Product updates, barcode and SKU import, page-speed changes and a site clean-up are done. Next: keyword research, SEO and GEO content for each product, and GA4, Tag Manager and Meta pixel set-up (no accounts exist yet).",
+  "sourceNote": "Status confirmed by Mahesh on 16 Nov 2026, with project files dated 6–11 Nov 2026 (site backup, product exports, barcode import) and scrubness.com as checked on 16 Nov 2026.",
   "lastVerifiedAt": "2026-11-16",
   "sortOrder": 4,
   "tasks": [
@@ -57,12 +60,120 @@
     {
       "id": "sc-barcodes-skus",
       "title": "Supplier barcodes and SKUs on every variant",
-      "description": "Prepared an import that adds the supplier's barcodes (GTIN) to 218 variants and makes SKUs consistent across 308 variant rows, retiring duplicate legacy variants. Barcodes are required for Google Shopping and most marketplaces.",
-      "status": "in_progress",
+      "description": "Applied supplier barcodes (GTIN) to 218 variants and made SKUs consistent across 308 variant rows, retiring duplicate legacy variants. Barcodes are required for Google Shopping and most marketplaces.",
+      "status": "completed",
       "category": "configuration",
       "priority": "high",
-      "latestProgress": "Import file prepared on 11 Nov 2026 from the supplier barcode list. The live export taken on 11 Nov 2026 shows no barcodes yet; whether the import has been applied to the live store is Pending confirmation.",
+      "sortOrder": 10,
+      "evidence": "Import file prepared 11 Nov 2026; applied to the live store, confirmed by Mahesh on 16 Nov 2026 (date applied not recorded)."
+    },
+    {
+      "id": "sc-product-updates",
+      "title": "Product updates on the live store",
+      "description": "Updated products on the live store. Details of the changes are Pending confirmation.",
+      "status": "completed",
+      "category": "configuration",
+      "priority": "medium",
+      "evidence": "Confirmed by Mahesh on 16 Nov 2026 (completion date not recorded).",
+      "sortOrder": 4
+    },
+    {
+      "id": "sc-page-speed",
+      "title": "Page-speed improvements",
+      "description": "Made page-speed changes to the live site. Details of the changes and before-and-after measurements are Pending confirmation.",
+      "status": "completed",
+      "category": "development",
+      "priority": "medium",
+      "evidence": "Confirmed by Mahesh on 16 Nov 2026 (completion date not recorded).",
+      "sortOrder": 5
+    },
+    {
+      "id": "sc-cleanup-blocks",
+      "title": "Removed unnecessary empty blocks from the WordPress editor",
+      "description": "Cleaned page content of empty editor blocks.",
+      "status": "completed",
+      "category": "development",
+      "priority": "medium",
+      "evidence": "Confirmed by Mahesh on 16 Nov 2026 (completion date not recorded).",
+      "sortOrder": 6
+    },
+    {
+      "id": "sc-contact-page",
+      "title": "Contact page added",
+      "description": "Added a contact page to the website.",
+      "status": "completed",
+      "category": "development",
+      "priority": "medium",
+      "evidence": "Confirmed by Mahesh on 16 Nov 2026 (completion date not recorded).",
+      "sortOrder": 7
+    },
+    {
+      "id": "sc-footer",
+      "title": "Footer improved",
+      "description": "Improved the site footer.",
+      "status": "completed",
+      "category": "development",
+      "priority": "medium",
+      "evidence": "Confirmed by Mahesh on 16 Nov 2026 (completion date not recorded).",
+      "sortOrder": 8
+    },
+    {
+      "id": "sc-categories-tags",
+      "title": "Categories and tags cleaned up",
+      "description": "Cleaned up product categories and tags.",
+      "status": "completed",
+      "category": "configuration",
+      "priority": "medium",
+      "evidence": "Confirmed by Mahesh on 16 Nov 2026 (completion date not recorded).",
+      "sortOrder": 9
+    },
+    {
+      "id": "sc-public-urls",
+      "title": "Publicly accessible URLs cleaned up",
+      "description": "Cleaned up the URLs that are publicly reachable on the site.",
+      "status": "completed",
+      "category": "configuration",
+      "priority": "medium",
+      "evidence": "Confirmed by Mahesh on 16 Nov 2026 (completion date not recorded).",
       "sortOrder": 10
+    },
+    {
+      "id": "sc-sitemap",
+      "title": "Sitemap fixed",
+      "description": "Fixed the sitemap, which previously contained too many links.",
+      "status": "completed",
+      "category": "configuration",
+      "priority": "medium",
+      "evidence": "Confirmed by Mahesh on 16 Nov 2026 (completion date not recorded).",
+      "sortOrder": 11
+    },
+    {
+      "id": "sc-keyword-research",
+      "title": "Keyword research with the free tiers of Ahrefs and Semrush",
+      "description": "Research the search terms customers use for each product, using free-tier tools.",
+      "status": "pending",
+      "category": "research",
+      "priority": "high",
+      "sortOrder": 20
+    },
+    {
+      "id": "sc-product-seo-content",
+      "title": "SEO and GEO content for each product",
+      "description": "Write search-optimised content for every product page, written so search engines and AI answer engines can find and cite it.",
+      "status": "pending",
+      "category": "development",
+      "priority": "high",
+      "sortOrder": 21
+    },
+    {
+      "id": "sc-analytics",
+      "title": "GA4, Google Tag Manager and Meta pixel set-up",
+      "description": "Measure visits, sales and marketing results. No GA4, Tag Manager or Meta pixel is on the site today, and no accounts exist yet.",
+      "status": "pending",
+      "category": "configuration",
+      "priority": "high",
+      "sortOrder": 22,
+      "dependency": "New GA4, Google Tag Manager and Meta accounts, and who should own them."
     }
   ],
   "issues": [
@@ -71,6 +182,14 @@
       "title": "Confirm whether website prices include GST",
       "description": "The 2026 price list gives retail prices excluding GST ($49.95 and $54.95), while scrubness.com shows the same figures as the selling price. Australian consumer prices must be shown including GST, so the intended retail price needs confirming.",
       "kind": "decision",
+      "waitingOn": "Pending confirmation",
+      "raisedOn": "2026-11-16"
+    },
+    {
+      "id": "sc-issue-analytics-accounts",
+      "title": "Analytics accounts and owners",
+      "description": "No GA4, Google Tag Manager or Meta accounts exist for Scrubness yet. Accounts need to be created under the business, with an agreed owner.",
+      "kind": "dependency",
       "waitingOn": "Pending confirmation",
       "raisedOn": "2026-11-16"
     }
