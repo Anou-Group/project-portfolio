@@ -1,7 +1,8 @@
 import Link from "next/link";
 import type { Project, Task, WorkStatus } from "@/domain/schema";
 import { formatDate } from "@/domain/format";
-import { projectProgress, waitingCount } from "@/domain/portfolio";
+import { attentionItems, projectProgress, type AttentionItem } from "@/domain/portfolio";
+import { PENDING_CONFIRMATION } from "@/domain/labels";
 import { TASK_CATEGORY_LABEL } from "@/domain/labels";
 import { cn } from "@/lib/utils";
 
@@ -75,6 +76,58 @@ export function People({ names }: { names: string[] }) {
 const TH = "h-9 border-b px-2 text-center text-xs font-normal text-muted-foreground whitespace-nowrap";
 const TD = "h-10 border-b border-l p-0 text-center text-sm";
 
+/** Who each waiting item is waiting for, in plain words. */
+function waitingFor(item: AttentionItem): string {
+  return item.kind === "issue" ? item.issue.waitingOn || PENDING_CONFIRMATION : PENDING_CONFIRMATION;
+}
+
+/** "Ashwin (3), Sally (1)": who the project is waiting on and for how many things. */
+export function waitingSummary(project: Project): { name: string; count: number }[] {
+  const counts = new Map<string, number>();
+  for (const i of attentionItems([project])) counts.set(waitingFor(i), (counts.get(waitingFor(i)) ?? 0) + 1);
+  return [...counts].map(([name, count]) => ({ name, count })).sort((a, b) => b.count - a.count);
+}
+
+/** Plain-language box at the top of a project: what is holding it up, why, and who we are waiting for. */
+export function WaitingBox({ project }: { project: Project }) {
+  const items = attentionItems([project]);
+  if (!items.length)
+    return (
+      <section aria-label="What is holding this up" className="mt-6 rounded-md border border-l-[6px] border-l-[#00c875] bg-card p-4">
+        <p className="font-medium text-foreground">Nothing is holding this project up right now.</p>
+      </section>
+    );
+  return (
+    <section aria-labelledby="waiting-heading" className="mt-6 rounded-md border border-l-[6px] border-l-[#df2f4a] bg-card p-4">
+      <h2 id="waiting-heading" className="text-lg font-semibold text-foreground">
+        What is holding this up ({items.length})
+      </h2>
+      <ul className="mt-3 divide-y">
+        {items.map((i) => {
+          const id = i.kind === "issue" ? i.issue.id : i.task.id;
+          const what = i.kind === "issue" ? i.issue.title : i.task.title;
+          const why = i.kind === "issue" ? i.issue.description : (i.task.dependency ?? i.task.description);
+          return (
+            <li key={id} data-testid="attention-item" className="grid gap-1 py-3 first:pt-0 last:pb-0 sm:grid-cols-[minmax(0,1fr)_200px] sm:gap-4">
+              <div>
+                <p className="font-medium text-foreground">{what}</p>
+                <p className="mt-0.5 text-sm text-muted-foreground">
+                  <span className="font-medium text-foreground">Why: </span>
+                  {why}
+                </p>
+              </div>
+              <p className="text-sm sm:text-right">
+                <span className="text-muted-foreground">Waiting for </span>
+                <span className="font-semibold text-[#df2f4a]">{waitingFor(i)}</span>
+              </p>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+  );
+}
+
 /** The portfolio board: one row per project, grouped like a monday.com board. */
 export function ProjectBoard({ rows }: { rows: { project: Project; matches: string[] }[] }) {
   const groups = [
@@ -97,20 +150,21 @@ export function ProjectBoard({ rows }: { rows: { project: Project; matches: stri
                   <th className={TH}>Status</th>
                   <th className={TH}>Progress</th>
                   <th className={TH}>Tasks done</th>
-                  <th className={TH}>Waiting on others</th>
+                  <th className={TH}>Waiting for</th>
                   <th className={TH}>Last updated</th>
                 </tr>
               </thead>
               <tbody>
                 {g.rows.map(({ project, matches }) => {
                   const { done, total } = projectProgress(project);
-                  const waiting = waitingCount(project);
+                  const waiting = waitingSummary(project);
                   return (
                     <tr key={project.id} data-testid="project-card" className="hover:bg-muted/40">
                       <td className="h-10 border-b px-3 py-2 text-left">
                         <Link href={`/projects/${project.slug}`} className="font-medium text-foreground hover:text-primary hover:underline">
                           {project.name}
                         </Link>
+                        <p className="mt-0.5 line-clamp-2 max-w-md text-xs leading-relaxed text-muted-foreground">{project.progressSummary}</p>
                         {matches.map((m) => (
                           <p key={m} className="text-xs text-muted-foreground">
                             Matches · {m}
@@ -129,7 +183,17 @@ export function ProjectBoard({ rows }: { rows: { project: Project; matches: stri
                       <td className={cn(TD, "tabular-nums")}>
                         {done} / {total}
                       </td>
-                      <td className={cn(TD, "tabular-nums", waiting ? "font-medium text-[#df2f4a]" : "text-muted-foreground")}>{waiting || "—"}</td>
+                      <td className={cn(TD, "px-2 text-xs")}>
+                        {waiting.length ? (
+                          waiting.map((w) => (
+                            <p key={w.name} className="font-medium whitespace-nowrap text-[#df2f4a]">
+                              {w.name} ({w.count})
+                            </p>
+                          ))
+                        ) : (
+                          <span className="text-muted-foreground">Nobody</span>
+                        )}
+                      </td>
                       <td className={cn(TD, "px-2 text-xs whitespace-nowrap text-muted-foreground")}>{formatDate(project.lastVerifiedAt)}</td>
                     </tr>
                   );

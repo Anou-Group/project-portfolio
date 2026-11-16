@@ -13,7 +13,7 @@ import { StatusBadge, Tag } from "@/components/portfolio/status-badge";
 import { EmptyState } from "@/components/portfolio/empty-state";
 import { ResourceRow } from "@/components/portfolio/resource-link";
 import { ActiveItem, CompletedItem, OutstandingItem } from "@/components/portfolio/task-items";
-import { TaskBoard } from "@/components/portfolio/board";
+import { TaskBoard, WaitingBox } from "@/components/portfolio/board";
 import { DetailSkeleton } from "@/components/portfolio/skeletons";
 import { ActivityList } from "@/components/portfolio/activity-list";
 
@@ -91,6 +91,7 @@ async function ProjectDetail({ params }: { params: PageProps<"/projects/[slug]">
         </p>
       </header>
 
+      <WaitingBox project={project} />
       <TaskBoard project={project} />
 
       <nav aria-label="Project sections" className="sticky top-14 z-30 -mx-4 mt-4 overflow-x-auto border-b bg-background/95 px-4 py-2 backdrop-blur lg:top-0 lg:mx-0 lg:rounded-lg lg:border lg:px-2">
