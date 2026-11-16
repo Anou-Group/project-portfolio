@@ -259,3 +259,26 @@ export function parseActivityFilters(sp: Params): ActivityFilters {
 export function findProject(portfolio: Portfolio, slug: string): Project | undefined {
   return portfolio.projects.find((p) => p.slug === slug);
 }
+
+// ---------- Snapshot (plain-language view of one project) ----------
+
+export type Health = "completed" | "on_track" | "waiting" | "blocked";
+
+/** Number of open items that need someone else (blockers, decisions, approvals) plus my own blocked or waiting tasks. */
+export function waitingCount(project: Project): number {
+  return attentionItems([project]).length;
+}
+
+/** Plain traffic-light health: blocked work is red, anything waiting on others is amber, otherwise green. */
+export function projectHealth(project: Project): Health {
+  if (project.status === "completed") return "completed";
+  if (project.tasks.some((t) => t.status === "blocked")) return "blocked";
+  return waitingCount(project) > 0 ? "waiting" : "on_track";
+}
+
+/** Completed tasks over all published tasks. */
+export function projectProgress(project: Project): { done: number; total: number; percent: number } {
+  const total = project.tasks.length;
+  const done = project.tasks.filter((t) => t.status === "completed").length;
+  return { done, total, percent: total ? Math.round((done / total) * 100) : 0 };
+}

@@ -23,7 +23,7 @@ export function ProjectCard({ project, matches = [] }: { project: Project; match
       <p className="mt-3 flex items-start gap-2 text-sm text-foreground">
         <Briefcase aria-hidden className="mt-0.5 size-4 shrink-0 text-muted-foreground" />
         <span>
-          <span className="sr-only">My responsibility: </span>
+          <span className="sr-only">Team responsibility: </span>
           {project.responsibilitySummary}
         </span>
       </p>

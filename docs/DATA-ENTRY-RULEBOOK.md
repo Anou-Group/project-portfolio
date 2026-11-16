@@ -95,6 +95,11 @@ nice to have. Omit if unsure.
 actually opened, or `/documents/<file>.pdf` for a file in `public/documents/`. Title says
 what it is; description is one line with a date; add `accessNote` if login is needed.
 
+**Overview colour (calculated, never typed):** red = a task is blocked; amber = an open
+blocker, decision or approval is waiting on someone else; green = nothing waiting. Progress
+= completed tasks over published tasks. Keep issue `kind` accurate, because it drives the
+colour: use `risk` for known limits that need no one's action.
+
 **sortOrder:** whole numbers, tasks grouped by theme in the order a manager reads them,
 ascending. New items take the next free number; do not renumber existing ones.
 

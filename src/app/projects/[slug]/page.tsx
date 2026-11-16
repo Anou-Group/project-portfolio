@@ -220,7 +220,7 @@ function OverviewBody({ project }: { project: Project }) {
       </div>
       <div className="space-y-5">
         <div>
-          <h3 className="text-sm font-semibold text-foreground">My responsibilities</h3>
+          <h3 className="text-sm font-semibold text-foreground">Team responsibilities</h3>
           <ul className="mt-2 space-y-1.5 text-sm text-muted-foreground">
             {project.responsibilities.map((r) => (
               <li key={r} className="flex gap-2">

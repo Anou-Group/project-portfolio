@@ -5,7 +5,7 @@ import { allActivity, attentionItems, lastUpdated, portfolioMetrics, reportingPe
 import { formatDate, formatRange } from "@/domain/format";
 import { ISSUE_KIND_LABEL, PENDING_CONFIRMATION, TASK_CATEGORY_LABEL } from "@/domain/labels";
 import { PageHeader, SectionHeading } from "@/components/portfolio/page-header";
-import { ProjectCard } from "@/components/portfolio/project-card";
+import { ProjectSnapshot } from "@/components/portfolio/project-snapshot";
 import { ActivityList } from "@/components/portfolio/activity-list";
 import { EmptyState } from "@/components/portfolio/empty-state";
 import { StatusBadge, Tag } from "@/components/portfolio/status-badge";
@@ -20,15 +20,15 @@ export default async function OverviewPage() {
   const attention = attentionItems(projects);
 
   const tiles = [
-    { label: "Active projects", value: metrics.activeProjects, hint: "Not yet completed", href: "/projects" },
-    { label: "Completed projects", value: metrics.completedProjects, hint: "Finished and verified", href: "/projects?status=completed" },
-    { label: "Projects in progress", value: metrics.inProgressProjects, hint: "Work under way", href: "/projects?status=in_progress" },
-    { label: "Blocked or awaiting approval", value: metrics.needsAttention, hint: "Decisions and inputs needed", href: "#attention" },
+    { label: "Active projects", value: metrics.activeProjects, hint: "Not finished yet", href: "/projects" },
+    { label: "Finished projects", value: metrics.completedProjects, hint: "Done and verified", href: "/projects?status=completed" },
+    { label: "In progress", value: metrics.inProgressProjects, hint: "Work under way", href: "/projects?status=in_progress" },
+    { label: "Waiting on others", value: metrics.needsAttention, hint: "Decisions and inputs needed", href: "#attention" },
   ];
 
   return (
     <>
-      <PageHeader title="Project Portfolio" description="An overview of current projects, responsibilities, progress and upcoming deliverables.">
+      <PageHeader title="Project Portfolio" description="Every project at a glance: where it stands, how far along it is, and what is waiting on others.">
         <dl className="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm">
           <div className="flex items-center gap-2">
             <UserRound aria-hidden className="size-4 text-muted-foreground" />
@@ -76,9 +76,9 @@ export default async function OverviewPage() {
           }
         />
         {projects.length ? (
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-2">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
             {projects.map((p) => (
-              <ProjectCard key={p.id} project={p} />
+              <ProjectSnapshot key={p.id} project={p} />
             ))}
           </div>
         ) : (
@@ -86,7 +86,15 @@ export default async function OverviewPage() {
         )}
       </section>
 
-      <div className="mt-10 grid gap-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)]">
+      <details className="group mt-10 rounded-xl border bg-card shadow-xs open:pb-6">
+        <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-4 text-sm font-medium text-foreground marker:hidden">
+          <span>
+            Full detail
+            <span className="ml-2 font-normal text-muted-foreground">Recent activity, upcoming work and everything waiting on others</span>
+          </span>
+          <ArrowRight aria-hidden className="size-4 rotate-90 text-muted-foreground transition-transform group-open:-rotate-90" />
+        </summary>
+      <div className="mt-2 grid gap-6 px-5 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)]">
         <section aria-labelledby="recent-heading" className="rounded-xl border bg-card p-5 shadow-xs">
           <SectionHeading
             id="recent-heading"
@@ -133,7 +141,7 @@ export default async function OverviewPage() {
         </section>
       </div>
 
-      <section id="attention" aria-labelledby="attention-heading" className="mt-10">
+      <section id="attention" aria-labelledby="attention-heading" className="mt-10 px-5">
         <SectionHeading id="attention-heading" title="Blocked or awaiting approval" />
         <p className="-mt-1 mb-4 text-sm text-muted-foreground">Decisions, approvals and inputs that other people need to provide before work can continue.</p>
         {attention.length ? (
@@ -168,6 +176,7 @@ export default async function OverviewPage() {
           <EmptyState title="Nothing is blocked or awaiting approval" />
         )}
       </section>
+      </details>
     </>
   );
 }

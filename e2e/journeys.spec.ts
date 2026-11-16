@@ -18,7 +18,7 @@ test("overview shows owner, figures from the records and every project", async (
   const e = await expected();
   await page.goto("/");
   await expect(page.getByRole("heading", { level: 1, name: "Project Portfolio" })).toBeVisible();
-  await expect(page.getByText("An overview of current projects, responsibilities, progress and upcoming deliverables.")).toBeVisible();
+  await expect(page.getByText("Every project at a glance: where it stands, how far along it is, and what is waiting on others.")).toBeVisible();
   await expect(page.locator("main").getByText(e.profile.ownerName).first()).toBeVisible();
 
   const metrics = page.getByTestId("metric");
