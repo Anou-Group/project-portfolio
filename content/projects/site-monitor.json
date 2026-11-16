@@ -17,8 +17,8 @@
   "status": "in_progress",
   "category": "Internal tool",
   "organisation": "Anou Group",
-  "progressSummary": "Version 2 is built with automated tests and automatic deployment after CI passes. Verification on live infrastructure (alert delivery, outage detection, access control) is outstanding; branded alert emails are in review.",
-  "sourceNote": "Status from the project plan (docs/PLAN.md) and GitHub pull requests to 5 Nov 2026.",
+  "progressSummary": "Version 2 is built with automated tests and automatic deployment after CI passes, and the dashboard is deployed with sign-in limited to Ashwin and Mahesh. Verification of alert delivery and outage detection is outstanding; branded alert emails are not live yet.",
+  "sourceNote": "Status from the project plan (docs/PLAN.md), GitHub pull requests to 5 Nov 2026 and an update from Mahesh on 16 Nov 2026.",
   "lastVerifiedAt": "2026-11-16",
   "sortOrder": 3,
   "tasks": [
@@ -117,7 +117,7 @@
       "status": "in_progress",
       "category": "development",
       "priority": "medium",
-      "latestProgress": "Pull request #3 opened on 5 Nov 2026; awaiting review and merge.",
+      "latestProgress": "Pull request #3 opened on 5 Nov 2026 and still awaiting review and merge, so not live.",
       "sortOrder": 20
     },
     {
@@ -142,10 +142,11 @@
       "id": "sm-verify-access",
       "title": "Verify dashboard access control",
       "description": "Confirm only allowlisted Google accounts can open the dashboard.",
-      "status": "pending",
+      "status": "in_progress",
       "category": "testing",
       "priority": "high",
-      "sortOrder": 32
+      "sortOrder": 32,
+      "latestProgress": "Dashboard sign-in is limited to two named people, Ashwin and Mahesh. Testing of this restriction is Pending confirmation."
     },
     {
       "id": "sm-status-page",
@@ -246,6 +247,14 @@
       "type": "github_pull_request",
       "url": "https://github.com/Anou-Group/site-monitor/pull/3",
       "accessNote": "Private repository — GitHub access required"
+    },
+    {
+      "id": "sm-r-dashboard",
+      "title": "Site Monitor dashboard",
+      "description": "Live dashboard of website uptime, response times, incidents and alert settings.",
+      "type": "website",
+      "url": "https://site-monitor-web.anou-monitor.workers.dev/",
+      "accessNote": "Sign-in limited to two named people."
     }
   ],
   "stakeholders": []

@@ -5,7 +5,7 @@
   "summary": "A web application that tracks the group's digital spend — subscriptions, domains, SSL, hosting, plugins, advertising and usage costs — and shows cost by person, team, company, group, vendor and project.",
   "description": "Anou Hub records every digital cost the group pays for and shows where the money goes. A workspace holds groups and companies; costs belong to a company, one of its projects or the group itself. The group admin manages costs, budgets, renewals and bills; viewers can look; staff use their own portal to see their tools, report problems and request tools. Hardware tracking is planned for version 2.",
   "businessObjective": "Give the group one accurate, consistent view of digital costs across Anouconcept, Ifota and Koolandthecrew: what is paid for, who uses it, what renews when, and what can be cancelled — with costs visible per person, team, company, group, vendor and project.",
-  "background": "Anou Hub v1 is planned as a SaaS product with Anou Group (Anouconcept, Ifota and Koolandthecrew) as its first customer. Product decisions are recorded in the project plan from 21 Oct 2026, including that Dynamics 365 is not integrated (it is tracked only as a subscription) and that pushing bills to Xero is not needed (account codes are kept for CSV export).",
+  "background": "Anou Hub v1 is planned as a SaaS product with Anou Group (Anouconcept, Ifota and Koolandthecrew) as its first customer. Product decisions are recorded in the project plan from 21 Oct 2026, including that Dynamics 365 is not integrated (it is tracked only as a subscription) and that pushing bills to Xero is not needed (account codes are kept for CSV export). It currently runs locally with no users yet; it is intended for the accounts team to use and for the manager to see what is happening with spend.",
   "responsibilitySummary": "Product design and full-stack development",
   "responsibilities": [
     "Product specification and screen design",
@@ -18,8 +18,8 @@
   "status": "in_progress",
   "category": "Internal platform",
   "organisation": "Anou Group",
-  "progressSummary": "Core product built, with PostgreSQL on Neon, Neon Auth sign-in, restore points and email reminders. Production email sending is waiting on a verified sending domain and environment variables on Vercel.",
-  "sourceNote": "Status from the project plan (docs/PLAN.md) and repository history to 10 Nov 2026.",
+  "progressSummary": "Core product built and running locally, with PostgreSQL on Neon, Neon Auth sign-in and restore points. Admin sign-in and user accounts work; no one is using it yet. It is not yet deployed.",
+  "sourceNote": "Status from the project plan (docs/PLAN.md), repository history to 10 Nov 2026 and an update from Mahesh on 16 Nov 2026.",
   "lastVerifiedAt": "2026-11-16",
   "sortOrder": 2,
   "tasks": [
@@ -139,16 +139,18 @@
       "priority": "high",
       "dependency": "A verified email sending domain, and the scheduled-job secret and other environment variables configured on Vercel.",
       "latestProgress": "Waiting on the items above (project plan, 9 Nov 2026).",
-      "sortOrder": 20
+      "sortOrder": 20,
+      "isPublished": false
     },
     {
       "id": "ah-signin-e2e",
       "title": "End-to-end test of a confirmed sign-in",
       "description": "Prove a full sign-in with a confirmed email address; this needs a real inbox.",
-      "status": "pending",
+      "status": "completed",
       "category": "testing",
       "priority": "medium",
-      "sortOrder": 30
+      "sortOrder": 30,
+      "evidence": "Admin sign-in and user accounts checked and working. Confirmed by Mahesh on 16 Nov 2026."
     },
     {
       "id": "ah-real-domains",
@@ -158,7 +160,8 @@
       "category": "business_requirements",
       "priority": "medium",
       "dependency": "Registrar exports of the group's domains.",
-      "sortOrder": 31
+      "sortOrder": 31,
+      "isPublished": false
     },
     {
       "id": "ah-production-url",
@@ -167,7 +170,8 @@
       "status": "pending",
       "category": "deployment",
       "priority": "medium",
-      "sortOrder": 32
+      "sortOrder": 32,
+      "latestProgress": "Runs locally only and is not yet deployed."
     },
     {
       "id": "ah-ask-box",
@@ -176,7 +180,8 @@
       "status": "pending",
       "category": "other",
       "priority": "low",
-      "sortOrder": 33
+      "sortOrder": 33,
+      "isPublished": false
     }
   ],
   "issues": [
@@ -186,14 +191,16 @@
       "description": "Reminder emails can only be delivered to the sending account's own address until a domain is verified with the email provider.",
       "kind": "dependency",
       "waitingOn": "Pending confirmation",
-      "raisedOn": "2026-11-09"
+      "raisedOn": "2026-11-09",
+      "isPublished": false
     },
     {
       "id": "ah-issue-registrar-exports",
       "title": "Registrar exports for the real domain list",
       "description": "Sample domains stay in place until the registrar exports arrive.",
       "kind": "dependency",
-      "waitingOn": "Pending confirmation"
+      "waitingOn": "Pending confirmation",
+      "isPublished": false
     }
   ],
   "updates": [
