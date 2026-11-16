@@ -655,6 +655,13 @@
   ],
   "resources": [
     {
+      "id": "sc-r-go-live-plan",
+      "title": "Scrubness Website — Go-Live and Growth Plan (PDF)",
+      "description": "How scrubness.com will bring in business, running and growth costs, the development plan before and after go-live, and how results will be measured. 16 Nov 2026.",
+      "type": "project_brief",
+      "url": "/documents/scrubness-go-live-and-growth-plan.pdf"
+    },
+    {
       "id": "sc-r-strategy",
       "taskId": "sc-strategy-document",
       "title": "Scrubness — Business & Marketing Strategy (PDF)",
