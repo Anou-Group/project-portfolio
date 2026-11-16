@@ -5,7 +5,7 @@ import { parseProjectFilters, projectCategories, searchProjects } from "@/domain
 import { STATUS_LABEL } from "@/domain/labels";
 import { WORK_STATUSES } from "@/domain/schema";
 import { plural } from "@/domain/format";
-import { ProjectSnapshot } from "@/components/portfolio/project-snapshot";
+import { ProjectBoard } from "@/components/portfolio/board";
 import { EmptyState } from "@/components/portfolio/empty-state";
 import { ChipLinks } from "@/components/portfolio/chip-links";
 import { UrlSearchInput } from "@/components/portfolio/filter-controls";
@@ -44,11 +44,7 @@ export async function ProjectList({ searchParams }: { searchParams: Promise<Reco
       </div>
 
       {results.length ? (
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-          {results.map((r) => (
-            <ProjectSnapshot key={r.project.id} project={r.project} matches={r.matches} />
-          ))}
-        </div>
+        <ProjectBoard rows={results} />
       ) : (
         <EmptyState
           icon={SearchX}

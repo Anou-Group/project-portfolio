@@ -53,7 +53,7 @@ test("a project card opens the right project with all sections", async ({ page }
   const project = e.projects[0];
   const b = e.breakdown(project.slug);
   await page.goto("/");
-  await page.getByTestId("project-card").filter({ hasText: project.name }).getByRole("link", { name: project.name }).click();
+  await page.getByTestId("project-card").filter({ hasText: project.name }).getByRole("link", { name: project.name }).first().click();
   await expect(page).toHaveURL(`/projects/${project.slug}`);
   await expect(page.getByRole("heading", { level: 1, name: project.name })).toBeVisible();
   for (const title of ["Project overview", "Completed work", "Currently in progress", "Yet to be completed", "Issues and dependencies", "Resources and documents", "Activity timeline"]) {
