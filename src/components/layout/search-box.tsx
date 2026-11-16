@@ -1,10 +1,10 @@
 import Form from "next/form";
 import { Search } from "lucide-react";
 
-/** Searches across projects; submits to All Projects with ?q= (works without JavaScript). */
+/** Searches across projects; submits to the project list with ?q= (works without JavaScript). */
 export function SearchBox({ id = "global-search" }: { id?: string }) {
   return (
-    <Form action="/projects" role="search" className="relative">
+    <Form action="/" role="search" className="relative">
       <label htmlFor={id} className="sr-only">
         Search projects
       </label>

@@ -9,7 +9,7 @@ test("all pages fit every width, log no errors and contain no prohibited languag
   test.skip(info.project.name !== "desktop", "Runs once; sets its own widths");
   test.setTimeout(240_000);
   const e = await expected();
-  const paths = ["/", "/projects", "/activity", "/resources", "/about", ...e.projects.map((p) => `/projects/${p.slug}`), "/projects?q=shopify", "/activity?category=development"];
+  const paths = ["/", "/activity", "/resources", "/about", ...e.projects.map((p) => `/projects/${p.slug}`), "/?q=shopify", "/activity?category=development"];
   const errors: string[] = [];
   page.on("console", (m) => {
     if (m.type() === "error") errors.push(`${page.url()}: ${m.text()}`);

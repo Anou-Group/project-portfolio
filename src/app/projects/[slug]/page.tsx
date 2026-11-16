@@ -54,7 +54,7 @@ async function ProjectDetail({ params }: { params: PageProps<"/projects/[slug]">
 
   return (
     <article>
-      <Link href="/projects" className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground">
+      <Link href="/" className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground">
         <ArrowLeft aria-hidden className="size-4" />
         All projects
       </Link>

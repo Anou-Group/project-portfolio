@@ -29,14 +29,11 @@ test("overview shows owner, figures from the records and every project", async (
   await expect(metrics.nth(3)).toContainText(String(e.metrics.needsAttention));
 
   await expect(page.getByTestId("project-card")).toHaveCount(e.projects.length);
-  await expect(page.getByTestId("attention-item")).toHaveCount(e.metrics.needsAttention);
-  await expect(page.getByTestId("activity-entry").first()).toContainText(e.activity[0].title);
 });
 
 test("every navigation item opens its page and is marked active", async ({ page }) => {
   await page.goto("/");
   for (const [label, path, heading] of [
-    ["All Projects", "/projects", "All Projects"],
     ["Activity & Updates", "/activity", "Activity & Updates"],
     ["Resources", "/resources", "Resources"],
     ["About", "/about", "About this report"],
@@ -56,7 +53,7 @@ test("a project card opens the right project with all sections", async ({ page }
   const project = e.projects[0];
   const b = e.breakdown(project.slug);
   await page.goto("/");
-  await page.getByTestId("project-card").filter({ hasText: project.name }).click();
+  await page.getByTestId("project-card").filter({ hasText: project.name }).getByRole("link", { name: project.name }).click();
   await expect(page).toHaveURL(`/projects/${project.slug}`);
   await expect(page.getByRole("heading", { level: 1, name: project.name })).toBeVisible();
   for (const title of ["Project overview", "Completed work", "Currently in progress", "Yet to be completed", "Issues and dependencies", "Resources and documents", "Activity timeline"]) {
@@ -82,7 +79,7 @@ test("sections collapse and expand with a clear state", async ({ page }) => {
 });
 
 test("search across projects filters by task text and can be cleared", async ({ page }) => {
-  await page.goto("/projects", { waitUntil: "networkidle" });
+  await page.goto("/", { waitUntil: "networkidle" });
   const box = page.locator("#filter-q");
   await box.fill("redirects");
   await expect(page).toHaveURL(/q=redirects/);
@@ -94,23 +91,23 @@ test("search across projects filters by task text and can be cleared", async ({ 
   await box.fill("zzzz-nothing");
   await expect(page.getByText("No projects match")).toBeVisible();
   await page.getByRole("link", { name: "Clear filters" }).first().click();
-  await expect(page).toHaveURL(/\/projects$/);
+  await expect(page).toHaveURL(/\/$/);
   await expect(cards).toHaveCount((await expected()).projects.length);
 });
 
-test("sidebar search submits to All Projects", async ({ page }) => {
+test("sidebar search filters the project list", async ({ page }) => {
   test.skip(isMobile(page), "Desktop sidebar only");
   await page.goto("/about");
   const box = page.getByRole("searchbox", { name: "Search projects" }).first();
   await box.fill("barcodes");
   await box.press("Enter");
-  await expect(page).toHaveURL(/\/projects\?q=barcodes/);
+  await expect(page).toHaveURL(/\/\?q=barcodes/);
   await expect(page.getByTestId("project-card")).toContainText(["Scrubness"]);
 });
 
 test("status filter chip shows only matching projects and is visibly selected", async ({ page }) => {
   const e = await expected();
-  await page.goto("/projects");
+  await page.goto("/");
   const chip = page.getByRole("list", { name: "Status" }).getByRole("link", { name: /In Progress/ });
   await chip.click();
   await expect(page).toHaveURL(/status=in_progress/);
@@ -159,7 +156,7 @@ test("unknown projects show a helpful not-found page", async ({ page }) => {
   expect([200, 404]).toContain(res?.status());
   await expect(page.getByRole("heading", { name: "Page not found" })).toBeVisible();
   await page.getByRole("link", { name: "All projects" }).last().click();
-  await expect(page).toHaveURL(/\/projects$/);
+  await expect(page).toHaveURL(/\/$/);
 });
 
 test("keyboard users can skip to content", async ({ page }) => {

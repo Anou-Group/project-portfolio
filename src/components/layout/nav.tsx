@@ -2,12 +2,11 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Activity, FolderKanban, Info, LayoutDashboard, Library, type LucideIcon } from "lucide-react";
+import { Activity, Info, LayoutDashboard, Library, type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export const NAV_ITEMS: { href: string; label: string; icon: LucideIcon }[] = [
   { href: "/", label: "Overview", icon: LayoutDashboard },
-  { href: "/projects", label: "All Projects", icon: FolderKanban },
   { href: "/activity", label: "Activity & Updates", icon: Activity },
   { href: "/resources", label: "Resources", icon: Library },
   { href: "/about", label: "About", icon: Info },
