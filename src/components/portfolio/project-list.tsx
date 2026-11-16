@@ -1,7 +1,10 @@
 import Link from "next/link";
 import { SearchX } from "lucide-react";
 import { getPortfolio } from "@/server/portfolio";
-import { parseProjectFilters, projectCategories, searchProjects } from "@/domain/portfolio";
+import { allActivity, parseProjectFilters, projectCategories, searchProjects } from "@/domain/portfolio";
+import { PERIODS, inRange, periodRange, todayInMelbourne } from "@/domain/period";
+import { formatRange } from "@/domain/format";
+import { ActivityList } from "@/components/portfolio/activity-list";
 import { STATUS_LABEL } from "@/domain/labels";
 import { WORK_STATUSES } from "@/domain/schema";
 import { plural } from "@/domain/format";
@@ -14,12 +17,15 @@ export async function ProjectList({ searchParams }: { searchParams: Promise<Reco
   const [{ projects }, sp] = await Promise.all([getPortfolio(), searchParams]);
   const filters = parseProjectFilters(sp);
   const results = searchProjects(projects, filters);
-  const current = { q: filters.q || null, status: filters.status, category: filters.category };
+  const periodParam = typeof sp.period === "string" ? sp.period : null;
+  const period = periodRange(periodParam, todayInMelbourne());
+  const current = { q: filters.q || null, status: filters.status, category: filters.category, period: period?.key ?? null };
+  const happened = period ? allActivity(results.map((r) => r.project)).filter((a) => inRange(a.occurredOn, period)) : [];
   const statusOptions = WORK_STATUSES.map((s) => ({ value: s, label: STATUS_LABEL[s], count: projects.filter((p) => p.status === s).length })).filter(
     (o) => o.count > 0 || o.value === filters.status,
   );
   const categoryOptions = projectCategories(projects).map((c) => ({ value: c, label: c, count: projects.filter((p) => p.category === c).length }));
-  const filtered = Boolean(filters.q || filters.status || filters.category);
+  const filtered = Boolean(filters.q || filters.status || filters.category || period);
 
   return (
     <>
@@ -28,6 +34,7 @@ export async function ProjectList({ searchParams }: { searchParams: Promise<Reco
         <div className="flex flex-col gap-4 md:flex-row md:gap-8">
           <ChipLinks label="Status" pathname="/" current={current} param="status" options={statusOptions} />
           <ChipLinks label="Category" pathname="/" current={current} param="category" options={categoryOptions} />
+          <ChipLinks label="Period" pathname="/" current={current} param="period" options={PERIODS.map((p) => ({ value: p.value, label: p.label }))} allLabel="All time" />
         </div>
       </div>
 
@@ -44,7 +51,18 @@ export async function ProjectList({ searchParams }: { searchParams: Promise<Reco
       </div>
 
       {results.length ? (
-        <ProjectBoard rows={results} />
+        <>
+          <ProjectBoard rows={results} period={period} />
+          {period ? (
+            <section aria-labelledby="happened-heading" className="mt-10">
+              <h2 id="happened-heading" className="text-lg font-semibold text-foreground">
+                What happened · {period.label}
+              </h2>
+              <p className="mb-4 text-sm text-muted-foreground">{formatRange(period.from, period.to)}</p>
+              {happened.length ? <ActivityList entries={happened} /> : <p className="text-sm text-muted-foreground">Nothing was recorded in this period.</p>}
+            </section>
+          ) : null}
+        </>
       ) : (
         <EmptyState
           icon={SearchX}

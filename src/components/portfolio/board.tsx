@@ -3,6 +3,7 @@ import type { Project, Task, WorkStatus } from "@/domain/schema";
 import { formatDate } from "@/domain/format";
 import { attentionItems, projectProgress, type AttentionItem } from "@/domain/portfolio";
 import { PENDING_CONFIRMATION } from "@/domain/labels";
+import { inRange, type PeriodRange } from "@/domain/period";
 import { TASK_CATEGORY_LABEL } from "@/domain/labels";
 import { cn } from "@/lib/utils";
 
@@ -129,7 +130,7 @@ export function WaitingBox({ project }: { project: Project }) {
 }
 
 /** The portfolio board: one row per project, grouped like a monday.com board. */
-export function ProjectBoard({ rows }: { rows: { project: Project; matches: string[] }[] }) {
+export function ProjectBoard({ rows, period = null }: { rows: { project: Project; matches: string[] }[]; period?: PeriodRange | null }) {
   const groups = [
     { title: "Active projects", color: "#579bfc", rows: rows.filter((r) => r.project.status !== "completed") },
     { title: "Finished projects", color: "#00c875", rows: rows.filter((r) => r.project.status === "completed") },
@@ -150,6 +151,7 @@ export function ProjectBoard({ rows }: { rows: { project: Project; matches: stri
                   <th className={TH}>Status</th>
                   <th className={TH}>Progress</th>
                   <th className={TH}>Tasks done</th>
+                  {period ? <th className={TH}>Done {period.label.toLowerCase()}</th> : null}
                   <th className={TH}>Waiting for</th>
                   <th className={TH}>Last updated</th>
                 </tr>
@@ -183,6 +185,11 @@ export function ProjectBoard({ rows }: { rows: { project: Project; matches: stri
                       <td className={cn(TD, "tabular-nums")}>
                         {done} / {total}
                       </td>
+                      {period ? (
+                        <td className={cn(TD, "font-semibold tabular-nums")}>
+                          {project.tasks.filter((t) => t.status === "completed" && inRange(t.completedAt, period)).length || "—"}
+                        </td>
+                      ) : null}
                       <td className={cn(TD, "px-2 text-xs")}>
                         {waiting.length ? (
                           waiting.map((w) => (
