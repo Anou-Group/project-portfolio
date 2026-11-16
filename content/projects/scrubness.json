@@ -18,7 +18,7 @@
   "status": "in_progress",
   "category": "E-commerce",
   "organisation": null,
-  "progressSummary": "Site restored after the 9–10 Nov outage; Home mobile PageSpeed 69 → 95; 2026 catalogue, SKUs, barcodes and descriptions live; homepage, footer and contact page refreshed; site clean-up, SEO basics and product-photo alt text done. Next: open fixes and testing, then the SEO tool trial, titles and meta descriptions, and analytics.",
+  "progressSummary": "Site restored after the 9–10 Nov outage; Home mobile PageSpeed 69 → 95 and Shop 76 → 79; 2026 catalogue, SKUs, barcodes and descriptions live; homepage, footer and contact page refreshed; site clean-up, SEO basics and product-photo alt text done. Next: SEO tool trial, titles, meta descriptions and SEO/GEO content, and analytics.",
   "sourceNote": "Status from the Scrubness work snapshot of 16 Nov 2026 (items checked on the live site after each change, several re-checked on 16 Nov) and project files dated 10–11 Nov 2026.",
   "lastVerifiedAt": "2026-11-16",
   "sortOrder": 4,
@@ -240,12 +240,13 @@
     },
     {
       "id": "sc-speed-followup",
-      "title": "Remove the last empty row under the Home hero",
+      "title": "Last empty row under the Home hero removed",
       "description": "Closes the remaining gap of about 50 px on phones.",
-      "status": "pending",
+      "status": "completed",
       "category": "development",
       "priority": "low",
-      "sortOrder": 43
+      "sortOrder": 43,
+      "evidence": "Confirmed by Mahesh on 16 Nov 2026."
     },
     {
       "id": "sc-server-fix",
@@ -293,7 +294,7 @@
     {
       "id": "sc-shop-speed",
       "title": "Shop page speed: PageSpeed 76 → 79",
-      "description": "Shop and category pages now load correctly sized images (phone image download 412 KB → 234 KB), show the first 4 product pictures straight away and preload the first 2. Mobile score 76 → 79, LCP 5.9 s → 5.6 s.",
+      "description": "Shop and category pages now load correctly sized images (phone image download 412 KB → 234 KB), show the first 4 product pictures straight away and preload the first 2. Mobile score 76 → 79, LCP 5.9 s → 5.6 s. The score of 79 is accepted for now.",
       "status": "completed",
       "category": "development",
       "priority": "medium",
@@ -384,7 +385,8 @@
       "category": "development",
       "priority": "medium",
       "sortOrder": 40,
-      "dependency": "PageSpeed \"LCP breakdown\" timings from the Shop page."
+      "dependency": "PageSpeed \"LCP breakdown\" timings from the Shop page.",
+      "isPublished": false
     },
     {
       "id": "sc-speed-recheck",
@@ -393,7 +395,8 @@
       "status": "pending",
       "category": "testing",
       "priority": "medium",
-      "sortOrder": 41
+      "sortOrder": 41,
+      "isPublished": false
     },
     {
       "id": "sc-cloudflare",
@@ -403,7 +406,8 @@
       "category": "configuration",
       "priority": "medium",
       "sortOrder": 42,
-      "dependency": "The Cloudflare account owner."
+      "dependency": "The Cloudflare account owner.",
+      "isPublished": false
     },
     {
       "id": "sc-search-console",
@@ -412,7 +416,8 @@
       "status": "pending",
       "category": "configuration",
       "priority": "high",
-      "sortOrder": 44
+      "sortOrder": 44,
+      "isPublished": false
     },
     {
       "id": "sc-test-enquiry",
@@ -421,7 +426,8 @@
       "status": "pending",
       "category": "testing",
       "priority": "medium",
-      "sortOrder": 45
+      "sortOrder": 45,
+      "isPublished": false
     },
     {
       "id": "sc-test-order",
@@ -430,16 +436,18 @@
       "status": "pending",
       "category": "testing",
       "priority": "high",
-      "sortOrder": 46
+      "sortOrder": 46,
+      "isPublished": false
     },
     {
       "id": "sc-content-fixes",
       "title": "Content fixes",
-      "description": "Make \"& JOEY\" bold in the Ellen, Charlie and Joey banner; remove \"prints\" from category intros; fix the Terms of Use clause 13.2 business name; delete the Vegemite tag.",
-      "status": "pending",
+      "description": "Category intros no longer mention prints, the Vegemite tag is removed, and \"& JOEY\" is bold in the Ellen, Charlie and Joey banner.",
+      "status": "completed",
       "category": "development",
       "priority": "low",
-      "sortOrder": 47
+      "sortOrder": 47,
+      "evidence": "Confirmed by Mahesh on 16 Nov 2026; category intros and the tag removal checked on the live site on 16 Nov 2026."
     },
     {
       "id": "sc-domain-redirect",
@@ -448,7 +456,8 @@
       "status": "pending",
       "category": "configuration",
       "priority": "medium",
-      "sortOrder": 48
+      "sortOrder": 48,
+      "isPublished": false
     },
     {
       "id": "sc-export-check",
@@ -457,12 +466,13 @@
       "status": "pending",
       "category": "testing",
       "priority": "low",
-      "sortOrder": 49
+      "sortOrder": 49,
+      "isPublished": false
     },
     {
       "id": "sc-alt-text-pages",
       "title": "Alt text on Home and information pages",
-      "description": "Home (11 images), About (4), Privacy, FAQ, Contact and Shop hover images.",
+      "description": "Six images still have no alt text on the live site (checked 16 Nov 2026): three icons on Home and three images on About Us.",
       "status": "pending",
       "category": "development",
       "priority": "medium",
@@ -475,7 +485,8 @@
       "status": "pending",
       "category": "configuration",
       "priority": "medium",
-      "sortOrder": 53
+      "sortOrder": 53,
+      "isPublished": false
     },
     {
       "id": "sc-about-layout",
@@ -484,17 +495,19 @@
       "status": "pending",
       "category": "development",
       "priority": "low",
-      "sortOrder": 39
+      "sortOrder": 39,
+      "isPublished": false
     }
   ],
   "issues": [
     {
       "id": "sc-issue-gst-pricing",
       "title": "GST display on shop prices",
-      "description": "The cart adds 10% GST to items and shipping, but shop prices are shown without GST and the product data says prices exclude GST. Decide whether to show prices including GST in the shop or keep the current display.",
+      "description": "How GST is shown on shop prices has been resolved (Confirmed by Mahesh on 16 Nov 2026).",
       "kind": "decision",
       "waitingOn": "Management",
-      "raisedOn": "2026-11-16"
+      "raisedOn": "2026-11-16",
+      "status": "resolved"
     },
     {
       "id": "sc-issue-analytics-accounts",
@@ -519,7 +532,8 @@
       "description": "Needed for Cloudflare speed and bot-check settings.",
       "kind": "dependency",
       "waitingOn": "Management",
-      "raisedOn": "2026-11-16"
+      "raisedOn": "2026-11-16",
+      "isPublished": false
     },
     {
       "id": "sc-issue-backups",
