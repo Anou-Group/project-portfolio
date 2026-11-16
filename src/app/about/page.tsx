@@ -32,7 +32,7 @@ export default async function AboutPage() {
 
         <Card title="How information is verified">
           <ul className="space-y-2.5 text-sm leading-relaxed text-muted-foreground">
-            <li>Progress is taken from project records: GitHub repositories and pull requests, project trackers and decision logs in Notion, and the project plans kept with each codebase.</li>
+            <li>Progress is taken from project records: GitHub repositories and pull requests, project trackers and decision logs, work records, and the project plans kept with each codebase.</li>
             <li>Work is marked Completed only when there is evidence for it, and each completed item states where that evidence is.</li>
             <li>Built, tested, deployed and approved are reported separately. Work merged to a preview environment is not described as live.</li>
             <li>Anything that has not been confirmed is shown as &ldquo;{PENDING_CONFIRMATION}&rdquo;. Dates, figures and links are included only where a source provides them.</li>

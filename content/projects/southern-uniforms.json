@@ -880,7 +880,8 @@
       "description": "Project home: status, roadmap, decision log, Phase 1 tracker, guides and weekly updates.",
       "type": "notion_page",
       "url": "https://app.notion.com/p/406ed0fd77bc81158e31f36b75d7d5f0",
-      "accessNote": "Notion workspace access required"
+      "accessNote": "Notion workspace access required",
+      "isPublished": false
     },
     {
       "id": "su-r-tracker",
@@ -888,7 +889,8 @@
       "description": "Every Phase 1 item with status, owner, who it is waiting on and why it matters.",
       "type": "notion_page",
       "url": "https://app.notion.com/p/8ea3796b65774c7696527fb5c4761412",
-      "accessNote": "Notion workspace access required"
+      "accessNote": "Notion workspace access required",
+      "isPublished": false
     },
     {
       "id": "su-r-decisions",
@@ -896,7 +898,8 @@
       "description": "Platform, checkout, shipping, wishlist and contact decisions with dates and reasons.",
       "type": "notion_page",
       "url": "https://app.notion.com/p/cb2d791a3b074d098a729e0062db889d",
-      "accessNote": "Notion workspace access required"
+      "accessNote": "Notion workspace access required",
+      "isPublished": false
     },
     {
       "id": "su-r-weekly",
@@ -904,7 +907,8 @@
       "description": "Weekly status for the business contact: done, next, waiting on, decisions needed and risks.",
       "type": "meeting_notes",
       "url": "https://app.notion.com/p/406ed0fd77bc8109a905c75c0835e53b",
-      "accessNote": "Notion workspace access required"
+      "accessNote": "Notion workspace access required",
+      "isPublished": false
     },
     {
       "id": "su-r-repo",
