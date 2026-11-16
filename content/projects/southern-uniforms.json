@@ -517,7 +517,9 @@
       "status": "pending",
       "category": "configuration",
       "priority": "medium",
-      "sortOrder": 52
+      "sortOrder": 52,
+      "dependency": "Products being finalised.",
+      "latestProgress": "Requested by the business. To be done once the products are finalised."
     },
     {
       "id": "su-sender-domain",
