@@ -9,17 +9,17 @@
   "responsibilitySummary": "Product updates, SEO and GEO, page speed and analytics",
   "responsibilities": [
     "Product data and product page updates",
-    "Website clean-up and technical SEO (URLs, categories, tags, sitemap)",
+    "Website clean-up and technical SEO (URLs, categories, sitemap, indexing)",
     "Page-speed improvements",
-    "SEO and GEO content for each product, using the free tiers of Ahrefs and Semrush",
-    "Analytics set-up: GA4, Google Tag Manager and Meta pixel",
-    "Website backups"
+    "SEO and GEO content for each product",
+    "Analytics set-up",
+    "Testing changes on a local copy before they go live"
   ],
   "status": "in_progress",
   "category": "E-commerce",
   "organisation": null,
-  "progressSummary": "Mobile PageSpeed raised from 69 to 95 (LCP 7.4 s → 2.9 s) on 10 Nov 2026, with product updates, the barcode and SKU import and a site clean-up done. Next: keyword research, SEO and GEO content for each product, and GA4, Tag Manager and Meta pixel set-up (no accounts exist yet).",
-  "sourceNote": "Status from the page-speed work record of 9–10 Nov 2026 (with live-site checks), project files dated 6–11 Nov 2026, Mahesh's confirmation on 16 Nov 2026, and scrubness.com as checked on 16 Nov 2026.",
+  "progressSummary": "Site restored after the 9–10 Nov outage; Home mobile PageSpeed 69 → 95; 2026 catalogue, SKUs, barcodes and descriptions live; homepage, footer and contact page refreshed; site clean-up, SEO basics and product-photo alt text done. Next: open fixes and testing, then the SEO tool trial, titles and meta descriptions, and analytics.",
+  "sourceNote": "Status from the Scrubness work snapshot of 16 Nov 2026 (items checked on the live site after each change, several re-checked on 16 Nov) and project files dated 10–11 Nov 2026.",
   "lastVerifiedAt": "2026-11-16",
   "sortOrder": 4,
   "tasks": [
@@ -32,18 +32,19 @@
       "priority": "high",
       "evidence": "Backup archive and installer dated 6 Nov 2026.",
       "completedAt": "2026-11-06",
-      "sortOrder": 1
+      "sortOrder": 1,
+      "isPublished": false
     },
     {
       "id": "sc-catalogue-export",
       "title": "Live catalogue export",
-      "description": "Exported the live WooCommerce catalogue: 84 products (by style and colour) with 842 size variants across women's scrub tops, men's scrub tops and scrub pants.",
+      "description": "Exported the live catalogue (84 products, 842 size variants) to prepare the 2026 product updates.",
       "status": "completed",
       "category": "configuration",
-      "priority": "medium",
+      "priority": "low",
       "evidence": "WooCommerce product export dated 10 Nov 2026.",
       "completedAt": "2026-11-10",
-      "sortOrder": 2
+      "sortOrder": 21
     },
     {
       "id": "sc-strategy-document",
@@ -59,204 +60,482 @@
     },
     {
       "id": "sc-barcodes-skus",
-      "title": "Supplier barcodes and SKUs on every variant",
-      "description": "Applied supplier barcodes (GTIN) to 218 variants and made SKUs consistent across 308 variant rows, retiring duplicate legacy variants. Barcodes are required for Google Shopping and most marketplaces.",
+      "title": "SKUs and barcodes on the 2026 catalogue",
+      "description": "Confirmed the 2026 catalogue as 22 colour products and imported SKUs and barcodes (308 rows, tested on a local copy first). 64 products not in the 2026 catalogue hidden.",
       "status": "completed",
       "category": "configuration",
       "priority": "high",
-      "sortOrder": 10,
-      "evidence": "Import file prepared 11 Nov 2026; applied to the live store, confirmed by Mahesh on 16 Nov 2026 (date applied not recorded)."
+      "sortOrder": 22,
+      "evidence": "Verified on the live site via the public store data, 11 Nov; Scrubness work snapshot (16 Nov 2026).",
+      "completedAt": "2026-11-11"
     },
     {
       "id": "sc-product-updates",
-      "title": "Product updates on the live store",
-      "description": "Updated products on the live store. Details of the changes are Pending confirmation.",
-      "status": "completed",
-      "category": "configuration",
-      "priority": "medium",
-      "evidence": "Confirmed by Mahesh on 16 Nov 2026 (completion date not recorded).",
-      "sortOrder": 4
-    },
-    {
-      "id": "sc-page-speed",
-      "title": "Mobile page speed: PageSpeed 69 → 95",
-      "description": "Raised the mobile PageSpeed score from 69 to 95 with the design unchanged (desktop 100). Largest Contentful Paint 7.4 s → 2.9 s, First Contentful Paint 3.1 s → 1.2 s, Speed Index 5.6 s → 2.8 s. Home, product, category, cart, about and colour pages were checked after the change and look the same on phone and desktop.",
+      "title": "Product descriptions and sizes",
+      "description": "Description import for 15 products with \"Behind the design\" and \"Features\" sections (new copy for Ellen and Charlie from the 2026 catalogue); Joggeroo sizes set to XS–3XL.",
       "status": "completed",
       "category": "development",
       "priority": "high",
-      "evidence": "PageSpeed mobile results before (9–10 Nov) and after (10 Nov 2026); Work record of 9–10 Nov 2026, with live-site checks after each change.",
-      "sortOrder": 5,
+      "evidence": "Verified on the live site, 11 Nov; Scrubness work snapshot (16 Nov 2026).",
+      "sortOrder": 23,
+      "completedAt": "2026-11-11"
+    },
+    {
+      "id": "sc-page-speed",
+      "title": "Home page mobile speed: PageSpeed 69 → 95",
+      "description": "Mobile PageSpeed 69 → 95, first paint 3.1 s → 1.2 s, main image (LCP) 7.4 s → 2.9 s, Speed Index 5.6 s → 2.8 s, with the design unchanged on phone and desktop. JavaScript \"defer\" and W3 Total Cache manual minify were tested or assessed and not adopted (no gain, risk to cart and checkout).",
+      "status": "completed",
+      "category": "development",
+      "priority": "high",
+      "evidence": "PageSpeed Insights before and after, 10 Nov 2026; Scrubness work snapshot (16 Nov 2026).",
+      "sortOrder": 3,
       "completedAt": "2026-11-10"
     },
     {
       "id": "sc-cleanup-blocks",
-      "title": "Removed unnecessary empty blocks from the WordPress editor",
-      "description": "Cleaned page content of empty editor blocks.",
+      "title": "Empty blocks and placeholder text removed",
+      "description": "Unnecessary empty editor blocks removed, one of two empty rows under the Home hero removed, and the \"(state address)\" placeholder on the FAQ replaced with the real return address. Breadcrumbs hidden on normal pages.",
       "status": "completed",
       "category": "development",
-      "priority": "medium",
-      "evidence": "Confirmed by Mahesh on 16 Nov 2026 (completion date not recorded).",
-      "sortOrder": 6
+      "priority": "low",
+      "evidence": "Verified on the live site; Scrubness work snapshot (16 Nov 2026).",
+      "sortOrder": 16
     },
     {
       "id": "sc-contact-page",
-      "title": "Contact page added",
-      "description": "Added a contact page to the website.",
+      "title": "Contact page",
+      "description": "New /contact/ page with an enquiry form (name, email, phone, enquiry type, message), phone, address, email and hours; linked from the footer and included in the sitemap.",
       "status": "completed",
       "category": "development",
       "priority": "medium",
-      "evidence": "Confirmed by Mahesh on 16 Nov 2026 (completion date not recorded).",
-      "sortOrder": 7
+      "evidence": "Verified on the live site, 12 Nov; sitemap re-checked 16 Nov; Scrubness work snapshot (16 Nov 2026).",
+      "sortOrder": 15,
+      "completedAt": "2026-11-12"
     },
     {
       "id": "sc-footer",
-      "title": "Footer improved",
-      "description": "Improved the site footer.",
+      "title": "New footer",
+      "description": "Four columns (Shop, Help, Contact, Follow) and a credits bar with Terms of Use and Privacy Policy. Links to two private pages removed; all 12 footer links open.",
       "status": "completed",
       "category": "development",
       "priority": "medium",
-      "evidence": "Confirmed by Mahesh on 16 Nov 2026 (completion date not recorded).",
-      "sortOrder": 8
+      "evidence": "Verified on the live site at 1440, 768 and 390 px; Scrubness work snapshot (16 Nov 2026).",
+      "sortOrder": 14
     },
     {
       "id": "sc-categories-tags",
-      "title": "Categories and tags cleaned up",
-      "description": "Cleaned up product categories and tags.",
+      "title": "Categories and tags restructured",
+      "description": "Categories renamed with flat URLs (mens-scrub-tops, womens-scrub-tops, scrub-pants) and intro text; old Men/Women parent categories removed; tags reduced to Men and Women; Best Sellers fixed.",
       "status": "completed",
       "category": "configuration",
-      "priority": "medium",
-      "evidence": "Confirmed by Mahesh on 16 Nov 2026 (completion date not recorded).",
-      "sortOrder": 9
+      "priority": "high",
+      "evidence": "Verified on the live site, 11 Nov; Scrubness work snapshot (16 Nov 2026).",
+      "sortOrder": 20,
+      "completedAt": "2026-11-11"
     },
     {
       "id": "sc-public-urls",
-      "title": "Publicly accessible URLs cleaned up",
-      "description": "Cleaned up the URLs that are publicly reachable on the site.",
+      "title": "Junk pages and test products removed from public view",
+      "description": "Junk pages set to private; $1 \"Offer\" and \"Credit\" products return 404; a broken reseller registration page hidden; Cart, Checkout, My Account and All Colours set to noindex (they still work); three \"-copy\" product URLs renamed with permanent redirects.",
       "status": "completed",
       "category": "configuration",
-      "priority": "medium",
-      "evidence": "Confirmed by Mahesh on 16 Nov 2026 (completion date not recorded).",
-      "sortOrder": 10
+      "priority": "high",
+      "evidence": "Verified on the live site (13 Nov), re-checked 16 Nov; Scrubness work snapshot (16 Nov 2026).",
+      "sortOrder": 18,
+      "completedAt": "2026-11-13"
     },
     {
       "id": "sc-sitemap",
-      "title": "Sitemap fixed",
-      "description": "Fixed the sitemap, which previously contained too many links.",
+      "title": "Sitemap and robots.txt fixed",
+      "description": "The page sitemap went from 29 entries to the 8 real pages; the product sitemap lists only the 22 catalogue products; robots.txt now points to https://scrubness.com/sitemap.xml.",
       "status": "completed",
       "category": "configuration",
-      "priority": "medium",
-      "evidence": "Confirmed by Mahesh on 16 Nov 2026 (completion date not recorded).",
-      "sortOrder": 11
+      "priority": "high",
+      "evidence": "Verified on the live site, re-checked 16 Nov; Scrubness work snapshot (16 Nov 2026).",
+      "sortOrder": 19
     },
     {
       "id": "sc-keyword-research",
-      "title": "Keyword research with the free tiers of Ahrefs and Semrush",
-      "description": "Research the search terms customers use for each product, using free-tier tools.",
+      "title": "Keyword research with a 7-day Ahrefs or Semrush trial",
+      "description": "Starts once the open items above are done. The crawler needs JavaScript rendering and a low crawl speed because of the site's bot check.",
       "status": "pending",
       "category": "research",
       "priority": "high",
-      "sortOrder": 20
+      "sortOrder": 51
     },
     {
       "id": "sc-product-seo-content",
-      "title": "SEO and GEO content for each product",
-      "description": "Write search-optimised content for every product page, written so search engines and AI answer engines can find and cite it.",
+      "title": "SEO and GEO content: titles, meta descriptions and product copy",
+      "description": "Write page titles and meta descriptions (missing on Shop, categories, all 22 products and several information pages) and product copy from the keyword data, so search engines and AI answer engines can find and cite the products.",
       "status": "pending",
       "category": "development",
       "priority": "high",
-      "sortOrder": 21
+      "sortOrder": 52,
+      "dependency": "Keyword data from the SEO tool trial."
     },
     {
       "id": "sc-analytics",
-      "title": "GA4, Google Tag Manager and Meta pixel set-up",
-      "description": "Measure visits, sales and marketing results. No GA4, Tag Manager or Meta pixel is on the site today, and no accounts exist yet.",
+      "title": "Analytics set-up",
+      "description": "No Google Analytics, Tag Manager or Search Console tag is on the site (checked 16 Nov). Set up the chosen analytics, Tag Manager and Meta pixel.",
       "status": "pending",
       "category": "configuration",
       "priority": "high",
-      "sortOrder": 22,
-      "dependency": "New GA4, Google Tag Manager and Meta accounts, and who should own them."
+      "sortOrder": 54,
+      "dependency": "Decision on which analytics to install."
     },
     {
       "id": "sc-speed-audit",
-      "title": "Page-speed baseline audit",
-      "description": "Measured mobile performance before any change: median score 70 across three runs, LCP 7.0 s, with the homepage hero background image identified as the slowest element.",
+      "title": "Page-speed baseline",
+      "description": "Measured mobile performance before any change: score about 69–70, first paint 3.1 s, main image (LCP) 7.4 s, Speed Index 5.6 s. The homepage hero image was the main delay.",
       "status": "completed",
       "category": "testing",
-      "priority": "high",
-      "evidence": "Work record of 9–10 Nov 2026, with live-site checks after each change.",
-      "completedAt": "2026-11-09",
-      "sortOrder": 5
+      "priority": "medium",
+      "evidence": "PageSpeed Insights runs, 9–10 Nov 2026; Scrubness work snapshot (16 Nov 2026).",
+      "completedAt": "2026-11-10",
+      "sortOrder": 2
     },
     {
       "id": "sc-hero-priority",
-      "title": "Homepage hero image shown immediately",
-      "description": "The hero image waited about 4.9 s for theme scripts before showing. It now appears with the text and is preloaded with high fetch priority.",
+      "title": "Hero image preloaded",
+      "description": "The browser fetches the hero image first, for both phone and desktop versions.",
       "status": "completed",
       "category": "development",
       "priority": "high",
-      "evidence": "Work record of 9–10 Nov 2026, with live-site checks after each change.",
+      "evidence": "Verified on the live site, re-checked 16 Nov; Scrubness work snapshot (16 Nov 2026).",
+      "completedAt": "2026-11-10",
+      "sortOrder": 7
+    },
+    {
+      "id": "sc-mobile-hero",
+      "title": "Separate phone hero image",
+      "description": "Phones load a 45 KB hero image instead of the 117 KB desktop image; each device downloads only its own image.",
+      "status": "completed",
+      "category": "development",
+      "priority": "high",
+      "evidence": "Verified on the live site (phones download only the small image); Scrubness work snapshot (16 Nov 2026).",
       "completedAt": "2026-11-10",
       "sortOrder": 6
     },
     {
-      "id": "sc-mobile-hero",
-      "title": "Separate phone-sized hero image",
-      "description": "Phones now download a small hero image and desktops the large one, using the theme's own phone background setting.",
-      "status": "completed",
-      "category": "development",
-      "priority": "high",
-      "evidence": "Work record of 9–10 Nov 2026, with live-site checks after each change.",
-      "completedAt": "2026-11-10",
-      "sortOrder": 7
-    },
-    {
       "id": "sc-render-blocking",
-      "title": "Fewer render-blocking stylesheets",
-      "description": "Stopped loading an unused icon stylesheet for visitors; the page now waits on 3 stylesheets instead of 10.",
+      "title": "Smaller hover photos on Home, Shop and categories",
+      "description": "Product hover photos load the 768 px version instead of the 1280 px original, saving about 100 KB per photo (24 photos on Home).",
       "status": "completed",
       "category": "development",
-      "priority": "high",
-      "evidence": "Work record of 9–10 Nov 2026, with live-site checks after each change.",
+      "priority": "medium",
+      "evidence": "Verified on the live site; Scrubness work snapshot (16 Nov 2026).",
       "completedAt": "2026-11-10",
       "sortOrder": 8
     },
     {
       "id": "sc-critical-css",
-      "title": "Critical CSS through Autoptimize",
-      "description": "Moved CSS optimisation from W3 Total Cache to Autoptimize and enabled critical CSS, so no stylesheet holds up the first view of the page.",
+      "title": "Critical CSS",
+      "description": "CSS optimisation moved from W3 Total Cache to Autoptimize with critical CSS, so no stylesheet holds up the first view. Design compared before and after on phone and desktop: unchanged.",
       "status": "completed",
       "category": "development",
       "priority": "high",
-      "evidence": "Work record of 9–10 Nov 2026, with live-site checks after each change.",
+      "evidence": "Verified on the live site; Scrubness work snapshot (16 Nov 2026).",
       "completedAt": "2026-11-10",
       "sortOrder": 9
     },
     {
       "id": "sc-speed-followup",
-      "title": "Remove the empty row under the homepage hero",
-      "description": "Closes the remaining 50 px gap under the top section on phones.",
+      "title": "Remove the last empty row under the Home hero",
+      "description": "Closes the remaining gap of about 50 px on phones.",
       "status": "pending",
       "category": "development",
       "priority": "low",
-      "sortOrder": 25
+      "sortOrder": 43
+    },
+    {
+      "id": "sc-server-fix",
+      "title": "Hosting fixed after the 9–10 Nov outage",
+      "description": "PHP upgraded to 8.3 (required by Contact Form 7), PHP memory raised from 128 MB to 512 MB and disk space freed. The site has loaded normally since 10 Nov.",
+      "status": "completed",
+      "category": "deployment",
+      "priority": "high",
+      "evidence": "Verified on the live site since 10 Nov; Scrubness work snapshot (16 Nov 2026).",
+      "sortOrder": 1,
+      "completedAt": "2026-11-10"
+    },
+    {
+      "id": "sc-cache",
+      "title": "Page and browser caching",
+      "description": "W3 Total Cache page cache and browser cache turned on (server response about 150 ms); theme page transitions turned off.",
+      "status": "completed",
+      "category": "configuration",
+      "priority": "medium",
+      "evidence": "Verified on the live site; Scrubness work snapshot (16 Nov 2026).",
+      "sortOrder": 4,
+      "completedAt": "2026-11-10"
+    },
+    {
+      "id": "sc-fonts-icons",
+      "title": "Local fonts and fewer blocking files",
+      "description": "Google Fonts served from the site itself instead of Google, and the WordPress icon font no longer loaded for visitors.",
+      "status": "completed",
+      "category": "development",
+      "priority": "medium",
+      "evidence": "Verified on the live site; Scrubness work snapshot (16 Nov 2026).",
+      "sortOrder": 5,
+      "completedAt": "2026-11-10"
+    },
+    {
+      "id": "sc-about-banner",
+      "title": "About Us banner optimised",
+      "description": "The 1.6 MB PNG banner was replaced with a 72 KB WebP, plus a 30 KB phone version with preload. Main image (LCP) on phones went from 11.6 s to 5.3 s before the phone version was added.",
+      "status": "completed",
+      "category": "development",
+      "priority": "medium",
+      "evidence": "Verified on the live site, re-checked 16 Nov; Scrubness work snapshot (16 Nov 2026).",
+      "sortOrder": 10
+    },
+    {
+      "id": "sc-shop-speed",
+      "title": "Shop page speed: PageSpeed 76 → 79",
+      "description": "Shop and category pages now load correctly sized images (phone image download 412 KB → 234 KB), show the first 4 product pictures straight away and preload the first 2. Mobile score 76 → 79, LCP 5.9 s → 5.6 s.",
+      "status": "completed",
+      "category": "development",
+      "priority": "medium",
+      "evidence": "PageSpeed runs from 13 Nov 2026 onward; Scrubness work snapshot (16 Nov 2026).",
+      "sortOrder": 11
+    },
+    {
+      "id": "sc-images",
+      "title": "Image optimisation and WebP",
+      "description": "Bulk image optimisation with Smush; WebP versions served to browsers that support them (one product image 7.8 KB WebP vs 15.9 KB JPG). Shop and category thumbnails raised from 300 px to 600 px so they are sharp.",
+      "status": "completed",
+      "category": "configuration",
+      "priority": "medium",
+      "evidence": "Verified on the live site (WebP 11 Nov, thumbnails 13 Nov); Scrubness work snapshot (16 Nov 2026).",
+      "sortOrder": 12,
+      "completedAt": "2026-11-13"
+    },
+    {
+      "id": "sc-homepage",
+      "title": "Homepage refreshed for the 2026 range",
+      "description": "Same style with updated content: 2026 colours strip, Women's / Men's / Pants tiles, best-seller rows (a swipe slider on phones), phone layout fixes, a re-cropped pink banner and a new Ellen, Charlie and Joey banner. Approved 11 Nov.",
+      "status": "completed",
+      "category": "development",
+      "priority": "high",
+      "evidence": "Verified on the live site at desktop, tablet and phone, 12 Nov; Scrubness work snapshot (16 Nov 2026).",
+      "sortOrder": 13,
+      "completedAt": "2026-11-12"
+    },
+    {
+      "id": "sc-sitemap-audit",
+      "title": "Sitemap baseline audit",
+      "description": "Checked every sitemap URL (all loaded, no 404s) and listed junk pages, test products, empty pages, placeholder text and typos for clean-up.",
+      "status": "completed",
+      "category": "research",
+      "priority": "medium",
+      "evidence": "Sitemap baseline report, 10 Nov 2026; Scrubness work snapshot (16 Nov 2026).",
+      "sortOrder": 17,
+      "completedAt": "2026-11-10"
+    },
+    {
+      "id": "sc-product-pages",
+      "title": "Shop and product page improvements",
+      "description": "Size buttons instead of a dropdown (out-of-stock sizes disabled), a desktop gallery with thumbnails, a \"Shop All Scrubs\" heading and intro, phone layout fixes, and all shop and product styling consolidated into one code snippet.",
+      "status": "completed",
+      "category": "development",
+      "priority": "medium",
+      "evidence": "Verified on the live site, 12–13 Nov; Scrubness work snapshot (16 Nov 2026).",
+      "sortOrder": 24,
+      "completedAt": "2026-11-13"
+    },
+    {
+      "id": "sc-seo-check",
+      "title": "Full SEO check of all 33 public pages",
+      "description": "Status codes, redirects, canonicals, titles, headings, schema, sitemap, internal links and mixed content checked before starting the SEO tool trial.",
+      "status": "completed",
+      "category": "testing",
+      "priority": "high",
+      "evidence": "Pre-trial check report, 13 Nov 2026; Scrubness work snapshot (16 Nov 2026).",
+      "sortOrder": 25,
+      "completedAt": "2026-11-13"
+    },
+    {
+      "id": "sc-seo-fixes",
+      "title": "SEO fixes: titles, schema, share images, headings",
+      "description": "Category titles no longer end in \"Archives\"; Organization schema added; social share image set; one H1 on every product page and on About Us (Home reduced from 3 to 2, kept for the animation).",
+      "status": "completed",
+      "category": "development",
+      "priority": "high",
+      "evidence": "Verified on the live site (13 Nov), re-checked 16 Nov; Scrubness work snapshot (16 Nov 2026).",
+      "sortOrder": 26,
+      "completedAt": "2026-11-13"
+    },
+    {
+      "id": "sc-alt-text",
+      "title": "Alt text on all 88 product photos",
+      "description": "Descriptive alt text on every product photo (22 products × 4), including fixes for 6 errors found on 13 Nov.",
+      "status": "completed",
+      "category": "development",
+      "priority": "high",
+      "evidence": "Verified on the live site, 16 Nov (88 of 88); Scrubness work snapshot (16 Nov 2026).",
+      "sortOrder": 27
+    },
+    {
+      "id": "sc-shop-speed-next",
+      "title": "Next Shop page speed step",
+      "description": "Target the slowest part of the Shop page's main-image load; a score in the 80s is expected to be realistic with 12 product pictures.",
+      "status": "pending",
+      "category": "development",
+      "priority": "medium",
+      "sortOrder": 40,
+      "dependency": "PageSpeed \"LCP breakdown\" timings from the Shop page."
+    },
+    {
+      "id": "sc-speed-recheck",
+      "title": "Re-measure Home, About Us and product page speed",
+      "description": "Re-run Home after the homepage refresh (regenerate critical CSS if needed), report About Us after the phone banner, and measure product pages for the first time.",
+      "status": "pending",
+      "category": "testing",
+      "priority": "medium",
+      "sortOrder": 41
+    },
+    {
+      "id": "sc-cloudflare",
+      "title": "Cloudflare speed and bot-check settings",
+      "description": "The site runs behind Cloudflare.",
+      "status": "pending",
+      "category": "configuration",
+      "priority": "medium",
+      "sortOrder": 42,
+      "dependency": "The Cloudflare account owner."
+    },
+    {
+      "id": "sc-search-console",
+      "title": "Google Search Console and Bing Webmaster Tools",
+      "description": "Set up both, submit the sitemap, request a recrawl and check for pages dropped during the outage.",
+      "status": "pending",
+      "category": "configuration",
+      "priority": "high",
+      "sortOrder": 44
+    },
+    {
+      "id": "sc-test-enquiry",
+      "title": "Confirm the test enquiry arrived",
+      "description": "A test enquiry was sent from the live contact form on 12 Nov and the site reported it as sent; delivery to hello@scrubness.com (or spam) is not yet confirmed.",
+      "status": "pending",
+      "category": "testing",
+      "priority": "medium",
+      "sortOrder": 45
+    },
+    {
+      "id": "sc-test-order",
+      "title": "Full test order and real-phone testing",
+      "description": "Each size, payment, customer and store emails, order status and an out-of-stock size; then size buttons, gallery, size chart, menu and checkout on an iPhone and an Android phone.",
+      "status": "pending",
+      "category": "testing",
+      "priority": "high",
+      "sortOrder": 46
+    },
+    {
+      "id": "sc-content-fixes",
+      "title": "Content fixes",
+      "description": "Make \"& JOEY\" bold in the Ellen, Charlie and Joey banner; remove \"prints\" from category intros; fix the Terms of Use clause 13.2 business name; delete the Vegemite tag.",
+      "status": "pending",
+      "category": "development",
+      "priority": "low",
+      "sortOrder": 47
+    },
+    {
+      "id": "sc-domain-redirect",
+      "title": "Permanent redirect from scrubness.com.au",
+      "description": "scrubness.com.au redirects to scrubness.com with a temporary (302) redirect; it should be permanent (301).",
+      "status": "pending",
+      "category": "configuration",
+      "priority": "medium",
+      "sortOrder": 48
+    },
+    {
+      "id": "sc-export-check",
+      "title": "Fresh product export to confirm SKUs and barcodes",
+      "description": "Double-check every SKU and barcode after the 11 Nov import.",
+      "status": "pending",
+      "category": "testing",
+      "priority": "low",
+      "sortOrder": 49
+    },
+    {
+      "id": "sc-alt-text-pages",
+      "title": "Alt text on Home and information pages",
+      "description": "Home (11 images), About (4), Privacy, FAQ, Contact and Shop hover images.",
+      "status": "pending",
+      "category": "development",
+      "priority": "medium",
+      "sortOrder": 50
+    },
+    {
+      "id": "sc-security",
+      "title": "Security hardening",
+      "description": "Add a security plugin and close publicly exposed WordPress information, scheduled after the SEO work.",
+      "status": "pending",
+      "category": "configuration",
+      "priority": "medium",
+      "sortOrder": 53
+    },
+    {
+      "id": "sc-about-layout",
+      "title": "Decide on the About Us layout mock-up",
+      "description": "A tighter About Us layout with a \"Find your fit\" block linking to the three categories is ready for review.",
+      "status": "pending",
+      "category": "development",
+      "priority": "low",
+      "sortOrder": 39
     }
   ],
   "issues": [
     {
       "id": "sc-issue-gst-pricing",
-      "title": "Confirm whether website prices include GST",
-      "description": "The 2026 price list gives retail prices excluding GST ($49.95 and $54.95), while scrubness.com shows the same figures as the selling price. Australian consumer prices must be shown including GST, so the intended retail price needs confirming.",
+      "title": "GST display on shop prices",
+      "description": "The cart adds 10% GST to items and shipping, but shop prices are shown without GST and the product data says prices exclude GST. Decide whether to show prices including GST in the shop or keep the current display.",
       "kind": "decision",
-      "waitingOn": "Pending confirmation",
+      "waitingOn": "Management",
       "raisedOn": "2026-11-16"
     },
     {
       "id": "sc-issue-analytics-accounts",
-      "title": "Analytics accounts and owners",
-      "description": "No GA4, Google Tag Manager or Meta accounts exist for Scrubness yet. Accounts need to be created under the business, with an agreed owner.",
-      "kind": "dependency",
-      "waitingOn": "Pending confirmation",
+      "title": "Which analytics to install",
+      "description": "No Google Analytics, Tag Manager or Search Console verification is on the site. A decision is needed on which analytics to install and who owns the accounts.",
+      "kind": "decision",
+      "waitingOn": "Management",
       "raisedOn": "2026-11-16"
+    },
+    {
+      "id": "sc-issue-outage",
+      "title": "Site outage, 9–10 Nov",
+      "description": "The site was unavailable. Causes found: hosting disk full, PHP older than 8.3 (required by Contact Form 7) and PHP memory at 128 MB. Fixed on 10 Nov by upgrading PHP, raising memory and freeing disk space. Checking for pages dropped from Google waits on Search Console access.",
+      "kind": "blocker",
+      "status": "resolved",
+      "raisedOn": "2026-11-09",
+      "resolvedOn": "2026-11-10"
+    },
+    {
+      "id": "sc-issue-cloudflare",
+      "title": "Cloudflare account owner",
+      "description": "Needed for Cloudflare speed and bot-check settings.",
+      "kind": "dependency",
+      "waitingOn": "Management",
+      "raisedOn": "2026-11-16"
+    },
+    {
+      "id": "sc-issue-backups",
+      "title": "Backup schedule",
+      "description": "No safe server-side backup is in place on the current hosting. A backup approach needs to be agreed.",
+      "kind": "decision",
+      "waitingOn": "Management",
+      "raisedOn": "2026-11-16"
+    },
+    {
+      "id": "sc-issue-size-charts",
+      "title": "Size chart errors",
+      "description": "The pants size chart (on all 8 pants products) has two columns labelled 3XL, and Joggeroo's chart lists 4XL and 5XL although it is sold up to 3XL.",
+      "kind": "dependency",
+      "waitingOn": "Product team",
+      "raisedOn": "2026-11-13"
     }
   ],
   "updates": [
@@ -266,7 +545,8 @@
       "description": "Files and database, with an installer for restoring the site.",
       "category": "deployment",
       "occurredOn": "2026-11-06",
-      "taskId": "sc-backup"
+      "taskId": "sc-backup",
+      "isPublished": false
     },
     {
       "id": "sc-u-2026-11-10-export",
@@ -278,8 +558,8 @@
     },
     {
       "id": "sc-u-2026-11-11-import",
-      "title": "Prepared the barcode and SKU import",
-      "description": "218 barcodes matched to variants; SKUs made consistent across 308 variant rows.",
+      "title": "Imported SKUs and barcodes on the live store",
+      "description": "22 catalogue products with SKUs and barcodes (308 rows, tested locally first); 64 products outside the 2026 catalogue hidden; descriptions and categories updated the same day.",
       "category": "development",
       "occurredOn": "2026-11-11",
       "taskId": "sc-barcodes-skus"
@@ -308,6 +588,54 @@
       "category": "development",
       "occurredOn": "2026-11-10",
       "taskId": "sc-page-speed"
+    },
+    {
+      "id": "sc-u-2026-11-10-server",
+      "title": "Restored the site after the outage",
+      "description": "PHP upgraded to 8.3, memory raised to 512 MB and disk space freed.",
+      "category": "deployment",
+      "occurredOn": "2026-11-10",
+      "taskId": "sc-server-fix"
+    },
+    {
+      "id": "sc-u-2026-11-10-audit",
+      "title": "Completed the sitemap baseline audit",
+      "description": "Every URL loaded; junk pages, test products and placeholder text listed for clean-up.",
+      "category": "research",
+      "occurredOn": "2026-11-10",
+      "taskId": "sc-sitemap-audit"
+    },
+    {
+      "id": "sc-u-2026-11-12-homepage",
+      "title": "Launched the refreshed homepage, footer and contact page",
+      "description": "2026 range content, new footer and a new contact page, checked on desktop, tablet and phone.",
+      "category": "development",
+      "occurredOn": "2026-11-12",
+      "taskId": "sc-homepage"
+    },
+    {
+      "id": "sc-u-2026-11-13-shop",
+      "title": "Improved the shop and product pages and cleaned up indexing",
+      "description": "Size buttons, desktop gallery, sharper thumbnails, Shop PageSpeed 76 → 79; junk pages and test products removed from public view.",
+      "category": "development",
+      "occurredOn": "2026-11-13",
+      "taskId": "sc-product-pages"
+    },
+    {
+      "id": "sc-u-2026-11-13-seo",
+      "title": "Checked all 33 public pages and fixed SEO basics",
+      "description": "Titles, schema, share images and headings fixed ahead of the SEO tool trial.",
+      "category": "testing",
+      "occurredOn": "2026-11-13",
+      "taskId": "sc-seo-check"
+    },
+    {
+      "id": "sc-u-2026-11-16-alt",
+      "title": "Confirmed alt text on all 88 product photos",
+      "description": "Re-checked on the live site.",
+      "category": "development",
+      "occurredOn": "2026-11-16",
+      "taskId": "sc-alt-text"
     }
   ],
   "resources": [
