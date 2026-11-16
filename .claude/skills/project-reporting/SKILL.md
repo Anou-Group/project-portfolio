@@ -6,7 +6,8 @@ description: Update the manager-facing portfolio report — add or change a proj
 # Project reporting
 
 The report is written by Mahesh Pedapati for his manager. Follow
-`.claude/rules/reporting-standards.md` exactly. This skill is the procedure.
+`.claude/rules/reporting-standards.md` and `docs/DATA-ENTRY-RULEBOOK.md` exactly.
+This skill is the procedure.
 
 ## 1. Gather information
 

@@ -10,6 +10,7 @@ shows only projects confirmed in scope by the owner.
 | Southern Uniforms — Shopify store | In Progress | GitHub `Anou-Group/southern-uniforms-theme` (143 PRs, release PR #9 open); Notion "Southern Uniforms — Go-live hub" (Phase 1 tracker, decision log, weekly update); platform recommendation and admin setup documents; storefront `0j1jbh-w8.myshopify.com` | GitHub 8 Nov 2026; Notion 27 Oct 2026 |
 | Anou Hub — digital spend tracker | In Progress | `docs/PLAN.md` in `~/Public/www/next/anouhub`; GitHub `mahesh-anouconcept/anouhub` | 10 Nov 2026 |
 | Site Monitor — website uptime monitoring | In Progress | GitHub `Anou-Group/site-monitor` (PRs #1–#2 merged, #3 open); `docs/PLAN.md` | 5 Nov 2026 |
+| Anko Club — membership management platform | In Progress | Owner confirmation, 16 Nov 2026 (includes the Gift Avenue event); no repository or tracker linked yet | 16 Nov 2026 |
 | Scrubness — online store and product data | In Progress | `~/Public/scrubness-assets` (live exports 10–11 Nov, barcode import, 2026 price list); site backup 6 Nov; scrubness.com | 11 Nov 2026 |
 
 Full details per project are in `content/projects/<slug>.json`.
@@ -18,7 +19,6 @@ Full details per project are in `content/projects/<slug>.json`.
 
 | Candidate | Reason |
 |---|---|
-| Gift Avenue | Owner: work for Anko Club, a different engagement (16 Nov 2026). |
 | IFOTA portal data extraction (`~/Public/www/portal-scrape`) | Not selected as a project. Its keyword research (30 Oct 2026) is cited as a source in the strategy documents. Do not attribute the extraction to a project without confirmation. |
 
 ## Requires confirmation

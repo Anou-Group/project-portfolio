@@ -1,0 +1,45 @@
+{
+  "id": "anko-club",
+  "slug": "anko-club",
+  "name": "Anko Club — membership management platform",
+  "summary": "Ongoing work on Anko Club, a membership management platform: event set-up and staff app testing, including the Gift Avenue event, and advice on analytics tracking.",
+  "description": "Anko Club is a membership management platform with a staff app. Work to date includes creating and testing a Gift Avenue event with the staff app, and advising on Google Analytics 4 and Google Tag Manager tracking. Further scope is Pending confirmation.",
+  "businessObjective": "Pending confirmation",
+  "background": "Anko Club is a separate engagement from the Anou Group projects in this report. Its platform details, hosting and repositories are Pending confirmation.",
+  "responsibilitySummary": "Event set-up and testing, and tracking advice",
+  "responsibilities": [
+    "Setting up and testing events on the platform with the staff app",
+    "Advising on Google Analytics 4 and Google Tag Manager tracking"
+  ],
+  "status": "in_progress",
+  "category": "Membership platform",
+  "organisation": "Anko Club",
+  "progressSummary": "Gift Avenue event created and tested with the staff app. Tracking advice is ongoing. Other scope and next steps are Pending confirmation.",
+  "sourceNote": "Status confirmed by Mahesh on 16 Nov 2026. No repository or tracker is linked yet.",
+  "lastVerifiedAt": "2026-11-16",
+  "sortOrder": 5,
+  "tasks": [
+    {
+      "id": "ac-gift-avenue-event",
+      "title": "Gift Avenue event set-up and staff app test",
+      "description": "Created an event for Gift Avenue on the Anko Club platform and tested it with the staff app.",
+      "status": "completed",
+      "category": "configuration",
+      "evidence": "Confirmed by Mahesh on 16 Nov 2026.",
+      "sortOrder": 1
+    },
+    {
+      "id": "ac-tracking-advice",
+      "title": "Analytics tracking advice",
+      "description": "Advising on Google Analytics 4 and Google Tag Manager tracking, including recommendations for the developer working with the tracking consultant.",
+      "status": "in_progress",
+      "category": "research",
+      "latestProgress": "Ongoing.",
+      "sortOrder": 2
+    }
+  ],
+  "issues": [],
+  "updates": [],
+  "resources": [],
+  "stakeholders": []
+}

@@ -8,10 +8,14 @@ It is a professional reporting product. Accuracy beats completeness, every time.
 
 Read these before changing anything:
 
+- `docs/DATA-ENTRY-RULEBOOK.md` — exact formats, ids and steps for every content update (mandatory).
 - `.claude/rules/reporting-standards.md` — what may be written in the report and how (mandatory).
 - `.claude/rules/application-architecture.md` — layers, data flow, database and security.
 - `.claude/rules/ui-design-standards.md` — the design system and interaction rules.
 - Skills: `project-reporting` (updating content) and `project-discovery` (finding projects and evidence).
+
+**Token economy:** this assistant is only the data-entry backend. Follow section 0 of
+`docs/DATA-ENTRY-RULEBOOK.md`: minimal reads, no extra checks, short replies, never watch pushes.
 
 ## Reporting identity and audience
 
