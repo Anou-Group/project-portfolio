@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Suspense } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import { AppShell } from "@/components/layout/app-shell";
 import "./globals.css";
@@ -19,7 +20,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en-AU" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body>
-        <AppShell>{children}</AppShell>
+        <Suspense fallback={null}>
+          <AppShell>{children}</AppShell>
+        </Suspense>
       </body>
     </html>
   );
