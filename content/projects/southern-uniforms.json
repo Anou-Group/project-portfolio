@@ -931,33 +931,6 @@
       "type": "github_repository",
       "url": "https://github.com/Anou-Group/southern-uniforms-theme",
       "accessNote": "Private repository — GitHub access required"
-    },
-    {
-      "id": "su-r-pr9",
-      "taskId": "su-theme-v1",
-      "title": "Pull request #9 — Release: theme v1 (dev → main)",
-      "description": "Moves all theme work to main so it can be published as the live theme. Open; not to be merged without a go-ahead.",
-      "type": "github_pull_request",
-      "url": "https://github.com/Anou-Group/southern-uniforms-theme/pull/9",
-      "accessNote": "Private repository — GitHub access required"
-    },
-    {
-      "id": "su-r-pr54",
-      "taskId": "su-ways-to-buy",
-      "title": "Pull request #54 — How we work hub and Retail, Wholesale and Contracts pages",
-      "description": "Merged to dev on 23 Oct 2026.",
-      "type": "github_pull_request",
-      "url": "https://github.com/Anou-Group/southern-uniforms-theme/pull/54",
-      "accessNote": "Private repository — GitHub access required"
-    },
-    {
-      "id": "su-r-pr131",
-      "taskId": "su-copy-claims",
-      "title": "Pull request #131 — Remove unconfirmed claims",
-      "description": "Merged to dev on 4 Nov 2026.",
-      "type": "github_pull_request",
-      "url": "https://github.com/Anou-Group/southern-uniforms-theme/pull/131",
-      "accessNote": "Private repository — GitHub access required"
     }
   ],
   "stakeholders": [
