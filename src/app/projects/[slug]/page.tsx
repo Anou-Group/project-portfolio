@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, Building2, CalendarCheck, FileSearch } from "lucide-react";
 import { getPortfolio } from "@/server/portfolio";
 import { projectBreakdown, resourcesForTask } from "@/domain/portfolio";
-import { ISSUE_KIND_LABEL, TASK_CATEGORY_LABEL } from "@/domain/labels";
+import { ISSUE_KIND_LABEL, PENDING_CONFIRMATION, TASK_CATEGORY_LABEL } from "@/domain/labels";
 import { formatDate } from "@/domain/format";
 import type { Issue, Project } from "@/domain/schema";
 import { SectionCard } from "@/components/portfolio/section-card";
@@ -240,7 +240,7 @@ function OverviewBody({ project }: { project: Project }) {
                     {s.name}
                     {s.organisation ? <span className="font-normal text-muted-foreground"> · {s.organisation}</span> : null}
                   </p>
-                  <p className="text-muted-foreground">{s.role}</p>
+                  {s.role !== PENDING_CONFIRMATION ? <p className="text-muted-foreground">{s.role}</p> : null}
                 </li>
               ))}
             </ul>
