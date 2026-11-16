@@ -19,7 +19,7 @@
   "category": "E-commerce",
   "organisation": "Southern Uniforms",
   "progressSummary": "The theme is built on the preview (dev) branch and the catalogue is imported. Checkout, 10% GST, notification emails and logos are done; payments are in test mode and flat rate shipping is added. Waiting on products from Sally; once received, the end-to-end flow will be tested again and SEO will start, following the Scrubness approach.",
-  "sourceNote": "Status from the Notion Phase 1 tracker (last updated 27 Oct 2026), GitHub pull requests to 8 Nov 2026, the storefront as checked on 16 Nov 2026, and updates from Mahesh on 16 Nov 2026.",
+  "sourceNote": "Status from the Notion Phase 1 tracker (last updated 27 Oct 2026), the theme's change history to 8 Nov 2026, the storefront as checked on 16 Nov 2026, and updates from Mahesh on 16 Nov 2026.",
   "lastVerifiedAt": "2026-11-16",
   "sortOrder": 1,
   "tasks": [
@@ -70,11 +70,11 @@
     {
       "id": "su-theme-setup",
       "title": "Theme repository setup with automated Theme Check",
-      "description": "Set up the theme repository with branch rules (dev syncs to the preview theme, main to the live theme), Theme Check on every pull request, a README and coding conventions.",
+      "description": "Set up the theme repository with branch rules (dev syncs to the preview theme, main to the live theme), Theme Check on every change, a README and coding conventions.",
       "status": "completed",
       "category": "development",
       "priority": "high",
-      "evidence": "Pull request #1 merged to main on 22 Oct 2026.",
+      "evidence": "Live theme set up on 22 Oct 2026.",
       "completedAt": "2026-10-22",
       "sortOrder": 5
     },
@@ -106,7 +106,7 @@
       "status": "completed",
       "category": "development",
       "priority": "high",
-      "evidence": "Pull requests #2–#8 merged to dev on 22 Oct 2026.",
+      "evidence": "Added to the preview theme on 22 Oct 2026.",
       "completedAt": "2026-10-22",
       "sortOrder": 8
     },
@@ -117,7 +117,7 @@
       "status": "completed",
       "category": "development",
       "priority": "medium",
-      "evidence": "Pull requests #10 and #11 merged to dev on 22 Oct 2026.",
+      "evidence": "Added to the preview theme on 22 Oct 2026.",
       "completedAt": "2026-10-22",
       "sortOrder": 9
     },
@@ -128,7 +128,7 @@
       "status": "completed",
       "category": "development",
       "priority": "high",
-      "evidence": "Pull requests #27, #31, #36, #40–#42 (22 Oct 2026) and #76 (28 Oct 2026) merged to dev.",
+      "evidence": "Added to the preview theme on 22 and 28 Oct 2026.",
       "completedAt": "2026-10-28",
       "sortOrder": 10
     },
@@ -139,7 +139,7 @@
       "status": "completed",
       "category": "development",
       "priority": "high",
-      "evidence": "Pull requests #28 (22 Oct 2026) and #54 (23 Oct 2026) merged to dev.",
+      "evidence": "Added to the preview theme on 22 and 23 Oct 2026.",
       "completedAt": "2026-10-23",
       "sortOrder": 11
     },
@@ -150,7 +150,7 @@
       "status": "completed",
       "category": "development",
       "priority": "medium",
-      "evidence": "Pull requests #43 and #47–#50 merged to dev on 23 Oct 2026.",
+      "evidence": "Added to the preview theme on 23 Oct 2026.",
       "completedAt": "2026-10-23",
       "sortOrder": 12
     },
@@ -227,7 +227,7 @@
       "status": "completed",
       "category": "development",
       "priority": "high",
-      "evidence": "Pull requests #17, #39 (22 Oct 2026) and #108–#118 (29 Oct 2026) merged to dev.",
+      "evidence": "Added to the preview theme on 22 and 29 Oct 2026.",
       "completedAt": "2026-10-29",
       "sortOrder": 19
     },
@@ -238,7 +238,7 @@
       "status": "completed",
       "category": "development",
       "priority": "high",
-      "evidence": "Pull request #98 merged to dev on 29 Oct 2026.",
+      "evidence": "Added to the preview theme on 29 Oct 2026.",
       "completedAt": "2026-10-29",
       "sortOrder": 20
     },
@@ -249,7 +249,7 @@
       "status": "completed",
       "category": "development",
       "priority": "high",
-      "evidence": "Pull requests #51, #56–#66 (23–26 Oct 2026) and #127 (merged 4 Nov 2026) merged to dev.",
+      "evidence": "Added to the preview theme on 23 Oct to 4 Nov 2026.",
       "completedAt": "2026-11-04",
       "sortOrder": 21
     },
@@ -260,7 +260,7 @@
       "status": "completed",
       "category": "development",
       "priority": "high",
-      "evidence": "Pull requests #130 and #131 merged to dev on 4 Nov 2026.",
+      "evidence": "Added to the preview theme on 4 Nov 2026.",
       "completedAt": "2026-11-04",
       "sortOrder": 22
     },
@@ -271,7 +271,7 @@
       "status": "completed",
       "category": "development",
       "priority": "medium",
-      "evidence": "Pull requests #133–#143 merged to dev on 4–5 Nov 2026.",
+      "evidence": "Added to the preview theme on 4–5 Nov 2026.",
       "completedAt": "2026-11-05",
       "sortOrder": 23
     },
@@ -310,11 +310,11 @@
     {
       "id": "su-theme-v1",
       "title": "Theme v1: build and review on the preview theme",
-      "description": "The storefront customers will see. All theme work is merged to the dev branch, which syncs to the preview theme. Release pull request #9 (dev → main) moves it to the live theme.",
+      "description": "The storefront customers will see. All theme work is merged to the dev branch, which syncs to the preview theme. Publishing moves it to the live theme.",
       "status": "in_progress",
       "category": "development",
       "priority": "high",
-      "latestProgress": "Pull requests up to #143 merged to dev between 22 Oct and 5 Nov 2026. Release pull request #9 is open and is not to be merged without a go-ahead.",
+      "latestProgress": "All theme work so far is on the preview theme (22 Oct to 5 Nov 2026). It goes live only after a go-ahead.",
       "sortOrder": 30
     },
     {
@@ -760,14 +760,14 @@
     {
       "id": "su-u-2026-10-22-theme",
       "title": "Built the homepage, header and footer from the Figma design",
-      "description": "Theme repository set up with Theme Check; homepage sections, header, announcement bar and footer merged to the preview theme (PRs #1–#8).",
+      "description": "Theme repository set up with Theme Check; homepage sections, header, announcement bar and footer merged to the preview theme.",
       "category": "development",
       "occurredOn": "2026-10-22",
       "taskId": "su-homepage-figma"
     },
     {
       "id": "su-u-2026-10-22-release-pr",
-      "title": "Opened release pull request #9",
+      "title": "Prepared the theme for release",
       "description": "Moves the theme from dev to main so main can be connected as the published theme. Awaiting go-ahead to merge.",
       "category": "deployment",
       "occurredOn": "2026-10-22",
@@ -776,7 +776,7 @@
     {
       "id": "su-u-2026-10-23-ways-to-buy",
       "title": "Built the How we work hub and the Retail, Wholesale and Contracts pages",
-      "description": "Also redesigned the homepage and product page and built the phone menu (PRs #43–#54).",
+      "description": "Also redesigned the homepage and product page and built the phone menu.",
       "category": "development",
       "occurredOn": "2026-10-23",
       "taskId": "su-ways-to-buy"
@@ -799,7 +799,7 @@
     {
       "id": "su-u-2026-10-25-cart",
       "title": "Reworked the cart drawer and cart page",
-      "description": "Matching product suggestions, free-shipping bar, delivery options and totals (PRs #56–#66).",
+      "description": "Matching product suggestions, free-shipping bar, delivery options and totals.",
       "category": "development",
       "occurredOn": "2026-10-25",
       "taskId": "su-cart"
@@ -831,7 +831,7 @@
     {
       "id": "su-u-2026-10-28-wishlist",
       "title": "Built the wishlist, Google sign-in and Shipit integration",
-      "description": "Wishlist drawer, page and guest flow on the preview theme (PRs #67–#96); Google sign-in for customer accounts and Shipit shipping integration completed.",
+      "description": "Wishlist drawer, page and guest flow on the preview theme; Google sign-in for customer accounts and Shipit shipping integration completed.",
       "category": "development",
       "occurredOn": "2026-10-28",
       "taskId": "su-wishlist"
@@ -839,7 +839,7 @@
     {
       "id": "su-u-2026-10-29-contact",
       "title": "Implemented the enquiry form and added the Returns page",
-      "description": "Retail, wholesale and supply-contract enquiry types with customer tagging (PRs #99–#118); Returns page added (PR #98).",
+      "description": "Retail, wholesale and supply-contract enquiry types with customer tagging; Returns page added.",
       "category": "development",
       "occurredOn": "2026-10-29",
       "taskId": "su-contact-form"
@@ -847,14 +847,14 @@
     {
       "id": "su-u-2026-11-03-collections",
       "title": "Improved collection pages and colour dots",
-      "description": "Collection page links, filters with a single value hidden, and colour dots sampled from supplier colour photos (PRs #128–#129).",
+      "description": "Collection page links, filters with a single value hidden, and colour dots sampled from supplier colour photos.",
       "category": "development",
       "occurredOn": "2026-11-03"
     },
     {
       "id": "su-u-2026-11-04-copy",
       "title": "Removed unconfirmed claims from the Retail, Wholesale and Contracts pages",
-      "description": "Delivery method also moved to checkout so the charge always matches the customer's choice (PRs #127, #130, #131).",
+      "description": "Delivery method also moved to checkout so the charge always matches the customer's choice.",
       "category": "development",
       "occurredOn": "2026-11-04",
       "taskId": "su-copy-claims"
@@ -862,7 +862,7 @@
     {
       "id": "su-u-2026-11-05-quantity",
       "title": "Limited quantity to available stock and added bulk-quote messages",
-      "description": "Product page quantity capped at stock, with stock and bulk-quote messages and a Notify me thank-you (PRs #133–#143).",
+      "description": "Product page quantity capped at stock, with stock and bulk-quote messages and a Notify me thank-you.",
       "category": "development",
       "occurredOn": "2026-11-05",
       "taskId": "su-stock-quantity"
@@ -929,14 +929,6 @@
       "url": "https://app.notion.com/p/406ed0fd77bc8109a905c75c0835e53b",
       "accessNote": "Notion workspace access required",
       "isPublished": false
-    },
-    {
-      "id": "su-r-repo",
-      "title": "Theme repository: Anou-Group/southern-uniforms-theme",
-      "description": "Shopify theme source code built on Horizon; dev syncs to the preview theme and main to the live theme.",
-      "type": "github_repository",
-      "url": "https://github.com/Anou-Group/southern-uniforms-theme",
-      "accessNote": "Private repository — GitHub access required"
     }
   ],
   "stakeholders": [
