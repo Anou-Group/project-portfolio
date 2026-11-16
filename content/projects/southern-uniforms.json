@@ -376,7 +376,6 @@
       "category": "documentation",
       "priority": "medium",
       "latestProgress": "Draft in the Go-live hub. To cover how the retail manager handles each scenario (orders, enquiries, returns and refunds), still to be documented. The whole process is listed here, so no separate warehouse handout is needed.",
-      "dependency": "Who handles orders, enquiries and refunds (decision from Ashwin).",
       "sortOrder": 36
     },
     {
@@ -387,7 +386,6 @@
       "category": "documentation",
       "priority": "medium",
       "latestProgress": "Draft in the Go-live hub.",
-      "dependency": "Label method and carrier account; input from the warehouse.",
       "sortOrder": 37,
       "isPublished": false
     },
@@ -426,7 +424,6 @@
       "status": "in_progress",
       "category": "configuration",
       "priority": "high",
-      "dependency": "Confirmed shipping rates and free-shipping threshold from Ashwin.",
       "sortOrder": 43,
       "latestProgress": "Flat rate shipping charges added. Local pickup and the confirmed rates are Pending confirmation."
     },
@@ -637,26 +634,32 @@
     {
       "id": "su-issue-shipping-rates",
       "title": "Shipping rates and free-shipping threshold",
-      "description": "Rates show at checkout and in cart and product messages. The store currently shows $11 Standard and $15 Express with free Standard delivery from $150; these need the business's confirmation.",
+      "description": "Shipping rates are fixed. Confirmed by Mahesh on 16 Nov 2026.",
       "kind": "decision",
       "waitingOn": "Ashwin",
-      "raisedOn": "2026-10-27"
+      "raisedOn": "2026-10-27",
+      "status": "resolved",
+      "resolvedOn": "2026-11-16"
     },
     {
       "id": "su-issue-carrier",
       "title": "Label method and carrier account",
-      "description": "Without it staff cannot create labels or tracking numbers, so shipping emails do not send.",
+      "description": "Labels and carrier: Shipit. Confirmed by Mahesh on 16 Nov 2026.",
       "kind": "decision",
       "waitingOn": "Ashwin",
-      "raisedOn": "2026-10-27"
+      "raisedOn": "2026-10-27",
+      "status": "resolved",
+      "resolvedOn": "2026-11-16"
     },
     {
       "id": "su-issue-return-rules",
       "title": "Return rules",
-      "description": "Needed for the refund policy, the Returns page and the handouts: how many days, who pays return postage and which items cannot be returned.",
+      "description": "Return rules are already in place, per Mahesh on 16 Nov 2026. Their exact wording is Pending confirmation.",
       "kind": "decision",
       "waitingOn": "Ashwin",
-      "raisedOn": "2026-10-27"
+      "raisedOn": "2026-10-27",
+      "status": "resolved",
+      "resolvedOn": "2026-11-16"
     },
     {
       "id": "su-issue-who-handles",
@@ -664,7 +667,8 @@
       "description": "Handouts cannot be finished and order alerts cannot be set without names, including who replies to wholesale, contract and logo enquiries.",
       "kind": "decision",
       "waitingOn": "Ashwin",
-      "raisedOn": "2026-10-27"
+      "raisedOn": "2026-10-27",
+      "isPublished": false
     },
     {
       "id": "su-issue-old-site",
@@ -706,7 +710,8 @@
       "description": "The move from Botble to Shopify (Grow plan) is recorded as decided on 21 Oct 2026, with \"decided by\" still marked to confirm in the decision log.",
       "kind": "approval",
       "waitingOn": "Ashwin",
-      "raisedOn": "2026-10-21"
+      "raisedOn": "2026-10-21",
+      "isPublished": false
     },
     {
       "id": "su-issue-redirect-list",
