@@ -688,6 +688,11 @@
       "id": "sc-s-sally",
       "name": "Sally",
       "role": "Pending confirmation"
+    },
+    {
+      "id": "sc-s-ashwin",
+      "name": "Ashwin Yadagiri",
+      "role": "Financial controller"
     }
   ]
 }

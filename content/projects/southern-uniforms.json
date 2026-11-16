@@ -942,13 +942,15 @@
       "id": "su-s-warehouse",
       "name": "Warehouse team",
       "role": "Stock counts, SKUs, picking and packing online orders.",
-      "organisation": "Southern Uniforms"
+      "organisation": "Southern Uniforms",
+      "isPublished": false
     },
     {
       "id": "su-s-retail-manager",
       "name": "Retail manager",
       "role": "Adds products and answers customer questions.",
-      "organisation": "Southern Uniforms"
+      "organisation": "Southern Uniforms",
+      "isPublished": false
     },
     {
       "id": "su-s-mahesh",
