@@ -41,5 +41,26 @@
   "issues": [],
   "updates": [],
   "resources": [],
-  "stakeholders": []
+  "stakeholders": [
+    {
+      "id": "ac-s-mahesh",
+      "name": "Mahesh Pedapati",
+      "role": "Pending confirmation"
+    },
+    {
+      "id": "ac-s-rajen",
+      "name": "Rajen",
+      "role": "Chief Geeky Officer"
+    },
+    {
+      "id": "ac-s-mico",
+      "name": "Mico",
+      "role": "Client relations or account manager"
+    },
+    {
+      "id": "ac-s-bea",
+      "name": "Bea",
+      "role": "Client relations or account manager"
+    }
+  ]
 }

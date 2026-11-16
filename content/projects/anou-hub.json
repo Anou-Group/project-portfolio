@@ -279,5 +279,11 @@
       "accessNote": "Private repository — GitHub access required"
     }
   ],
-  "stakeholders": []
+  "stakeholders": [
+    {
+      "id": "ah-s-mahesh",
+      "name": "Mahesh Pedapati",
+      "role": "Pending confirmation"
+    }
+  ]
 }

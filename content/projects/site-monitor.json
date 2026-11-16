@@ -257,5 +257,16 @@
       "accessNote": "Sign-in limited to two named people."
     }
   ],
-  "stakeholders": []
+  "stakeholders": [
+    {
+      "id": "sm-s-mahesh",
+      "name": "Mahesh Pedapati",
+      "role": "Pending confirmation"
+    },
+    {
+      "id": "sm-s-ashwin",
+      "name": "Ashwin Yadagiri",
+      "role": "Financial controller"
+    }
+  ]
 }

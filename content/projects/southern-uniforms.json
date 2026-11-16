@@ -963,8 +963,8 @@
   "stakeholders": [
     {
       "id": "su-s-ashwin",
-      "name": "Ashwin",
-      "role": "Business contact (accountant). Approves the plan and costs and provides business rules, documents and decisions.",
+      "name": "Ashwin Yadagiri",
+      "role": "Financial controller. Approves the plan and costs and provides business rules, documents and decisions.",
       "organisation": "Southern Uniforms"
     },
     {
@@ -978,6 +978,16 @@
       "name": "Retail manager",
       "role": "Adds products and answers customer questions.",
       "organisation": "Southern Uniforms"
+    },
+    {
+      "id": "su-s-mahesh",
+      "name": "Mahesh Pedapati",
+      "role": "Pending confirmation"
+    },
+    {
+      "id": "su-s-sally",
+      "name": "Sally",
+      "role": "Pending confirmation"
     }
   ]
 }

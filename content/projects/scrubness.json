@@ -678,5 +678,16 @@
       "url": "https://scrubness.com/"
     }
   ],
-  "stakeholders": []
+  "stakeholders": [
+    {
+      "id": "sc-s-mahesh",
+      "name": "Mahesh Pedapati",
+      "role": "Pending confirmation"
+    },
+    {
+      "id": "sc-s-sally",
+      "name": "Sally",
+      "role": "Pending confirmation"
+    }
+  ]
 }
