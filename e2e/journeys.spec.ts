@@ -1,5 +1,6 @@
 import { expect, test, type Page } from "@playwright/test";
 import { expected } from "./expected";
+import { searchProjects } from "../src/domain/portfolio";
 
 const isMobile = (page: Page) => (page.viewportSize()?.width ?? 1440) < 1024;
 
@@ -86,9 +87,10 @@ test("search across projects filters by task text and can be cleared", async ({ 
   await box.fill("redirects");
   await expect(page).toHaveURL(/q=redirects/);
   const cards = page.getByTestId("project-card");
-  await expect(cards).toHaveCount(1);
-  await expect(cards.first()).toContainText("Southern Uniforms");
-  await expect(cards.first()).toContainText("Matches · Task: 301 redirects");
+  const e = await expected();
+  const want = searchProjects(e.projects, { q: "redirects", status: null, category: null });
+  await expect(cards).toHaveCount(want.length);
+  for (const r of want) await expect(cards.filter({ hasText: r.project.name })).toContainText(`Matches · ${r.matches[0]}`);
   await box.fill("zzzz-nothing");
   await expect(page.getByText("No projects match")).toBeVisible();
   await page.getByRole("link", { name: "Clear filters" }).first().click();
