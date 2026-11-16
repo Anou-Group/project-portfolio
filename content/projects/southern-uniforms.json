@@ -320,7 +320,7 @@
     {
       "id": "su-wishlist",
       "title": "Wishlist and Notify me",
-      "description": "Customers can save items to a wishlist (drawer, page and guest flow) and ask to be notified when a sold-out size returns. Wishlist was moved into Phase 1 on 27 Oct 2026.",
+      "description": "Customers can save items to a wishlist and ask to be notified when a sold-out size returns. The wishlist is built with the Wishlist Hero app. How the Notify me flow works is Pending confirmation.",
       "status": "in_progress",
       "category": "development",
       "priority": "medium",
@@ -330,7 +330,7 @@
     {
       "id": "su-payments",
       "title": "Payment methods and wallets",
-      "description": "Set up card and wallet payments. Agreed approach: Apple Pay and Google Pay on, PayPal removed, accelerated checkout buttons hidden.",
+      "description": "Card and wallet payment methods are added and currently in test mode. Agreed approach: Apple Pay and Google Pay on, PayPal removed, accelerated checkout buttons hidden.",
       "status": "in_progress",
       "category": "configuration",
       "priority": "high",
@@ -370,8 +370,8 @@
     },
     {
       "id": "su-handout-retail",
-      "title": "Handout: retail manager",
-      "description": "Step-by-step guide for the retail manager, who adds products and answers customer questions. It lists the whole process, including how to handle each scenario.",
+      "title": "Handout: retail manager (whole process)",
+      "description": "Step-by-step guide for the retail manager covering the whole process: adding products, answering customer questions, and how to handle each scenario, including order picking, packing and posting. Replaces a separate warehouse handout.",
       "status": "in_progress",
       "category": "documentation",
       "priority": "medium",
@@ -422,7 +422,7 @@
     {
       "id": "su-shipping-zones",
       "title": "Shipping zones, flat rates and local pickup",
-      "description": "Agreed approach: flat rates plus local pickup from one dispatch location.",
+      "description": "Flat-rate shipping charges are added. Agreed approach: flat rates plus local pickup from one dispatch location.",
       "status": "in_progress",
       "category": "configuration",
       "priority": "high",
@@ -443,12 +443,13 @@
     {
       "id": "su-brand-settings",
       "title": "Brand settings: logo, colours and social links",
-      "description": "Checkout and emails read the logo and colours from Shopify's brand settings.",
+      "description": "Southern Uniforms logos are updated. Social links are not added yet.",
       "status": "in_progress",
       "category": "configuration",
       "priority": "high",
       "sortOrder": 45,
-      "latestProgress": "Southern Uniforms logos updated. Social media links are not added yet."
+      "latestProgress": "Southern Uniforms logos updated. Social media links are not added yet.",
+      "evidence": "Confirmed by Mahesh on 16 Nov 2026."
     },
     {
       "id": "su-payments-live",
@@ -493,8 +494,8 @@
     },
     {
       "id": "su-release",
-      "title": "Merge release PR #9 and publish main as the live theme",
-      "description": "Moves the reviewed theme to the live store.",
+      "title": "Publish the reviewed theme as the live theme",
+      "description": "Moves the reviewed theme from the preview to the live store.",
       "status": "pending",
       "category": "deployment",
       "priority": "high",
