@@ -12,14 +12,14 @@
     "Custom theme development on Shopify Horizon, built from the Figma design",
     "Catalogue import, collections and navigation",
     "Testing, launch preparation and go-live",
-    "Admin guides and role handouts for the warehouse and retail manager",
+    "Admin guide and a retail manager handout covering the whole process",
     "Phase 1 tracking, decision log and weekly status updates for the business contact"
   ],
   "status": "in_progress",
   "category": "E-commerce",
   "organisation": "Southern Uniforms",
-  "progressSummary": "The theme is built on the preview (dev) branch and the catalogue is imported. Waiting on products from Sally; once received, the end-to-end flow will be tested again and SEO will start, following the Scrubness approach.",
-  "sourceNote": "Status from the Notion Phase 1 tracker (last updated 27 Oct 2026), GitHub pull requests to 8 Nov 2026, the storefront as checked on 16 Nov 2026, and an update from Mahesh on 16 Nov 2026.",
+  "progressSummary": "The theme is built on the preview (dev) branch and the catalogue is imported. Checkout, 10% GST, notification emails and logos are done; payments are in test mode and flat rate shipping is added. Waiting on products from Sally; once received, the end-to-end flow will be tested again and SEO will start, following the Scrubness approach.",
+  "sourceNote": "Status from the Notion Phase 1 tracker (last updated 27 Oct 2026), GitHub pull requests to 8 Nov 2026, the storefront as checked on 16 Nov 2026, and updates from Mahesh on 16 Nov 2026.",
   "lastVerifiedAt": "2026-11-16",
   "sortOrder": 1,
   "tasks": [
@@ -324,7 +324,7 @@
       "status": "in_progress",
       "category": "development",
       "priority": "medium",
-      "latestProgress": "Built on the preview theme and in testing. Wishlist Hero sync was enabled on 28 Oct 2026; the final choice of wishlist app (Swish, Wishlist Hero or the custom build) is still to be confirmed.",
+      "latestProgress": "Built with the Wishlist Hero app and in testing. How the Notify me flow works is Pending confirmation.",
       "sortOrder": 31
     },
     {
@@ -334,8 +334,9 @@
       "status": "in_progress",
       "category": "configuration",
       "priority": "high",
-      "latestProgress": "In progress per the Phase 1 tracker (27 Oct 2026). Going live with payments depends on Shopify verifying the business (see Issues).",
-      "sortOrder": 32
+      "latestProgress": "Payment methods added and working in test mode. Switching to live mode is a separate step.",
+      "sortOrder": 32,
+      "evidence": "Confirmed by Mahesh on 16 Nov 2026."
     },
     {
       "id": "su-seo-basics",
@@ -361,20 +362,20 @@
       "id": "su-notification-emails",
       "title": "Branded notification email templates",
       "description": "Order, shipping and refund emails in the brand navy (#242257) with logo and contact details.",
-      "status": "in_progress",
+      "status": "completed",
       "category": "configuration",
       "priority": "medium",
-      "latestProgress": "17 customer email templates drafted, not yet installed (weekly update, week of 26 Oct 2026). Preview images still to be refreshed to the new navy.",
-      "sortOrder": 35
+      "sortOrder": 35,
+      "evidence": "Updated notification emails checked. Confirmed by Mahesh on 16 Nov 2026."
     },
     {
       "id": "su-handout-retail",
       "title": "Handout: retail manager",
-      "description": "Step-by-step guide for the retail manager, who adds products and answers customer questions.",
+      "description": "Step-by-step guide for the retail manager, who adds products and answers customer questions. It lists the whole process, including how to handle each scenario.",
       "status": "in_progress",
       "category": "documentation",
       "priority": "medium",
-      "latestProgress": "Draft in the Go-live hub.",
+      "latestProgress": "Draft in the Go-live hub. To cover how the retail manager handles each scenario (orders, enquiries, returns and refunds), still to be documented. The whole process is listed here, so no separate warehouse handout is needed.",
       "dependency": "Who handles orders, enquiries and refunds (decision from Ashwin).",
       "sortOrder": 36
     },
@@ -387,7 +388,8 @@
       "priority": "medium",
       "latestProgress": "Draft in the Go-live hub.",
       "dependency": "Label method and carrier account; input from the warehouse.",
-      "sortOrder": 37
+      "sortOrder": 37,
+      "isPublished": false
     },
     {
       "id": "su-theme-qc",
@@ -411,39 +413,42 @@
       "id": "su-checkout-settings",
       "title": "Checkout and customer account settings",
       "description": "Agreed approach: standard Shopify checkout with no customisation, guest checkout on, customer accounts optional.",
-      "status": "pending",
+      "status": "completed",
       "category": "configuration",
       "priority": "high",
-      "sortOrder": 42
+      "sortOrder": 42,
+      "evidence": "Checkout page set up. Confirmed by Mahesh on 16 Nov 2026."
     },
     {
       "id": "su-shipping-zones",
       "title": "Shipping zones, flat rates and local pickup",
       "description": "Agreed approach: flat rates plus local pickup from one dispatch location.",
-      "status": "pending",
+      "status": "in_progress",
       "category": "configuration",
       "priority": "high",
       "dependency": "Confirmed shipping rates and free-shipping threshold from Ashwin.",
-      "sortOrder": 43
+      "sortOrder": 43,
+      "latestProgress": "Flat rate shipping charges added. Local pickup and the confirmed rates are Pending confirmation."
     },
     {
       "id": "su-tax-gst",
       "title": "Tax settings: GST",
       "description": "Prices and receipts must show GST correctly.",
-      "status": "pending",
+      "status": "completed",
       "category": "configuration",
       "priority": "high",
-      "dependency": "GST registration details from the business.",
-      "sortOrder": 44
+      "sortOrder": 44,
+      "evidence": "Tax set at 10% GST. Confirmed by Mahesh on 16 Nov 2026."
     },
     {
       "id": "su-brand-settings",
       "title": "Brand settings: logo, colours and social links",
       "description": "Checkout and emails read the logo and colours from Shopify's brand settings.",
-      "status": "pending",
+      "status": "in_progress",
       "category": "configuration",
       "priority": "high",
-      "sortOrder": 45
+      "sortOrder": 45,
+      "latestProgress": "Southern Uniforms logos updated. Social media links are not added yet."
     },
     {
       "id": "su-payments-live",
@@ -463,7 +468,8 @@
       "category": "development",
       "priority": "high",
       "dependency": "The current site's URL list.",
-      "sortOrder": 47
+      "sortOrder": 47,
+      "isPublished": false
     },
     {
       "id": "su-backups",
@@ -482,7 +488,8 @@
       "category": "deployment",
       "priority": "high",
       "dependency": "Registrar or DNS access from Ashwin.",
-      "sortOrder": 49
+      "sortOrder": 49,
+      "isPublished": false
     },
     {
       "id": "su-release",
@@ -519,7 +526,8 @@
       "status": "pending",
       "category": "configuration",
       "priority": "medium",
-      "sortOrder": 53
+      "sortOrder": 53,
+      "isPublished": false
     },
     {
       "id": "su-staff-accounts",
@@ -666,10 +674,12 @@
     {
       "id": "su-issue-wishlist-app",
       "title": "Wishlist app choice",
-      "description": "Choose between Swish, Wishlist Hero and the custom build. Lists must sync across devices through customer accounts. Swish was trialled and cancelled on 27 Oct 2026.",
+      "description": "Wishlist Hero was used for the wishlist. Swish was trialled and cancelled on 27 Oct 2026. Confirmed by Mahesh on 16 Nov 2026.",
       "kind": "decision",
       "waitingOn": "Pending confirmation",
-      "raisedOn": "2026-10-27"
+      "raisedOn": "2026-10-27",
+      "status": "resolved",
+      "resolvedOn": "2026-11-16"
     },
     {
       "id": "su-issue-policies",
@@ -698,10 +708,12 @@
     {
       "id": "su-issue-redirect-list",
       "title": "Redirects need the current site's URL list",
-      "description": "301 redirects cannot be completed without the full list of URLs on the current site.",
+      "description": "Not needed: the store is treated as a new store, as the old site was not used by customers. Confirmed by Mahesh on 16 Nov 2026.",
       "kind": "dependency",
       "waitingOn": "Pending confirmation",
-      "raisedOn": "2026-10-27"
+      "raisedOn": "2026-10-27",
+      "status": "resolved",
+      "resolvedOn": "2026-11-16"
     }
   ],
   "updates": [
