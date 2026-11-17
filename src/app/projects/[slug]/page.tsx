@@ -45,6 +45,7 @@ async function ProjectDetail({ params }: { params: PageProps<"/projects/[slug]">
 
   const sections = [
     { id: "overview", label: "Overview" },
+    { id: "work-board", label: "Work board", count: project.tasks.length },
     { id: "completed", label: "Completed", count: b.counts.completed },
     { id: "in-progress", label: "In progress", count: b.counts.inProgress },
     { id: "outstanding", label: "To be completed", count: b.counts.outstanding },
@@ -92,7 +93,6 @@ async function ProjectDetail({ params }: { params: PageProps<"/projects/[slug]">
       </header>
 
       <WaitingBox project={project} />
-      <TaskBoard project={project} />
 
       <nav aria-label="Project sections" className="sticky top-14 z-30 -mx-4 mt-4 overflow-x-auto border-b bg-background/95 px-4 py-2 backdrop-blur lg:top-0 lg:mx-0 lg:rounded-lg lg:border lg:px-2">
         <ul className="flex w-max gap-1">
@@ -111,11 +111,15 @@ async function ProjectDetail({ params }: { params: PageProps<"/projects/[slug]">
       </nav>
 
       <div className="mt-4 flex flex-col gap-4">
-        <SectionCard id="overview" title="Project overview">
+        <SectionCard id="overview" title="Project overview" defaultOpen={false}>
           <OverviewBody project={project} />
         </SectionCard>
 
-        <SectionCard id="completed" title="Completed work" count={b.counts.completed} description="Delivered work with the evidence it is based on.">
+        <SectionCard id="work-board" title="Work board" count={project.tasks.length} description="Open the full Monday-style task board by status." defaultOpen={false}>
+          <TaskBoard project={project} />
+        </SectionCard>
+
+        <SectionCard id="completed" title="Completed work" count={b.counts.completed} description="Delivered work with the evidence it is based on." defaultOpen={false}>
           {b.completed.length ? (
             <ul className="divide-y">
               {b.completed.map((t) => (
@@ -127,7 +131,7 @@ async function ProjectDetail({ params }: { params: PageProps<"/projects/[slug]">
           )}
         </SectionCard>
 
-        <SectionCard id="in-progress" title="Currently in progress" count={b.counts.inProgress} description="Active work, including anything blocked or awaiting approval.">
+        <SectionCard id="in-progress" title="Currently in progress" count={b.counts.inProgress} description="Active work, including anything blocked or awaiting approval." defaultOpen={b.counts.inProgress > 0}>
           {b.inProgress.length ? (
             <ul className="flex flex-col gap-3">
               {b.inProgress.map((t) => (
@@ -139,7 +143,7 @@ async function ProjectDetail({ params }: { params: PageProps<"/projects/[slug]">
           )}
         </SectionCard>
 
-        <SectionCard id="outstanding" title="Yet to be completed" count={b.counts.outstanding} description="Planned work not yet started. Due dates appear only where documented.">
+        <SectionCard id="outstanding" title="Yet to be completed" count={b.counts.outstanding} description="Planned work not yet started. Due dates appear only where documented." defaultOpen={false}>
           {b.outstanding.length ? (
             <div className="flex flex-col gap-6">
               {b.outstanding.map((g) => (
@@ -160,7 +164,7 @@ async function ProjectDetail({ params }: { params: PageProps<"/projects/[slug]">
           )}
         </SectionCard>
 
-        <SectionCard id="issues" title="Issues and dependencies" count={b.counts.issues} description="Blockers, pending decisions, approvals, external dependencies and known risks.">
+        <SectionCard id="issues" title="Issues and dependencies" count={b.counts.issues} description="Blockers, pending decisions, approvals, external dependencies and known risks." defaultOpen={false}>
           {b.openIssues.length ? (
             <ul className="grid grid-cols-1 gap-3 md:grid-cols-2">
               {b.openIssues.map((i) => (
@@ -182,7 +186,7 @@ async function ProjectDetail({ params }: { params: PageProps<"/projects/[slug]">
           ) : null}
         </SectionCard>
 
-        <SectionCard id="resources" title="Resources and documents" count={b.counts.resources} description="Supporting documents, repositories and links. External links open in a new tab.">
+        <SectionCard id="resources" title="Resources and documents" count={b.counts.resources} description="Supporting documents, repositories and links. External links open in a new tab." defaultOpen={false}>
           {project.resources.length ? (
             <ul className="grid grid-cols-1 gap-3 md:grid-cols-2">
               {project.resources.map((r) => (
@@ -196,7 +200,7 @@ async function ProjectDetail({ params }: { params: PageProps<"/projects/[slug]">
           )}
         </SectionCard>
 
-        <SectionCard id="timeline" title="Activity timeline" count={b.counts.timeline} description="Dated updates, newest first.">
+        <SectionCard id="timeline" title="Activity timeline" count={b.counts.timeline} description="Dated updates, newest first." defaultOpen={false}>
           {b.timeline.length ? (
             <ActivityList
               showProject={false}
@@ -233,23 +237,6 @@ function OverviewBody({ project }: { project: Project }) {
               </li>
             ))}
           </ul>
-        </div>
-        <div>
-          <h3 className="text-sm font-semibold text-foreground">Stakeholders</h3>
-          {project.stakeholders.length ? (
-            <ul className="mt-2 divide-y rounded-lg border">
-              {project.stakeholders.map((s) => (
-                <li key={s.id} className="px-3.5 py-2.5 text-sm">
-                  <p className="font-medium text-foreground">
-                    {s.name}
-                    {s.organisation ? <span className="font-normal text-muted-foreground"> · {s.organisation}</span> : null}
-                  </p>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p className="mt-2 text-sm text-muted-foreground">No stakeholders recorded.</p>
-          )}
         </div>
         <div>
           <h3 className="text-sm font-semibold text-foreground">Current status</h3>

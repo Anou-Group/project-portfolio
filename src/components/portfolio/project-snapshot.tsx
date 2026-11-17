@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, ChevronDown, Users } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import type { Project, Task, WorkStatus } from "@/domain/schema";
 import { formatDate } from "@/domain/format";
 import { projectHealth, projectProgress, waitingCount, type Health } from "@/domain/portfolio";
@@ -43,7 +43,7 @@ function TaskList({ title, tasks }: { title: string; tasks: Task[] }) {
   );
 }
 
-/** One project at a glance: status, progress, task counts, who is on it. Task titles open on request; the title links to the full page. */
+/** One project at a glance: status, progress and task counts. Task titles open on request; the title links to the full page. */
 export function ProjectSnapshot({ project, matches = [] }: { project: Project; matches?: string[] }) {
   const health = HEALTH[projectHealth(project)];
   const { done, total, percent } = projectProgress(project);
@@ -51,7 +51,6 @@ export function ProjectSnapshot({ project, matches = [] }: { project: Project; m
   const doneTasks = project.tasks.filter((t) => t.status === "completed");
   const openTasks = project.tasks.filter((t) => OPEN.includes(t.status));
   const todoTasks = project.tasks.filter((t) => t.status === "pending");
-  const people = project.stakeholders.map((s) => s.name);
   return (
     <article
       className="group relative flex h-full min-w-0 flex-col rounded-xl border bg-card p-5 shadow-xs transition-[border-color,box-shadow] hover:border-primary/30 hover:shadow-sm"
@@ -96,12 +95,6 @@ export function ProjectSnapshot({ project, matches = [] }: { project: Project; m
           </div>
         ))}
       </dl>
-      {people.length ? (
-        <p className="mt-3 flex items-start gap-1.5 text-sm text-muted-foreground">
-          <Users aria-hidden className="mt-0.5 size-3.5 shrink-0" />
-          <span>{people.join(", ")}</span>
-        </p>
-      ) : null}
       <p className="mt-2 text-sm text-foreground">
         {waiting > 0 ? `${waiting} ${waiting === 1 ? "item" : "items"} waiting on others` : "Nothing waiting on others"}
       </p>

@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { validateContent } from "./validation";
+import { todayInMelbourne } from "./period";
 import { readContentFiles } from "@/server/portfolio/content-source";
 
 const profile = { ownerName: "Mahesh Pedapati", ownerRole: null, organisation: "Anou Group", reportPurpose: "Project progress for my manager." };
@@ -20,7 +21,8 @@ const baseProject = {
   lastVerifiedAt: "2026-11-10",
 };
 const task = { id: "alpha-t1", title: "Homepage", description: "Built the homepage.", category: "development", status: "pending" };
-const run = (project: Record<string, unknown>) => validateContent({ profile, projects: [{ ...baseProject, ...project }] }, "2026-11-16");
+const today = todayInMelbourne();
+const run = (project: Record<string, unknown>) => validateContent({ profile, projects: [{ ...baseProject, ...project }] }, today);
 const rules = (project: Record<string, unknown>) => run(project).errors.map((e) => e.rule);
 
 describe("validateContent", () => {
@@ -29,7 +31,7 @@ describe("validateContent", () => {
   });
 
   it("rejects invalid statuses and missing required fields", () => {
-    const r = validateContent({ profile, projects: [{ ...baseProject, status: "done", summary: "" }] }, "2026-11-16");
+    const r = validateContent({ profile, projects: [{ ...baseProject, status: "done", summary: "" }] }, today);
     expect(r.portfolio).toBeNull();
     expect(r.errors.map((e) => e.path)).toEqual(expect.arrayContaining(["projects[0].status", "projects[0].summary"]));
   });
@@ -82,7 +84,7 @@ describe("validateContent", () => {
   });
 
   it("passes on the real content with zero errors", async () => {
-    const r = validateContent(await readContentFiles(), "2026-11-16");
+    const r = validateContent(await readContentFiles(), today);
     expect(r.errors).toEqual([]);
   });
 });

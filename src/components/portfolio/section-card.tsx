@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { cn } from "@/lib/utils";
@@ -20,9 +21,20 @@ export function SectionCard({
   defaultOpen?: boolean;
   children: React.ReactNode;
 }) {
+  const [open, setOpen] = useState(defaultOpen);
+
+  useEffect(() => {
+    const revealLinkedSection = () => {
+      if (window.location.hash === `#${id}`) setOpen(true);
+    };
+    revealLinkedSection();
+    window.addEventListener("hashchange", revealLinkedSection);
+    return () => window.removeEventListener("hashchange", revealLinkedSection);
+  }, [id]);
+
   return (
     <section id={id} aria-labelledby={`${id}-title`} className="rounded-xl border bg-card shadow-xs">
-      <Collapsible defaultOpen={defaultOpen}>
+      <Collapsible open={open} onOpenChange={setOpen}>
         <CollapsibleTrigger
           className={cn(
             "group flex w-full items-center gap-3 rounded-xl px-5 py-4 text-left transition-colors hover:bg-muted/50",

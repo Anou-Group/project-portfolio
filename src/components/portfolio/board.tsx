@@ -44,52 +44,14 @@ export function Battery({ tasks, label }: { tasks: Task[]; label: string }) {
   );
 }
 
-function initials(name: string) {
-  return name
-    .split(/\s+/)
-    .filter(Boolean)
-    .slice(0, 2)
-    .map((w) => w[0]!.toUpperCase())
-    .join("");
-}
-const AVATAR = ["bg-[#579bfc]", "bg-[#ff7575]", "bg-[#9cd326]", "bg-[#ffcb00]", "bg-[#784bd1]", "bg-[#66ccff]"];
-
-export function People({ names }: { names: string[] }) {
-  if (!names.length) return <span className="text-xs text-muted-foreground">—</span>;
-  const shown = names.slice(0, 3);
-  return (
-    <span className="flex items-center justify-center -space-x-1.5" title={names.join(", ")}>
-      <span className="sr-only">{names.join(", ")}</span>
-      {shown.map((n, i) => (
-        <span key={n} aria-hidden className={cn("flex size-7 items-center justify-center rounded-full border-2 border-card text-[10px] font-semibold text-white", AVATAR[i % AVATAR.length])}>
-          {initials(n)}
-        </span>
-      ))}
-      {names.length > 3 ? (
-        <span aria-hidden className="flex size-7 items-center justify-center rounded-full border-2 border-card bg-muted text-[10px] font-semibold text-muted-foreground">
-          +{names.length - 3}
-        </span>
-      ) : null}
-    </span>
-  );
-}
-
 const TH = "h-9 border-b px-2 text-center text-xs font-normal text-muted-foreground whitespace-nowrap";
 const TD = "h-10 border-b border-l p-0 text-center text-sm";
 
-/** Who each waiting item is waiting for, in plain words. */
+/** Plain-language box at the top of a project: what is holding it up, why, and who we are waiting for. */
 function waitingFor(item: AttentionItem): string {
   return item.kind === "issue" ? item.issue.waitingOn || PENDING_CONFIRMATION : PENDING_CONFIRMATION;
 }
 
-/** "Ashwin (3), Sally (1)": who the project is waiting on and for how many things. */
-export function waitingSummary(project: Project): { name: string; count: number }[] {
-  const counts = new Map<string, number>();
-  for (const i of attentionItems([project])) counts.set(waitingFor(i), (counts.get(waitingFor(i)) ?? 0) + 1);
-  return [...counts].map(([name, count]) => ({ name, count })).sort((a, b) => b.count - a.count);
-}
-
-/** Plain-language box at the top of a project: what is holding it up, why, and who we are waiting for. */
 export function WaitingBox({ project }: { project: Project }) {
   const items = attentionItems([project]);
   if (!items.length)
@@ -147,19 +109,18 @@ export function ProjectBoard({ rows, period = null }: { rows: { project: Project
               <thead>
                 <tr>
                   <th className={cn(TH, "text-left")}>Project</th>
-                  <th className={TH}>People</th>
                   <th className={TH}>Status</th>
                   <th className={TH}>Progress</th>
                   <th className={TH}>Tasks done</th>
                   {period ? <th className={TH}>Done {period.label.toLowerCase()}</th> : null}
-                  <th className={TH}>Waiting for</th>
+                  <th className={TH}>Waiting</th>
                   <th className={TH}>Last updated</th>
                 </tr>
               </thead>
               <tbody>
                 {g.rows.map(({ project, matches }) => {
                   const { done, total } = projectProgress(project);
-                  const waiting = waitingSummary(project);
+                  const waiting = attentionItems([project]).length;
                   return (
                     <tr key={project.id} data-testid="project-card" className="hover:bg-muted/40">
                       <td className="h-10 border-b px-3 py-2 text-left">
@@ -172,9 +133,6 @@ export function ProjectBoard({ rows, period = null }: { rows: { project: Project
                             Matches · {m}
                           </p>
                         ))}
-                      </td>
-                      <td className={cn(TD, "px-2")}>
-                        <People names={project.stakeholders.map((s) => s.name)} />
                       </td>
                       <td className={TD}>
                         <StatusCell status={project.status} />
@@ -191,15 +149,7 @@ export function ProjectBoard({ rows, period = null }: { rows: { project: Project
                         </td>
                       ) : null}
                       <td className={cn(TD, "px-2 text-xs")}>
-                        {waiting.length ? (
-                          waiting.map((w) => (
-                            <p key={w.name} className="font-medium whitespace-nowrap text-[#df2f4a]">
-                              {w.name} ({w.count})
-                            </p>
-                          ))
-                        ) : (
-                          <span className="text-muted-foreground">Nobody</span>
-                        )}
+                        {waiting ? <span className="font-medium whitespace-nowrap text-[#df2f4a]">{waiting} {waiting === 1 ? "item" : "items"}</span> : <span className="text-muted-foreground">None</span>}
                       </td>
                       <td className={cn(TD, "px-2 text-xs whitespace-nowrap text-muted-foreground")}>{formatDate(project.lastVerifiedAt)}</td>
                     </tr>

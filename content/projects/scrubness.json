@@ -18,9 +18,9 @@
   "status": "in_progress",
   "category": "E-commerce",
   "organisation": null,
-  "progressSummary": "Site restored after the 9–10 Nov outage; Home mobile PageSpeed 69 → 95 and Shop 76 → 79; 2026 catalogue, SKUs, barcodes and descriptions live; homepage, footer and contact page refreshed; site clean-up, SEO basics and product-photo alt text done. Next: SEO tool trial, titles, meta descriptions and SEO/GEO content, and analytics.",
-  "sourceNote": "Status from Mahesh's work records of 6–16 Nov 2026, with changes checked on the live site (several re-checked on 16 Nov 2026).",
-  "lastVerifiedAt": "2026-11-16",
+  "progressSummary": "Home mobile PageSpeed 69 → 95 and Shop 76 → 79; 2026 catalogue, product copy, site clean-up and SEO basics are live. GA4 and GTM were created, and competitive analysis is complete. Next: SEO keyword research and content, then install and verify tracking on the site; Meta Pixel feasibility remains to be checked.",
+  "sourceNote": "Live-site changes were checked through 16 Nov 2026. GA4/GTM creation and competitive analysis were confirmed on 17 Nov; site tracking installation and verification are not yet confirmed.",
+  "lastVerifiedAt": "2026-11-17",
   "sortOrder": 4,
   "tasks": [
     {
@@ -176,12 +176,23 @@
     {
       "id": "sc-analytics",
       "title": "Analytics set-up",
-      "description": "No Google Analytics, Tag Manager or Search Console tag is on the site (checked 16 Nov). Set up the chosen analytics, Tag Manager and Meta pixel.",
-      "status": "pending",
+      "description": "Install and verify tracking on scrubness.com using the GA4 property and Google Tag Manager container. Check whether the Meta Pixel can also be set up.",
+      "status": "in_progress",
       "category": "configuration",
       "priority": "high",
       "sortOrder": 54,
-      "dependency": "Decision on which analytics to install."
+      "latestProgress": "GA4 property and GTM container created on 17 Nov 2026. Site installation and verification remain; Meta Pixel feasibility is being checked."
+    },
+    {
+      "id": "sc-competitor-analysis",
+      "title": "Competitive analysis",
+      "description": "Completed competitive analysis to inform the SEO and growth work.",
+      "status": "completed",
+      "category": "research",
+      "priority": "medium",
+      "evidence": "Completed on 17 Nov 2026; supporting material is in the cloud, direct resource link: Pending confirmation.",
+      "completedAt": "2026-11-17",
+      "sortOrder": 56
     },
     {
       "id": "sc-speed-audit",
@@ -512,10 +523,11 @@
     {
       "id": "sc-issue-analytics-accounts",
       "title": "Which analytics to install",
-      "description": "No Google Analytics, Tag Manager or Search Console verification is on the site. A decision is needed on which analytics to install and who owns the accounts.",
+      "description": "Resolved 17 Nov 2026: GA4 property and Google Tag Manager container created; no manager approval is required for this selection. Installing and verifying tracking on scrubness.com remains in progress, and Meta Pixel feasibility is being checked.",
       "kind": "decision",
-      "waitingOn": "Management",
-      "raisedOn": "2026-11-16"
+      "raisedOn": "2026-11-16",
+      "status": "resolved",
+      "resolvedOn": "2026-11-17"
     },
     {
       "id": "sc-issue-outage",
@@ -554,6 +566,22 @@
     }
   ],
   "updates": [
+    {
+      "id": "sc-u-2026-11-17-analytics",
+      "title": "Created the GA4 property and GTM container",
+      "description": "Created Google Analytics 4 and Google Tag Manager on 17 Nov. Site installation and verification remain; Meta Pixel feasibility is being checked.",
+      "category": "development",
+      "occurredOn": "2026-11-17",
+      "taskId": "sc-analytics"
+    },
+    {
+      "id": "sc-u-2026-11-17-competitive-analysis",
+      "title": "Completed the competitive analysis",
+      "description": "Completed competitive analysis for the SEO and growth work. Supporting material is in the cloud; a direct resource link is Pending confirmation.",
+      "category": "research",
+      "occurredOn": "2026-11-17",
+      "taskId": "sc-competitor-analysis"
+    },
     {
       "id": "sc-u-2026-11-06-backup",
       "title": "Took a full backup of the Scrubness website",
