@@ -29,6 +29,7 @@ test("overview shows owner, figures from the records and every project", async (
   await expect(metrics.nth(3)).toContainText(String(e.metrics.needsAttention));
 
   await expect(page.getByTestId("project-card")).toHaveCount(e.projects.length);
+  await expect(page.getByRole("columnheader", { name: "People" })).toHaveCount(0);
 });
 
 test("every navigation item opens its page and is marked active", async ({ page }) => {
@@ -59,6 +60,9 @@ test("a project card opens the right project with all sections", async ({ page }
   for (const title of ["Project overview", "Completed work", "Currently in progress", "Yet to be completed", "Issues and dependencies", "Resources and documents", "Activity timeline"]) {
     await expect(page.getByRole("heading", { level: 2, name: title })).toBeVisible();
   }
+  for (const section of ["completed", "outstanding"]) {
+    await page.locator(`#${section}`).getByRole("button").click();
+  }
   await expect(page.getByTestId("completed-item")).toHaveCount(b.counts.completed);
   await expect(page.getByTestId("active-item")).toHaveCount(b.counts.inProgress);
   await expect(page.getByTestId("outstanding-item")).toHaveCount(b.counts.outstanding);
@@ -68,6 +72,9 @@ test("sections collapse and expand with a clear state", async ({ page }) => {
   const e = await expected();
   await page.goto(`/projects/${e.projects[0].slug}`);
   const trigger = page.locator("#completed").getByRole("button");
+  await expect(trigger).toHaveAttribute("aria-expanded", "false");
+  await expect(page.getByTestId("completed-item").first()).toBeHidden();
+  await page.getByRole("navigation", { name: "Project sections" }).getByRole("link", { name: /Completed/ }).click();
   await expect(trigger).toHaveAttribute("aria-expanded", "true");
   await expect(page.getByTestId("completed-item").first()).toBeVisible();
   await trigger.click();
@@ -144,6 +151,7 @@ test("resources open in a new tab and strategy documents are served", async ({ p
   // Every published document hosted by the site must be linked from its project and served as a PDF.
   for (const r of e.resources.filter((x) => x.url.startsWith("/documents/"))) {
     await page.goto(`/projects/${r.project.slug}`);
+    await page.locator("#resources").getByRole("button").click();
     await expect(page.locator(`#resources a[href="${r.url}"]`)).toBeVisible();
     const res = await request.get(r.url);
     expect(res.status()).toBe(200);

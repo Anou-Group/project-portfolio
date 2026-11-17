@@ -18,9 +18,9 @@
   "status": "in_progress",
   "category": "E-commerce",
   "organisation": "Southern Uniforms",
-  "progressSummary": "The theme is built on the preview (dev) branch and the catalogue is imported. Checkout, 10% GST, notification emails and logos are done; payments are in test mode and flat rate shipping is added. Waiting on products from Sally; once received, the end-to-end flow will be tested again and SEO will start, following the Scrubness approach.",
-  "sourceNote": "Status from the Notion Phase 1 tracker (last updated 27 Oct 2026), the theme's change history to 8 Nov 2026, the storefront as checked on 16 Nov 2026, and updates from Mahesh on 16 Nov 2026.",
-  "lastVerifiedAt": "2026-11-16",
+  "progressSummary": "The Shopify theme is on the preview branch and the catalogue is imported. Products from Sally are the immediate blocker. Business verification documents still need checking; stock counts and SKUs will be finalised against the confirmed product list. Launch target is ASAP, with no calendar date set. The blog will be on the new site; old-site retention is undecided.",
+  "sourceNote": "Earlier project sources include the Phase 1 tracker (last updated 27 Oct 2026), theme history through 8 Nov and storefront checks on 16 Nov. Launch dependencies and priorities were confirmed on 17 Nov 2026.",
+  "lastVerifiedAt": "2026-11-17",
   "sortOrder": 1,
   "tasks": [
     {
@@ -455,7 +455,7 @@
       "status": "pending",
       "category": "deployment",
       "priority": "high",
-      "dependency": "Business verification documents from Ashwin.",
+      "dependency": "Business verification documents must be checked and approved by Shopify.",
       "sortOrder": 46
     },
     {
@@ -505,7 +505,7 @@
       "status": "pending",
       "category": "deployment",
       "priority": "high",
-      "dependency": "Confirmed go-live date.",
+      "dependency": "Launch target is ASAP; no calendar date is recorded.",
       "sortOrder": 51
     },
     {
@@ -518,6 +518,27 @@
       "sortOrder": 52,
       "dependency": "Products being finalised.",
       "latestProgress": "Requested by the business. To be done once the products are finalised."
+    },
+    {
+      "id": "su-business-verification",
+      "title": "Verify business documents in Shopify",
+      "description": "Review the business verification documents and confirm the verification outcome required before payments can go live.",
+      "status": "pending",
+      "category": "business_requirements",
+      "priority": "high",
+      "latestProgress": "Verification is still to be completed; responsibility for supplying or checking the documents is Pending confirmation.",
+      "sortOrder": 59
+    },
+    {
+      "id": "su-stock-skus",
+      "title": "Finalise stock counts and SKUs",
+      "description": "Verify stock quantities and SKU assignments in Shopify against the confirmed product list.",
+      "status": "pending",
+      "category": "configuration",
+      "priority": "high",
+      "dependency": "Confirmed product list.",
+      "latestProgress": "Final quantities and SKU assignments can be completed after the actual product list is available.",
+      "sortOrder": 60
     },
     {
       "id": "su-sender-domain",
@@ -610,25 +631,23 @@
     {
       "id": "su-issue-verification",
       "title": "Business verification documents",
-      "description": "Shopify verifies the business before it activates payments and payouts. Without the documents, payments cannot go live.",
-      "kind": "blocker",
-      "waitingOn": "Ashwin",
+      "description": "Business verification documents still need to be checked in Shopify; payments cannot be activated until verification is complete. The person responsible for supplying or checking them is Pending confirmation.",
+      "kind": "risk",
       "raisedOn": "2026-10-27"
     },
     {
       "id": "su-issue-stock-skus",
       "title": "Stock counts and SKUs",
-      "description": "Checked on the store on 27 Oct 2026: 158 products and 4,626 variants, of which 1,774 have a SKU and 2,852 do not. Inventory tracking is off. Without SKUs and counts, fulfilment, inventory and product feeds are unreliable.",
-      "kind": "blocker",
-      "waitingOn": "Warehouse",
+      "description": "Stock quantities and SKU assignments need to be checked against the actual product list. Final values can be completed once the confirmed list is available.",
+      "kind": "dependency",
+      "waitingOn": "Confirmed product list",
       "raisedOn": "2026-10-27"
     },
     {
       "id": "su-issue-go-live-date",
       "title": "Go-live date",
-      "description": "Sets the deadline for every other launch item. Target go-live is not yet set.",
-      "kind": "decision",
-      "waitingOn": "Ashwin",
+      "description": "Launch target is ASAP. No calendar go-live date has been set.",
+      "kind": "risk",
       "raisedOn": "2026-10-27"
     },
     {
@@ -673,9 +692,8 @@
     {
       "id": "su-issue-old-site",
       "title": "Current site retention and blog",
-      "description": "How long the Botble site stays up after launch and whether its blog posts move to Shopify.",
-      "kind": "decision",
-      "waitingOn": "Ashwin",
+      "description": "The blog will be on the new Shopify site. How long the Botble site stays up after launch remains undecided.",
+      "kind": "risk",
       "raisedOn": "2026-10-27"
     },
     {
@@ -691,17 +709,15 @@
     {
       "id": "su-issue-policies",
       "title": "Policies: privacy, terms, refund and shipping",
-      "description": "Required before taking payments. The current site's privacy and terms text is inaccurate for Shopify and needs rewriting; wording must match the confirmed business rules.",
-      "kind": "approval",
-      "waitingOn": "Ashwin",
+      "description": "Parked at low-to-medium priority. Policy wording still needs review against confirmed business rules before it is treated as final.",
+      "kind": "risk",
       "raisedOn": "2026-10-27"
     },
     {
       "id": "su-issue-page-copy",
       "title": "Review of page copy",
-      "description": "Retail, About, Wholesale and Contracts pages described services and figures that are not confirmed. Unconfirmed claims were removed on 4 Nov 2026; a business review of the remaining copy is still needed.",
-      "kind": "approval",
-      "waitingOn": "Ashwin",
+      "description": "Parked at low-to-medium priority. Unconfirmed claims were removed; review of the remaining page copy can be revisited after launch-critical work.",
+      "kind": "risk",
       "raisedOn": "2026-10-27"
     },
     {
@@ -725,6 +741,14 @@
     }
   ],
   "updates": [
+    {
+      "id": "su-u-2026-11-17-launch-dependencies",
+      "title": "Confirmed launch dependencies and priorities",
+      "description": "Products from Sally remain the immediate blocker. Business verification documents still need checking; stock counts and SKUs will be finalised against the confirmed product list. Launch target is ASAP with no calendar date set. The blog will be on the new site; old-site retention is undecided. Policy and page-copy reviews are parked at low-to-medium priority.",
+      "category": "decisions",
+      "occurredOn": "2026-11-17",
+      "taskId": null
+    },
     {
       "id": "su-u-2026-10-20-comparison",
       "title": "Completed the platform comparison",
